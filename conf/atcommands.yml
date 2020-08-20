@@ -38,136 +38,140 @@ Body:
       - h
     Help: |
       Params: <command>
-      Shows help for specified command.
+      Mostra ajuda para o comando especificado.
   - Command: noask
     Help: |
-      Auto rejects deals/invites.
+      Rejeita ofertas / convites automaticamente.
   - Command: gmotd
     Help: |
-      Broadcasts the Message of The Day to all players.
+      Transmite a mensagem do dia a todos os jogadores.
   - Command: me
     Help: |
       Params: <message>
-      Displays normal text as a message in this format: *name message* (like /me in mIRC).
+      Exibe o texto normal como uma mensagem neste formato: * nome da mensagem * (como / me no mIRC).
   - Command: fakename
     Help: |
       Params: <name>
-      Changes your name to your choice temporarily.
+      Muda seu nome para sua escolha temporariamente.
   - Command: npctalk
     Aliases:
       - npctalkc
     Help: |
       Params: <NPC name> <message>
-      Forces a NPC to display a message in normal chat.
+      Força um NPC a exibir uma mensagem no chat normal.
   - Command: broadcast
     Help: |
       Params: <message>
-      Broadcasts a message with your name (in yellow).
+      Transmite uma mensagem com seu nome (em amarelo).
   - Command: kami
     Help: |
       Params: <message>
-      Broadcasts a message without your name (in yellow).
+      Transmite uma mensagem sem seu nome (em amarelo).
   - Command: kamib
     Help: |
       Params: <message>
-      Broadcasts a message without your name (in blue).
+      Transmite uma mensagem sem seu nome (em azul).
   - Command: localbroadcast
     Help: |
       Params: <message>
-      Broadcasts a message with your name (in yellow) only on your map.
+      Transmite uma mensagem com seu nome (em amarelo) apenas em seu mapa.
   - Command: commands
     Help: |
-      Displays a list of commands that you can use.
+      Exibe uma lista de comandos que você pode usar.
   - Command: rates
     Help: |
-      Displays the server's current rates.
+      Exibe as taxas atuais do servidor.
   - Command: uptime
     Help: |
-      Displays how long the server has been online.
+      Exibe há quanto tempo o servidor está online.
   - Command: showdelay
     Help: |
-      Shows/hides the "There is a delay after this skill" message.
+      Mostra/oculta a mensagem "Há um atraso após esta habilidade".
   - Command: exp
     Help: |
-      Displays current levels and % progress.
+      Exibe os níveis atuais e a porcentagem de progresso.
   - Command: mobinfo
     Aliases:
       - monsterinfo
       - mi
     Help: |
       Params: <monster name|ID>
-      Shows monster info (stats, exp, drops etc).
+      Mostra informações do monstro (estatísticas, exp, gotas, etc.).
   - Command: iteminfo
     Aliases:
       - ii
     Help: |
       Params: <item name|ID>
-      Shows item info (type, price etc).
+      Mostra informações do item (tipo, preço, etc.).
   - Command: whodrops
     Help: |
       Params: <item name|ID>
-      Shows who drops an item (monster with highest drop rates).
+      Mostra quem dropa um item (monstro com maiores taxas de drop).
   - Command: version
     Help: |
-      Displays SVN version of the server.
+      Exibe a versão SVN do servidor.
   - Command: email
     Help: |
       Params: <current email> <new email>
-      Changes your account e-mail address.
+      Muda o endereço de e-mail da sua conta.
   - Command: where
     Help: |
       Params: <char name>
-      Tells you the location of a character.
+      Informa a localização de um personagem.
   - Command: time
     Aliases:
       - date
       - serverdate
       - servertime
     Help: |
-      Shows the date and time of the server.
+      Mostra a data e hora do servidor.
   - Command: showexp
     Help: |
-      Displays/hides experience gained.
+      Exibe / oculta a experiência adquirida.
   - Command: showzeny
     Help: |
-      Displays/hides Zeny gained.
+      Exibe/oculta o Zeny ganho.
   - Command: mobsearch
     Help: |
       Params: <monster name|ID>
-      Shows the location of a certain mob on the current map.
+      Mostra a localização de um certo mob no mapa atual.
   - Command: who
     Aliases:
       - whois
     Help: |
       Params: [<name>]
-      Shows a list of online players and their party and guild.
+      Mostra uma lista de jogadores online e seu partido e guilda.
   - Command: who2
     Help: |
       Params: [<name>]
-      Shows a list of online players and their job.
+      Mostra uma lista de jogadores online e suas classe.
   - Command: who3
     Help: |
       Params: [<name>]
-      Shows a list of online players and their location.
+      Mostra uma lista de jogadores online e sua localização.
   - Command: whomap
     Help: |
-      @whomap/@whomap2/@whomap3 [map] - like @who/@who2/@who3 but only for specified map.
+      @whomap/@whomap2/@whomap3 [map] - like @who/@who2/@who3 mas apenas para o mapa especificado.
   - Command: whogm
     Help: |
-      Params: [match_text] - Like @who+@who2+who3, but only for GM.
+      Params: [match_text] 
+      Como @who + @who2 + who3, mas apenas para GM.
   - Command: guildspy
     Help: |
-      Params: <guild name|id> - You will receive all messages of the guild channel (Chat logging must be enabled)
+      Params: <guild name|id> 
+      Você receberá todas as mensagens do canal da guilda (o registro do bate-papo deve estar ativado)
   - Command: partyspy
     Help: |
-      @partyspy <party name|id> - You will receive all messages of the party channel (Chat logging must be enabled)
+      @partyspy <party name|id> 
+      Você receberá todas as mensagens do canal da festa (o registro do bate-papo deve estar ativado)
   - Command: mapinfo
     Help: |
-      Params: [<0-3> [map]] - Give information about a map (general info +: 0: no more, 1: players, 2: NPC, 3: chatrooms).
+      Params: [<0-3> [map] 
+      Dê informações sobre um mapa (informações gerais +: 0: não mais, 1: jogadores, 2: NPC, 3: salas de bate-papo).
   - Command: go
     Help: |
       Params: <city name|number>
-      Warps you to a city.
+      Leva você para uma cidade.
       -3: (Memo point 2)  14: louyang         31: mora
       -2: (Memo point 1)  15: start point     32: dewata
       -1: (Memo point 0)  16: prison/jail     33: malangdo island
@@ -191,29 +195,29 @@ Body:
       - warpto
     Help: |
       Params: <char name>
-      Warps you to selected character.
+      Leva você ao personagem selecionado.
   - Command: follow
     Help: |
       Params: <char name>
-      Follow a player.
+      Siga um jogador.
   - Command: mount
     Aliases:
       - mountpeco
     Help: |
-      Give/remove a job-based mount (class is required, but not the skill).
+      Fornece/remove uma montagem baseada na job (a classe é necessária, mas não a habilidade).
   - Command: mount2
     Help: |
-      Give/remove a cash mount.
+      Dê/remova uma montagem em dinheiro.
   - Command: disguise
     Help: |
       Params: <monster name|ID>
-      Change your appearence to other players to a mob.
+      Mude sua aparência ou de outros jogadores para um mob.
   - Command: undisguise
     Help: |
-      Restore your normal appearance.
+      Restaure sua aparência normal.
   - Command: disguiseguild
     Help: |
-      Disguises all online characters of a guild.
+      Disfarça todos os personagens online de uma guilda.
   - Command: undisguiseguild
     Help: |
       Restore the normal appearance of all characters of a guild.
@@ -256,7 +260,7 @@ Body:
       - job
     Help: |
       Params: <job name|ID>
-      Changes your job.
+      Muda seu Classe.
       ----- Novice / 1st Class -----
          0 Novice              1 Swordman            2 Magician            3 Archer
          4 Acolyte              5 Merchant               6 Thief
@@ -268,7 +272,7 @@ Body:
       ----- High Novice / High 1st Class -----
       4001 Novice High     4002 Swordman High    4003 Magician High    4004 Archer High
       4005 Acolyte High     4006 Merchant High       4007 Thief High
-      ----- Transcendent 2nd Class -----
+      ----- Transcendente 2nd Class -----
       4008 Lord Knight      4009 High Priest             4010 High Wizard      4011 Whitesmith
       4012 Sniper               4013 Assassin Cross   4015 Paladin              4016 Champion
       4017 Professor         4018 Stalker                    4019 Creator               4020 Clown
@@ -278,7 +282,7 @@ Body:
       4058 Mechanic         4059 Guillotine Cross  4066 Royal Guard   4067 Sorcerer
       4068 Minstrel            4069 Wanderer              4070 Sura                 4071 Genetic
       4072 Shadow Chaser
-      ----- 3rd Class (Transcendent) -----
+      ----- 3rd Class (Transcendente) -----
       4060 Rune Knight    4061 Warlock                 4062 Ranger             4063 Arch Bishop
       4064 Mechanic         4065 Guillotine Cross  4073 Royal Guard    4074 Sorcerer
       4075 Minstrel            4076 Wanderer              4077 Sura                  4078 Genetic
@@ -313,7 +317,7 @@ Body:
   - Command: option
     Help: |
       Params: <param1> <param2>(stackable) <param3>(stackable)
-      Adds different visual effects on or around your character.
+      Adiciona diferentes efeitos visuais em ou ao redor de seu personagem.
        <param1>       <param2>        <param3>
       01: Stone      01: Sight       01: Sight          512: Cart Lv. 4
       02: Frozen     02: Curse       02: Hiding        1024: Cart Lv. 5
