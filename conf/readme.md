@@ -1,20 +1,19 @@
-# Import Directories
+# Importar diretórios
 
-## What is the import directory for?
+## Para que serve o diretório de importação?
 
-The `import/` directory provides a way for you to change your config settings without the need to even touch the main `/conf/` and `/db/` files.
+O diretório `import/` fornece uma maneira de você alterar suas configurações sem a necessidade de nem mesmo tocar nos arquivos principais `/conf/` e `/db/`.
 
-By placing your custom entries into the `import/` directory within these two locations, your core files will not need to have any conflicts resolved when you update your server. You store your changes, and the rest is updated with rAthena.
+Colocando suas entradas personalizadas no diretório `import/` dentro destes dois locais, seus arquivos principais não precisarão ter nenhum conflito resolvido quando você atualizar seu servidor. Você armazena suas alterações e o resto é atualizado com rAthenaBR.
 
-## How does this work?
+## Como é que isso funciona?
+Pense em "importar" como em "substituir". Coloque apenas as configurações que você alterou nos arquivos de importação ou as configurações que você está "substituindo".
 
-Think of "import" as in "override". Place only the settings you have changed in the import files, or settings you are "overriding".
-
-For example, when setting up a server there are always a few config settings that users would like to change in order for rAthena to suit their needs. The following example will show you how to use the `/conf/import/` directory correctly. (for `/db/import/` examples, see [/db/readme.md](/db/readme.md))
+Por exemplo, ao configurar um servidor, há sempre algumas configurações que os usuários gostariam de alterar para que o rAthena se adapte às suas necessidades. O exemplo a seguir mostrará como usar o diretório `/ conf / import /` corretamente. (para exemplos de `/ db / import /`, consulte [/db/readme.md](/db/readme.md))
 
 ### Login Server
 ---
-We want to use MD5 passwords and disable `_m/f` account creation methods.
+Queremos usar senhas MD5 e desabilitar os métodos de criação de contas `_m/_f`.
 
 #### /conf/import/login_conf.txt
 
@@ -24,7 +23,7 @@ We want to use MD5 passwords and disable `_m/f` account creation methods.
 
 ### Char Server
 ---
-We want to change the server name to "Odin".
+Queremos mudar o nome do servidor para "Odin".
 
 #### /conf/import/char_conf.txt
 
@@ -33,12 +32,12 @@ We want to change the server name to "Odin".
 
 ### Map Server
 ---
-We want to hide all error messages and add a few custom maps.
+Queremos ocultar todas as mensagens de erro e adicionar alguns mapas personalizados.
 
 #### /conf/import/map_conf.txt
 
-	//Makes server output more silent by omitting certain types of messages:
-	//16: Hide Error and SQL Error messages.
+	// Torna a saída do servidor mais silenciosa, omitindo certos tipos de mensagens:
+	// 16: Ocultar mensagens de erro e de erro SQL.
 	console_silent: 16
 	map: 1@toy
 	map: 1@valley
@@ -47,28 +46,28 @@ We want to hide all error messages and add a few custom maps.
 
 ### Inter Server
 ---
-We want to use MySQL tables instead of .txt files.
+Queremos usar tabelas MySQL em vez de arquivos .txt.
 
 #### /conf/import/inter_conf.txt
 
 	use_sql_db: yes
 
 
-### Logging Settings
+### Configurações de registro
 ---
-We want to log all items and all chat messages.
+Queremos registrar todos os itens e todas as mensagens de bate-papo.
 
 #### /conf/import/log_conf.txt
 
 	log_filter: 1
-	// Log CHAT (Global, Whisper, Party, Guild, Main chat, Clan) (Note 3)
-	// log_chat: 63 = logs everything
+	// Log CHAT (Global, Sussurro, Grupo, Guilda, chat principal, Clã) (Nota 3)
+	// log_chat: 63 = registra tudo
 	log_chat: 63
 
 
-### Battle Configs
+### Configurações de batalha
 ---
-We want to change the way various mechanics work. For anything that would be configured in the `/conf/battle/` directory, it will go into `import/battle_conf.txt`. To help you find which configs came from where, it's generally a good idea to comment out the name of the file that specific collection of configs came from.
+Queremos mudar a forma como vários mecânimos funcionam. Para qualquer coisa que seria configurada no diretório `/conf/battle/`, ele irá para `import/battle_conf.txt`. Para ajudá-lo a descobrir quais configurações vieram de onde, geralmente é uma boa ideia comentar o nome do arquivo de onde veio a coleção específica de configurações.
 
 #### /conf/import/battle_conf.txt
 
@@ -88,11 +87,11 @@ We want to change the way various mechanics work. For anything that would be con
 	at_monsterignore: yes
 	cashshop_show_points: yes
 	hide_fav_sell: yes
-	// Whether or not mail box status is displayed upon login.
-	// Default: 0
-	// 0 = No
-	// 1 = Yes
-	// 2 = Yes, when there are unread mails
+	// Se o status da caixa de correio é ou não exibido no login.
+	// Padrão: 0
+	// 0 = Não
+	// 1 = Sim
+	// 2 = Sim, quando há e-mails não lidos
 	mail_show_status: 2
 
 	// monster.conf
@@ -115,4 +114,4 @@ We want to change the way various mechanics work. For anything that would be con
 	debuff_on_logout: 3
 
 
-We cannot stress enough how helpful this system is for everyone. The majority of git conflicts will simply go away if users make use of the `import/` system.
+Não podemos enfatizar o suficiente o quão útil este sistema é para todos. A maioria dos conflitos git simplesmente desaparecerão se os usuários fizerem uso do sistema `import /`.
