@@ -1,13 +1,14 @@
-//======================================================================================
+// Traduzido por: (Guru)
+// ====================================================== ============================================
 // Map Index
-//======================================================================================
-// Contains the list of maps with their respective IDs for inter-server use.
-// IDs must never change, therefore any new maps need to be added at the end,
-// and old ones must not be removed, but may be replaced.
-// Format:
-// mapname<tab>index <- specifies index for this map
-// mapname <- map will use index of previous map +1
-// Note that map index 0 is special and reserved for "error" status. 
+// ====================================================== ============================================
+// Contém a lista de mapas com seus respectivos IDs para uso entre servidores.
+// Os IDs nunca devem mudar, portanto, quaisquer novos mapas precisam ser adicionados no final,
+// e os antigos não devem ser removidos, mas podem ser substituídos.
+// Formato:
+// mapname <tab> index <- especifica o índice para este mapa
+// mapname <- o mapa usará o índice do mapa anterior +1
+// Observe que o índice 0 do mapa é especial e reservado para o status de "erro".
 
 alb_ship 1
 alb2trea
@@ -1049,5 +1050,5 @@ star_in
 2012rwc_08
 
 //======================================================================================
-// - Other/Extra maps -
+// - Outros / mapas extras -
 //======================================================================================

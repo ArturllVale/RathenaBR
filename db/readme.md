@@ -1,25 +1,25 @@
-# Import Directories
+# Import diretórios
 
-## What is the import directory for?
+## Para que serve o diretório import?
 
-The `import/` directory provides a way for you to change your config settings without the need to even touch the main `/conf/` and `/db/` files.
+O diretório `import/` fornece uma maneira de você alterar suas configurações sem a necessidade de nem mesmo tocar nos arquivos principais `/conf/` e `/db/`.
 
-By placing your custom entries into the `import/` directory within these two locations, your core files will not need to have any conflicts resolved when you update your server. You store your changes, and the rest is updated with rAthena.
+Colocando suas entradas personalizadas no diretório `import/` dentro destes dois locais, seus arquivos principais não precisarão ter nenhum conflito resolvido quando você atualizar seu servidor. Você armazena suas alterações e o resto é atualizado com rAthenaBR.
 
-## How does this work?
+## Como é que isso funciona?
 
-Think of "import" as in "override". Place only the settings you have changed in the import files, or settings you are "overriding".
+Pense em "import" como em "substituir". Coloque apenas as configurações que você alterou nos arquivos de importação ou as configurações que você está "substituindo".
 
-For example, when setting up a server there are always a few config settings that users would like to change in order for rAthena to suit their needs. The following example will show you how to use the `/db/import/` directory correctly. (for `/conf/import/` examples, see [/conf/readme.md](/conf/readme.md))
+Por exemplo, ao configurar um servidor, há sempre algumas configurações que os usuários gostariam de alterar para que o rAthenaBR se adapte às suas necessidades. O exemplo a seguir mostrará como usar o diretório `/db/import/` corretamente. (para exemplos de `/conf/import/`, consulte [/conf/readme.md](/conf/readme.md))
 
-### Achievements
+### Conquistas
 ---
 We want to add our own custom achievement that can be given to a player via an NPC Script and another that we can give to our GMs.
 
 #### /db/import/achievement_db.yml
 
 
-    Achievements:
+    Conquistas:
       - ID: 280000
         Group: "AG_GOAL_ACHIEVE"
         Name: "Emperio"
@@ -34,9 +34,9 @@ We want to add our own custom achievement that can be given to a player via an N
         Score: 50
 
 
-### Instances
+### Instâncias
 ---
-We want to add our own customized Housing Instance.
+Queremos adicionar nossa própria instância de habitação personalizada.
 
 #### /db/import/instance_db.yml
 
@@ -54,7 +54,7 @@ We want to add our own customized Housing Instance.
 
 ### Mob Alias
 ---
-We want to give a custom mob a Novice player sprite.
+Queremos dar a um mob personalizado um sprite de jogador Novato.
 
 #### /db/import/mob_avail.txt
 
@@ -63,9 +63,9 @@ We want to give a custom mob a Novice player sprite.
     3850,0
 
 
-### Custom Maps
+### Mapas Personalizados
 ---
-We want to add our own custom maps. For this we need to add our map names to `import/map_index.txt` and then to the `import/map_cache.dat` file for the Map Server to load.
+Queremos adicionar nossos próprios mapas personalizados. Para isso, precisamos adicionar nossos nomes de mapa a `import/map_index.txt` e então ao arquivo` import/map_cache.dat` para o Map Server carregar.
 
 #### /db/import/map_index.txt
 
@@ -77,38 +77,38 @@ We want to add our own custom maps. For this we need to add our map names to `im
     prt_pvp
 
 
-### Item Trade Restrictions
+### Restrições ao comércio de itens
 ---
-We want to ensure that specific items cannot be traded, sold, dropped, placed in storage, etc.
+Queremos garantir que itens específicos não possam ser negociados, vendidos, descartados, colocados em armazenamento, etc.
 
 #### /db/import/item_trade.txt
 
-    // Legend for 'TradeMask' field (bitmask):
-    // 1   - item can't be dropped
-    // 2   - item can't be traded (nor vended)
-    // 4   - wedded partner can override restriction 2
-    // 8   - item can't be sold to npcs
-    // 16  - item can't be placed in the cart
-    // 32  - item can't be placed in the storage
-    // 64  - item can't be placed in the guild storage
-    // 128 - item can't be attached to mail
-    // 256 - item can't be auctioned
-    // Full outright value = 511
-    34000,511,100	// Old Green Box
-    34001,511,100	// House Keys
-    34002,511,100	// Reputation Journal
+// Legenda para o campo 'TradeMask' (bitmask):
+    // 1 - o item não pode ser descartado
+    // 2 - o item não pode ser comercializado (nem vendido)
+    // 4 - o parceiro casado pode anular a restrição 2
+    // 8 - o item não pode ser vendido para npcs
+    // 16 - o item não pode ser colocado no carrinho
+    // 32 - o item não pode ser colocado no armazenamento
+    // 64 - o item não pode ser colocado no armazenamento da guilda
+    // 128 - o item não pode ser anexado ao correio
+    // 256 - o item não pode ser leiloado
+    // Valor definitivo total = 511
+    34000.511.100 // Old Green Box
+    34001.511.100 // Chaves da casa
+    34002.511.100 // Jornal de Reputação
 
 
-### Custom Quests
+### Missões personalizadas
 ---
-We want to add our own custom quests to the quest_db.
+Queremos adicionar nossas próprias missões personalizadas ao quest_db.
 
 #### /db/import/quest_db.txt
 
     // Quest ID,Time Limit,Target1,Val1,Target2,Val2,Target3,Val3,MobID1,NameID1,Rate1,MobID2,NameID2,Rate2,MobID3,NameID3,Rate3,Quest Title
-    89001,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Reputation Quest"
-    89002,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Reputation Quest"
+    89001,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Quest de Reputação"
+    89002,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Quest de Reputação"
 
 
 
-We cannot stress enough how helpful this system is for everyone. The majority of git conflicts will simply go away if users make use of the `import/` system.
+Não podemos enfatizar o suficiente o quão útil este sistema é para todos. A maioria dos conflitos git simplesmente desaparecerão se os usuários fizerem uso do sistema `import/`.

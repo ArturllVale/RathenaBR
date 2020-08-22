@@ -1,35 +1,35 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2017 rAthena Development Team
+# Este arquivo faz parte do rAthenaBR.
+#   Copyright (C) 2017 Equipe de Desenvolvimento da rAthena
 #   https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e/ou modificar
+# sob os termos da GNU General Public License publicada por
+# a Free Software Foundation, seja a versão 3 da Licença, ou
+# (à sua escolha) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIABILIDADE ou ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Veja o
+# GNU General Public License para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-##########################################################################
-# Storage Database
-##########################################################################
-#
-# Storage Settings
+# Você deve ter recebido uma cópia da Licença Pública Geral GNU
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
 #
 ##########################################################################
-#	- ID                       Storage ID.
-#	  Name                     Storage name that will be sent to the client to display on the title bar.
-#	  Table                    Name of SQL table where storage is saved. The table structure is the same as the default storage table.
-#	  Max                      Maximum number of items. (Default: MAX_STORAGE)
+# Banco de dados de armazenamento
+##########################################################################
+#
+# Configurações de armazenamento
+#
+##########################################################################
+#	- ID                       ID de armazenamento.
+#	  Name                     Nome de armazenamento que será enviado ao cliente para exibição na barra de título.
+#	  Table                    Nome da tabela SQL onde o armazenamento é salvo. A estrutura da tabela é a mesma da tabela de armazenamento padrão.
+#	  Max                      Número máximo de itens. (Padrão: MAX_STORAGE)
 ###########################################################################
-# To access the premium storage, use script command 'openstorage2'.
-# If more premium storages are added, copy the structure of the storage table and match the table name in this config.
-# The 'Max' of premium storages are not adjusted by 'vip_storage_increase' config nor MIN_STORAGE.
+# Para acessar o armazenamento premium, use o comando de script 'openstorage2'.
+# Se mais armazenamentos premium forem adicionados, copie a estrutura da tabela de armazenamento e corresponda ao nome da tabela nesta configuração.
+# O 'Max' de armazenamentos premium não são ajustados pela configuração 'vip_storage_increase' nem MIN_STORAGE.
 ###########################################################################
 
 Header:

@@ -1,10 +1,12 @@
-// Elemental Summons Skill Database
+// Base de dados de habilidades de invocação elementar
 //
-// Structure of Database:
-// ElementalID,SkillID,SkillLevel,ReqMode
+// Traduzido por: (Guru)
 //
-// Spirit Modes:
-//	1 = Passive, 2 = Defensive, 4 = Aggressive
+// Estrutura do banco de dados:
+// ElementalID, SkillID, SkillLevel, ReqMode
+//
+// Modos espirituais:
+// 1 = Passivo, 2 = Defensivo, 4 = Agressivo
 
 // EL_AGNI_S
 2114,8413,1,1	//EL_PYROTECHNIC,Pyrotechnic

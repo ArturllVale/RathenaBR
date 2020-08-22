@@ -1,6 +1,8 @@
-// Red Pouch of Surprise Summonable Monsters Database
+// Banco de dados de monstros invocáveis ​​da bolsa vermelha de surpresa
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // MobRandomGroupID,MobID,DummyName,Rate
 
 MOBG_Red_Pouch_Of_Surprise,0,Poring,1002

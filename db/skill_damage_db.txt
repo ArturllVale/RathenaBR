@@ -1,36 +1,38 @@
-// Skill Damage Adjustment Database
+// Banco de dados de ajuste de danos por habilidade
 //
-// Structure of Database:
-// SkillName,Caster,Map,Damage against Players{,Damage against Mobs{,Damage against Bosses{,Damage against Other}}}
+// Traduzido por: (Guru)
 //
-// Caster: The groups for which the adjustment takes effect. (bitmask)
-//		BL_PC = Player
-//		BL_MOB = Monster
-//		BL_PET = Pet
-//		BL_HOM = Homunculus
-//		BL_MER = Mercenary
-//		BL_ELEM = Elemental
+// Estrutura do banco de dados:
+// SkillName, Caster, Map, Damage against Players {, Damage against Mobs {, Damage against Bosses {, Damage against Other}}}
 //
-// Map:
-// 		1    - Normal (the maps that aren't classified as these maps below)
-// 		2    - PVP
-// 		4    - GVG
-// 		8    - Battlegrounds
-// 		16   - 'skill_damage' mapflag
-// Restricted zones - they're configured by 'restricted <number>' mapflag
-// 		32   - Zone 1
-// 		64   - Zone 2
-// 		128  - Zone 3
-// 		256  - Zone 4
-// 		512  - Zone 5
-// 		1024 - Zone 6
-// 		2048 - Zone 7
+// Caster: Os grupos para os quais o ajuste tem efeito. (bitmask)
+// BL_PC = Jogador
+// BL_MOB = Monstro
+// BL_PET = Pet
+// BL_HOM = Homunculus
+// BL_MER = Mercenário
+// BL_ELEM = Elemental
 //
-// Notes:
-//  	Damage is a percentage between -100 and 100000.
-//  	Negative values decrease damage and positive values increase it (0 = no change).
+// Mapa:
+// 1 - Normal (os mapas que não são classificados como esses mapas abaixo)
+// 2 - PVP
+// 4 - GVG
+// 8 - Campos de batalha
+// 16 - 'skill_damage' mapflag
+// Zonas restritas - são configuradas por mapflag 'restrito <número>'
+// 32 - Zona 1
+// 64 - Zona 2
+// 128 - Zona 3
+// 256 - Zona 4
+// 512 - Zona 5
+// 1024 - Zona 6
+// 2048 - Zona 7
 //
-// Examples:
-// MC_MAMMONITE,BL_PC,1,50 // In normal maps, players deal +50% damage to other players with Mammonite.
-// MO_EXTREMITYFIST,BL_PC,6,-50 // In PVP and GVG, players deal -50% (half) damage to other players with Asura Strike.
-// AB_ADORAMUS,BL_PC,6,50,0,10,15 // In PVP and GVG, players deal +50% damage to other players, +0% to mobs, +10% to bosses, and +15% to other with Adoramus.
+// Notas:
+// O dano é uma porcentagem entre -100 e 100000.
+// Valores negativos diminuem o dano e os valores positivos aumentam (0 = sem alteração).
+//
+// Exemplos:
+// MC_MAMMONITE,BL_PC,1,50 // Em mapas normais, os jogadores causam + 50% de dano a outros jogadores com Mammonite.
+// MO_EXTREMITYFIST,BL_PC,6,-50 // No PVP e GVG, os jogadores causam -50% (metade) do dano a outros jogadores com o Asura Strike.
+// AB_ADORAMUS,BL_PC,6,50,0,10,15 // No PVP e GVG, os jogadores causam + 50% de dano a outros jogadores, + 0% para mobs, + 10% para chefes e + 15% para outros com Adoramus.

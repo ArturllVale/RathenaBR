@@ -1,59 +1,62 @@
-// Item Usage Restriction Configuration File
-// Defines if an item cannot be used under special circumstances.
+// Arquivo de configuração de restrição de uso do item
+// Define se um item não pode ser usado em circunstâncias especiais.
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // ItemID,Flag,Group ID Override
 //
-// Flag:
-//	1 = Cannot use item while sitting
-//	... [more to come]
+// Sinalizar:
+// 1 = Não é possível usar o item enquanto está sentado
+// ... [mais por vir]
 //
-// Group ID Override:
-//	Group ID necessary to override this setting.
+// Substituição do ID do grupo:
+// O ID do grupo é necessário para substituir esta configuração.
 
-606,1,100	// Aloebera
-619,1,100	// Unripe_Apple
-620,1,100	// Orange_Juice
-621,1,100	// Bitter_Herb
-622,1,100	// Rainbow_Carrot
-623,1,100	// Earthworm_The_Dude
-624,1,100	// Rotten_Fish
-625,1,100	// Lusty_Iron
-626,1,100	// Monster_Juice
-627,1,100	// Sweet_Milk
-628,1,100	// Well_Dried_Bone
-629,1,100	// Singing_Flower
-630,1,100	// Dew_Laden_Moss
-631,1,100	// Deadly_Noxious_Herb
-632,1,100	// Fatty_Chubby_Earthworm
-633,1,100	// Baked_Yam
-634,1,100	// Tropical_Banana
-635,1,100	// Horror_Of_Tribe
-636,1,100	// No_Recipient
-637,1,100	// Old_Broom
-638,1,100	// Silver_Knife_Of_Chaste
-639,1,100	// Armlet_Of_Obedience
-640,1,100	// Shining_Stone
-641,1,100	// Contracts_In_Shadow
-642,1,100	// Book_Of_Devil
-659,1,100	// Heart_Of_Her
-660,1,100	// Prohibition_Red_Candle
-661,1,100	// Sway_Apron
-686,1,100	// Earth_Scroll_1_3
-687,1,100	// Earth_Scroll_1_5
-688,1,100	// Cold_Scroll_1_3
-689,1,100	// Cold_Scroll_1_5
-690,1,100	// Fire_Scroll_1_3
-691,1,100	// Fire_Scroll_1_5
-692,1,100	// Wind_Scroll_1_3
-693,1,100	// Wind_Scroll_1_5
-694,1,100	// Ghost_Scroll_1_3
-695,1,100	// Ghost_Scroll_1_5
-696,1,100	// Fire_Scroll_2_1
-697,1,100	// Fire_Scroll_2_5
-698,1,100	// Fire_Scroll_3_1
-699,1,100	// Fire_Scroll_3_5
-700,1,100	// Cold_Scroll_2_1
+606,1,100	// Aloe Vera
+619,1,100	// Maçã Verde
+620,1,100	// Suco de Laranja
+621,1,100	// Erva Amarga
+622,1,100	// Cenoura Arco-Íris
+623,1,100	// Minhoca Boa-Pinta
+624,1,100	// Peixe Podre
+625,1,100	// Ferro Enferrujado
+626,1,100	// Suco de Monstro
+627,1,100	// Leite Doce
+628,1,100	// Osso Seco
+629,1,100	// Flor Cantante
+630,1,100	// Musgo Encharcado
+631,1,100	// Erva Letal
+632,1,100	// Minhoca Gorducha
+633,1,100	// Batata Assada
+634,1,100	// Banana Tropical
+635,1,100	// Horror da Tribo
+636,1,100	// Sem Destinatário
+637,1,100	// Vassoura Velha
+638,1,100	// Faca de Prata da Castidade
+639,1,100	// Bracelete da Obediência
+640,1,100	// Pedra Brilhante
+641,1,100	// Contratos das Sombras
+642,1,100	// Livro do Diabo
+659,1,100	// Coração Apaixonado
+660,1,100	// Vela do Marquês de Sade
+661,1,100	// Avental Elegante
+686,1,100	// Coluna de Pedra Nível 3
+687,1,100	// Coluna de Pedra Nível 5
+688,1,100	// Lanças de Gelo Nível 3
+689,1,100	// Lanças de Gelo Nível 5
+690,1,100	// Lanças de Fogo Nível 3
+691,1,100	// Lanças de Fogo Nível 5
+692,1,100	// Relâmpago Nível 3
+693,1,100	// Relâmpago Nível 5
+694,1,100	// Espíritos Anciões Nível 3
+695,1,100	// Espíritos Anciões Nível 5
+696,1,100	// Bolas de Fogo Nível 1
+697,1,100	// Bolas de Fogo Nível 5
+698,1,100	// Barreira de Fogo Nível 1
+699,1,100	// Barreira de Fogo Nível 5
+700,1,100	// Rajada Congelante Nível 1
+// itens novos atualizações mais tarde
 11702,1,100	// Moon_Cookie
 12000,1,100	// Cold_Scroll_2_5
 12001,1,100	// Holy_Scroll_1_3

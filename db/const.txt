@@ -1,18 +1,20 @@
-// Script Constant Database
+// Banco de dados de constantes de script
 //
-// Structure of Database:
-// Identifier	Value[	Type]
+// Traduzido por: (Guru)
 //
-// Alternatively:
-// Identifier,Value[,Type]
+// Estrutura do banco de dados:
+// Identificador	Value[	Type]
 //
-// 01. Identifier   Unique name for the constant, must not have same name as script commands, functions or variables.
-// 02. Value        Value assigned to the constant. This value cannot be changed during the runtime of the server.
-// 03. Type         Specifies whether the identifier is a constant (0) or a parameter (1) (optional, defaults to 0).
+// alternativamente:
+// Identificador,Value[,Type]
 //
-// NOTE:            Parameters are special in that they retrieve certain runtime values depending on the specified ID
-//                  in field Value. Depending on the implementation values assigned by scripts to parameters will affect
-//                  runtime values, such as Zeny, as well (see pc_readparam/pc_setparam).
+// 01. Identifier   Nome exclusivo para a constante, não deve ter o mesmo nome de comandos, funções ou variáveis ​​de script.
+// 02. Value        Valor atribuído à constante. Este valor não pode ser alterado durante o tempo de execução do servidor.
+// 03. Type         Especifica se o identificador é uma constante (0) ou um parâmetro (1) (opcional, o padrão é 0).
+//
+// NOTE:            Os parâmetros são especiais porque recuperam determinados valores de tempo de execução, dependendo do ID especificado
+//                  no campo Valor. Dependendo dos valores de implementação atribuídos por scripts aos parâmetros afetarão
+//                  valores de tempo de execução, como Zeny, também (consulte pc_readparam / pc_setparam).
 
 RDMOPT_VAR_MAXHPAMOUNT	1
 RDMOPT_VAR_MAXSPAMOUNT	2

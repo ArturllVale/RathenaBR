@@ -1,30 +1,32 @@
-// Specific Item Drop Ratio Database
-// Overrides for global item_rate* values from conf/battle/drops.conf
+// Banco de dados de taxa de queda de item específico
+// Substitui os valores globais de item_rate * de conf/battle/drops.conf
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // ItemID,Ratio{,MonsterID1,...,MonsterID10}
 //
-// Result:
-// ItemID base drop rates defined in mob_db will not get multiplied
-//  by global item_rate* values (aka drop rates) from
-//  conf/battle/drops.conf. Instead Ratio will be used (100 = 1x).
-// If no MonsterID is specified, all monsters will be affected,
-//  otherwise only listed ones.
+// Resultado:
+// As taxas de queda de base do ItemID definidas em mob_db não serão multiplicadas
+// por valores globais item_rate * (também conhecidos como taxas de queda) de
+// conf/battle/drops.conf. Em vez disso, a relação será usada (100=1x).
+// Se nenhum MonsterID for especificado, todos os monstros serão afetados,
+// caso contrário, apenas os listados.
 //
-// Examples:
-// 909,100 // Jellopies from monsters will drop with 1x drop rate regardless of global drop rate
-// 909,1000 // Jellopies from monsters will drop with 10x drop rate regardless of global drop rate
-// 909,100,1002 // Jellopies from Porings will drop with 1x drop rate. Other monsters that drop Jellopies are unaffected (use global drop rate).
+// Exemplos:
+// 909,100 // Geléias de monstros cairão com taxa de queda 1x, independentemente da taxa de queda global
+// 909,1000 // Geléias de monstros cairão com taxa de queda de 10x, independentemente da taxa de queda global
+// 909,100,1002 // Jellopies de Porings vão cair com uma taxa de queda de 1x. Outros monstros que dropam Jellopies não são afetados (use a taxa de drop global).
 //
-// Notes:
-// - By default you can list up to 10 MonsterIDs per ItemID.
-//   It can be changed in src/map/mob.cpp by adjusting MAX_ITEMRATIO_MOBS.
-// - Only ItemIDs up to MAX_ITEMDB are supported (default: 32768).
-// - Does not override item_drop_*_min/max settings.
-// - Does not affect card/item-granted drops. To adjust card/item-granted
-//   drops, edit them in item_db.
-// - Does affect MVP prizes and Treasure Boxes.
-// - You can add only ONE line per ItemID. If you need various ratios
-//   for different monsters, override drop rate with Ratio=100 and edit
-//   base drop rates in mob_db.
-// - This file is reloaded by @reloadmobdb.
+// Notas:
+// - Por padrão, você pode listar até 10 MonsterIDs por ItemID.
+// Pode ser alterado em src/map/mob.cpp ajustando MAX_ITEMRATIO_MOBS.
+// - Apenas ItemIDs até MAX_ITEMDB são suportados (padrão: 32768).
+// - Não substitui as configurações de item_drop _ * _ min / max.
+// - Não afeta os descartes de carta/item concedidos. Para ajustar carta/item concedido
+// descarta, edite-os em item_db.
+// - Afeta os prêmios MVP e as caixas de tesouro.
+// - Você pode adicionar apenas UMA linha por ItemID. Se você precisar de várias proporções
+// para monstros diferentes, substitua a taxa de queda com Ratio = 100 e edite
+// taxas de queda básicas em mob_db.
+// - Este arquivo é recarregado por @reloadmobdb.

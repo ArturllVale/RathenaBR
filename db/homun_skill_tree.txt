@@ -1,18 +1,20 @@
-// Homunculus Skill Tree Database
+// Banco de dados de árvore de habilidades do Homunculus
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // Class,SkillID,MaxLv,NeedLevel,Prerequisite SkillID1,Prerequisite SkillLv1,PrereqSkillID2,PrereqSkillLv2,PrereqSkillID3,PrereqSkillLv3,PrereqSkillID4,PrereqSkillLv4,PrereqSkillID5,PrereqSkillLv5,IntimacyLvReq //SKILLNAME#Skill Name#
 //
 // 01. Class                    Homunculus ID.
-// 02. SkillID                  Skill ID of the homunuculus skill.
-// 03. MaxLv                    Maximum level of the homunuculus skill.
-// 04. NeedLevel                Homunculus level required for the skill to become available
-// 05. Prerequisite SkillID     Homunculus skill required for the skill to become available.
-// 06. Prerequisite SkillLv     Level of the required homunculus skill.
+// 02. SkillID                  Identificação da habilidade do homunuculus.
+// 03. MaxLv                    Nível máximo da habilidade do homúnculo.
+// 04. NeedLevel                Nível de homúnculo necessário para que a habilidade se torne disponível
+// 05. Prerequisite SkillID     Habilidade de homúnculo necessária para que a habilidade se torne disponível.
+// 06. Prerequisite SkillLv     Nível da habilidade necessária do homúnculo.
 // ...
-// 15. IntimacyLvReq			Minimum level of intimacy to unlock skill.
+// 15. IntimacyLvReq			Nível mínimo de intimidade para desbloquear habilidade.
 //
-// NOTE: MAX_PC_SKILL_REQUIRE (typically 5) ID/Lv pairs must be specified.
+// NOTA: MAX_PC_SKILL_REQUIRE (typically 5) ID/Lv pares devem ser especificados.
 
 //Lif
 6001,8001,5,0,0,0,0,0,0,0,0,0,0,0,0 //HLIF_HEAL

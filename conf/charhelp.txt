@@ -1,28 +1,31 @@
+//----------------------------------
+// Traduzido por: (Guru)
+//----------------------------------
  40:--- CHARACTER CMD ---
- 40:#statsall <char name> - Set all stats of a player to maximum.
- 40:#itemlist <char name> - Displays all items of a player.
- 40:#storagelist <char name> - Displays all items of a player's storage.
- 40:#stats <char name> - Displays a characters stats.
- 60:#option <char name> <param1> <param2> <param3> - Like @option command but only to target character.
- 50:#mountpeco <char name> - Give/remove to a player a peco (Class is required, but not skill).
- 50:#petrename <char name> - Re-enable pet rename to a player.
- 60:#save <char name> <map> <x> <y> - Changes the target players respawn point.
- 60:#baselvl/#blvl <char name> <#> - Change a characters base level.
- 60:#joblvl/#jlvl <char name> <#> - Change a characters job level.
- 60:#job/#jobchange <char name> <job ID> - Changes target characters job.
- 60:#zeny <char name> <amount> - Give/take a players Zeny
- 60:#cash <char name> <amount> - Give/take a player cash points
- 60:#points <char name> <amount> - Give/take a player Kafra points
- 60:#stpoint <char name> <amount> - Give/take a players stat points
- 60:#skpoint <char name> <amount> - give/take a players skill points
- 60:#skreset <char name> - Reset skills of a character.
- 60:#streset <char name> - Reset stats of a character.
- 60:#reset <char name> - Reset stats AND skills of a character.
- 60:#questskill <char name> <#> - Gives to a player the specified quest skill.
- 60:#lostskill <char name> <#> - Takes away the specified quest skill from the player.
- 60:#delitem <char name> <item_name_or_ID> <quantity> - Remove items from a character
- 50:#model <char name> <hair type> <hair color> <clothes color> - Changes a player's model
- 60:#disguise <char name> <monster_name_or_monster_ID> - Changes disguise of a player
- 60:#undisguise <char name> - Cancels disguise of a player
- 60:#changesex <char name> - Changes sex of a player (all characters of the account)
- 60:#warp/#rura+ <char name> <mapname> <x> <y> - Warps character to location of choice
+ 40:#statsall <Nome do Char> - Defina todas status de um jogador para o máximo.
+ 40:#itemlist <Nome do Char> - Exibe todos os itens de um jogador.
+ 40:#storagelist <Nome do Char> - Exibe todos os itens do armazenamento de um jogador.
+ 40:#stats <Nome do Char> - Exibe status do personagem.
+ 60:#option <Nome do Char> <param1> <param2> <param3> - Como o comando @option, mas apenas para o personagem.
+ 50:#mountpeco <Nome do Char> - Dê/remova um peco para um jogador (a classe é necessária, mas não a habilidade).
+ 50:#petrename <Nome do Char> - Reative a renomeação do animal de estimação para um jogador.
+ 60:#save <Nome do Char> <mapa> <x> <y> - Muda o ponto de renascimento do jogador.
+ 60:#baselvl/#blvl <Nome do Char> <#> - Mude um nível de base de personagens.
+ 60:#joblvl/#jlvl <Nome do Char> <#> - Mude o nível de trabalho de um personagem.
+ 60:#job/#jobchange <Nome do Char> <job ID> - Muda o classe do personagem.
+ 60:#zeny <Nome do Char> <quantidade> - Dar/retirar Zeny a um jogador 
+ 60:#cash <Nome do Char> <quantidade> - Dar/retira cash a um jogador
+ 60:#points <Nome do Char> <quantidade> - Dar/retirar pontos Kafra de um jogador
+ 60:#stpoint <Nome do Char> <quantidade> - Dar/retirar pontos de status de um jogador
+ 60:#skpoint <Nome do Char> <quantidade> - dar/retirar pontos de habilidade de um jogador
+ 60:#skreset <Nome do Char> - Redefina as habilidades de um personagem.
+ 60:#streset <Nome do Char> - Redefina as status de um personagem.
+ 60:#reset <Nome do Char> - Redefina status e habilidades de um personagem.
+ 60:#questskill <Nome do Char> <#> - Dá a um jogador a habilidade de missão especificada.
+ 60:#lostskill <Nome do Char> <#> - Retira a habilidade de missão especificada do jogador.
+ 60:#delitem <Nome do Char> <nome_do_item_ou_ID> <quantidade> - Remover itens de um personagem
+ 50:#model <Nome do Char> <tipo de cabelo> <cor de cabelo> <cor da roupa> - Muda o visual de um jogador
+ 60:#disguise <Nome do Char> <nome_do_mob_ou_ID> - Muda o disfarce de um jogador
+ 60:#undisguise <Nome do Char> - Cancela o disfarce de um jogador
+ 60:#changesex <Nome do Char> - Muda o sexo de um jogador (todos os personagens da conta)
+ 60:#warp/#rura+ <Nome do Char> <nome_do_mapa> <x> <y> - Transfere o personagem para o local de escolha

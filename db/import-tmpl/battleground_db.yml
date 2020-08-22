@@ -1,57 +1,60 @@
-# This file is a part of rAthena.
-#   Copyright(C) 2019 rAthena Development Team
-#   https://rathena.org - https://github.com/rathena
+##################################################################
+# Este arquivo faz parte do rAthena.
+# Copyright (C) 2019 Equipe de Desenvolvimento da rAthena
+# https://rathena.org - https://github.com/rathena
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# Este programa é um software livre: você pode redistribuí-lo e / ou modificar
+# sob os termos da GNU General Public License publicada por
+# a Free Software Foundation, seja a versão 3 da Licença, ou
+# (à sua escolha) qualquer versão posterior.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# Este programa é distribuído na esperança de que seja útil,
+# mas SEM QUALQUER GARANTIA; sem mesmo a garantia implícita de
+# COMERCIABILIDADE ou ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Veja o
+# GNU General Public License para mais detalhes.
 #
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
+# Você deve ter recebido uma cópia da Licença Pública Geral GNU
+# junto com este programa. Caso contrário, consulte <http://www.gnu.org/licenses/>.
+#
+############################################################### ###############################
+# Banco de dados de filas de campo de batalha
+############################################################### ###############################
+#
+# Configurações de fila do campo de batalha
+#
+# Traduzido por: (Guru)
 #
 ###########################################################################
-# Battleground Queue Database
-###########################################################################
-#
-# Battleground Queue Settings
-#
-###########################################################################
-# - Id                Unique ID for the battleground type.
-#   Name              Name of the battleground. Must be the exact same as in the client for players to be able to join.
-#   MinPlayers        Minimum number of players required on each team. (Default: 1)
-#   MaxPlayers        Maximum number of players on each team. (Default: MAX_BG_MEMBERS / 2)
-#   MinLevel          Minimum level required to join the battleground. (Default: 1)
-#   MaxLevel          Maximum level to join the battleground. (Default: MAX_LEVEL value)
-#   Deserter          Amount of time in seconds a player is marked deserter. (Default: 600)
-#   StartDelay        Amount of time in seconds once a queue is filled before players are warped. (Default: 0)
-#   Join:             Which application type is accepted. The entryqueuelist.lub can visually disable these options.
-#     Solo            Able to join a queue as an individual. (Default: true)
-#     Party           Able to join a queue as a party. (Default: true)
-#     Guild           Able to join a queue as a guild. (Default: true)
-#   JobRestrictions   List of jobs that are unable to join the battleground.
-#   Locations:        Battleground location settings.
-#     - Map           The map on which the battleground will be played.
-#       StartEvent    NPC event triggered when the battleground starts.
-#       TeamA:        TeamA settings.
-#         RespawnX    X coordinate for warping on death.
-#         RespawnY    Y coordinate for warping on death.
-#         DeathEvent  NPC event triggered when a player dies.
-#         QuitEvent   NPC event triggered when a player quits.
-#         ActiveEvent NPC event triggered when a player joints an active battleground.
-#         Variable    Name of BG ID variable used in the battleground script.
-#       TeamB:        TeamB settings.
-#         RespawnX    X coordinate for warping on death.
-#         RespawnY    Y coordinate for warping on death.
-#         DeathEvent  NPC event triggered when a player dies.
-#         QuitEvent   NPC event triggered when a player quits.
-#         ActiveEvent NPC event triggered when a player joints an active battleground.
-#         Variable    Name of BG ID variable used in the battleground script.
+# - Id                          ID exclusivo para o tipo de campo de batalha.
+#   Name                        Nome do campo de batalha. Deve ser exatamente igual ao do cliente para que os jogadores possam entrar.
+#   MinPlayers                  Número mínimo de jogadores necessários em cada equipe. (Padrão: 1)
+#   MaxPlayers                  Número máximo de jogadores em cada equipe. (Padrão: MAX_BG_MEMBERS / 2)
+#   MinLevel                    Nível mínimo necessário para entrar no campo de batalha. (Padrão: 1)
+#   MaxLevel                    Nível máximo para entrar no campo de batalha. (Valor padrão: MAX_LEVEL)
+#   Deserter                    Quantidade de tempo em segundos que um jogador é marcado como desertor. (Padrão: 600)
+#   StartDelay                  Quantidade de tempo em segundos depois que uma fila é preenchida antes que os jogadores sejam teleportados. (Padrão: 0)
+#   Join:                       Qual tipo de aplicativo é aceito. O entryqueuelist.lub pode desativar visualmente essas opções.
+#     Solo                      Capaz de entrar em uma fila como um indivíduo. (Padrão: verdadeiro)
+#     Party                     Capaz de entrar em uma fila como um grupo. (Padrão: verdadeiro)
+#     Guild                     Capaz de entrar em uma fila como uma guilda. (Padrão: verdadeiro)
+#   JobRestrictions             Lista de empregos que não podem entrar no campo de batalha.
+#   Locations:                  Configurações de localização do campo de batalha.
+#     - Map                     O mapa no qual o campo de batalha será jogado.
+#       StartEvent              Evento NPC disparado quando o campo de batalha começa.
+#       TeamA:                  Configurações da equipe A.
+#         RespawnX              Coordenada X para empenamento na morte.
+#         RespawnY              Coordenada Y para empenamento na morte.
+#         DeathEvent            Evento NPC disparado quando um jogador morre.
+#         QuitEvent             Evento NPC acionado quando um jogador sai.
+#         ActiveEvent           Evento NPC acionado quando um jogador entra em um campo de batalha ativo.
+#         Variable              Nome da variável BG ID usada no script do campo de batalha.
+#       TeamB:                  Configurações do TeamB.
+#         RespawnX              Coordenada X para empenamento na morte.
+#         RespawnY              Coordenada Y para empenamento na morte.
+#         DeathEvent            Evento NPC disparado quando um jogador morre.
+#         QuitEvent             Evento NPC acionado quando um jogador sai.
+#         ActiveEvent           Evento NPC acionado quando um jogador entra em um campo de batalha ativo.
+#         Variable              Nome da variável BG ID usada no script do campo de batalha.
 ###########################################################################
 
 Header:

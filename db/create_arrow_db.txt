@@ -1,289 +1,291 @@
-// Arrow Crafting Database
+// Criação de flechas Database
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // SourceID,MakeID1,MakeAmount1,...,MakeID5,MakeAmount5
 //
-// 01. SourceID     ID of the item, that is consumed by Arrow Crafting.
-// 02. MakeID       ID of the item received from Arrow Crafting.
-// 03. MakeAmount   Amount of MakeID item received from Arrow Crafting.
+// 01. SourceID     ID do item, que é consumido pelo Arrow Crafting.
+// 02. MakeID       ID do item recebido da Arrow Crafting.
+// 03. MakeAmount   Quantidade de item MakeID recebido de Arrow Crafting.
 // ...
 //
-// NOTE:
-// - Up to MAX_ARROW_RESULT (typically 5) ID/Amount pairs can be specified.
-// - To remove entry by importing, put 0 on 'MakeID'
+// NOTA:
+// - Até MAX_ARROW_RESULT (normalmente 5) pares de ID / Quantidade podem ser especificados.
+// - Para remover a entrada importando, coloque 0 em 'MakeID'
 
-// Old Blue Box --> 50 Sharp Arrows, 50 Sleep Arrows
+// Velha Caixa Azul --> 50 Flechas Afiadas, 50 Flechas do Sono
 603,1764,50,1768,50
-// Dead Branch --> 40 Mute Arrows
+// Galho Seco--> 40 Flechas Mute
 604,1769,40
-// Amulet --> 40 Cursed Arrows
+// Amuleto --> 40  Flechas Maldita
 609,1761,40
-// Empty Bottle --> 2 Iron Arrows
+// Garrafa vazia --> 2 Flechas de Ferro
 713,1770,2
-// Emperium --> 600 Immaterial Arrows, 600 Mute Arrows, 600 Oridecon Arrows
+// Emperium --> 600 Flechas , 600 Flechas Mute, 600 Flechas de Oridecon
 714,1757,600,1769,600,1765,600
-// Yellow Gemstone --> 30 Stone Arrows, 1 Sleep Arrow
+// Gema Amarela --> 30 Flechas de Pedra, 1 Flecha do Sono
 715,1756,30,1768,1
-// Red Gemstone --> 10 Rusty Arrows, 1 Poison Arrow, 1 Cursed Arrow
+// Ge,a Vermelha --> 10 Flechas Oxidada, 1 Flechas Venenosas, 1 Flecha Maldita
 716,1762,10,1763,1,1761,1
-// Blue Gemstone --> 30 Crystal Arrows, 1 Frozen Arrow
+// Gema Azul --> 30 Flechas de Cristal, 1 Flechas de Gelo
 717,1754,30,1759,1
-// Cursed Ruby --> 50 Cursed Arrows, 10 Sleep Arrows
+// Rubi Amaldiçoado --> 50 Flechas Maldita, 10 Flechas do Sono
 724,1761,50,1768,10
-// Cracked Diamond --> 50 Sharp Arrows
+// Diamante Rachado --> 50 Flechas Afiadas
 733,1764,50
-// Rough Oridecon --> 50 Oridecon Arrows
+// Oridecon Rude --> 50 Flechas de Oridecon
 756,1765,50
-// Rough Elunium --> 200 Steel Arrows, 5 Stun Arrows
+// Elunium Rude --> 200 Flechas de Ferro, 5 Flechas Atordoaras
 757,1753,200,1758,5
-// Tree Root --> 7 Arrows
+// Tree Root --> 7 Flechas
 902,1750,7
-// Scorpion Tail --> 3 Rusty Arrows
+// Scorpion Tail --> 3 Flechas Oxidada
 904,1762,3
-// Jellopy --> 4 Arrows
+// Jellopy --> 4 Flechas
 909,1750,4
-// Garlet --> 12 Iron Arrows
+// Garlet --> 12 Flechas de Ferro
 910,1770,12
-// Scell --> 8 Steel Arrows
+// Scell --> 8 Flechas de Aço
 911,1753,8
-// Zargon --> 50 Silver Arrows
+// Zargon --> 50 Flechas de Prata
 912,1751,50
-// Tooth of Bat --> 1 Shadow Arrow
+// Tooth of Bat --> 1 Flechas Sombrias
 913,1767,1
-// Wolf Claw --> 15 Iron Arrows
+// Garra de lobo --> 15 Flechas de Ferro
 920,1770,15
-// Orc's Fang --> 30 Iron Arrows, 5 Steel Arrows, 10 Stone Arrows
+// Orc's Fang --> 30 Flechas de Ferro, 5 Flechas de Aço, 10 Flechas de Pedra
 922,1770,30,1753,5,1756,10
-// Evil Horn --> 20 Shadow Arrows, 10 Flash Arrows, 5 Stun Arrows
+// Evil Horn --> 20 Flechas Sombrias, 10 Flechas Instantânea, 5 Flechas Atordoaras
 923,1767,20,1760,10,1758,5
-// Venom Canine --> 1 Poison Arrow
+// Venom Canine --> 1 Flechas Venenosas
 937,1763,1
-// Bee Sting --> 1 Rusty Arrow
+// Bee Sting --> 1 Flechas Oxidada
 939,1762,1
-// Horn --> 35 Iron Arrows
+// Horn --> 35 Flechas de Ferro
 947,1770,35
-// Cactus Needle --> 50 Arrows
+// Cactus Needle --> 50 Flechas
 952,1750,50
-// Gill --> 80 Iron Arrows, 150 Crystal Arrows
+// Gill --> 80 Flechas de Ferro, 150 Flechas de Cristal
 956,1770,80,1754,150
-// Decayed Nail --> 1 Rusty Arrow, 1 Shadow Arrow
+// Decayed Nail --> 1 Flechas Oxidada, 1 Flechas Sombrias
 957,1762,1,1767,1
-// Horrendous Mouth --> 5 Shadow Arrows
+// Horrendous Mouth --> 5 Flechas Sombrias
 958,1767,5
-// Stinky Scale --> 1 Poison Arrow
+// Stinky Scale --> 1 Flechas Venenosas
 959,1763,1
-// Heroic Emblem --> 1 Oridecon Arrow, 5 Stun Arrows
+// Heroic Emblem --> 1 Flechas de Oridecon, 5 Flechas Atordoaras
 968,1765,1,1758,5
-// Gold --> 50 Flash Arrows, 50 Oridecon Arrows
+// Gold --> 50 Flechas Instantânea, 50 Oridecon Flechas
 969,1760,50,1765,50
-// Oridecon --> 250 Oridecon Arrows
+// Oridecon --> 250 Oridecon Flechas
 984,1765,250
-// Elunium --> 1000 Steel Arrows, 50 Stun Arrows
+// Elunium --> 1000 Flechas de Aço, 50 Flechas Atordoaras
 985,1753,1000,1758,50
-// Red Blood --> 600 Fire Arrows
+// Red Blood --> 600 Fire Flechas
 990,1752,600
-// Crystal Blue --> 150 Crystal Arrows
+// Crystal Blue --> 150 Flechas de Cristal
 991,1754,150
-// Wind of Verdure --> 150 Arrows of Wind
+// Wind of Verdure --> 150 Flechas do Vento
 992,1755,150
-// Green Live --> 150 Stone Arrows
+// Green Live --> 150 Flechas de Pedra
 993,1756,150
-// Flame Heart --> 1800 Fire Arrows, 5 Mute Arrows
+// Flame Heart --> 1800 Fire Flechas, 5 Mute Flechas
 994,1752,1800,1769,5
-// Mystic Frozen --> 450 Crystal Arrows, 5 Frozen Arrows
+// Mystic Frozen --> 450 Flechas de Cristal, 5 Flechas de Gelo
 995,1754,450,1759,5
-// Rough Wind --> 450 Arrows of Wind, 5 Sleep Arrows
+// Rough Wind --> 450 Flechas do Vento, 5 Flechas do Sono
 996,1755,450,1768,5
-// Great Nature --> 450 Stone Arrows, 5 Flash Arrows
+// Great Nature --> 450 Flechas de Pedra, 5 Flechas Instantânea
 997,1756,450,1760,5
-// Iron --> 100 Iron Arrows
+// Ferro --> 100 Flechas de Ferro
 998,1770,100
-// Steel --> 100 Steel Arrows
+// Steel --> 100 Flechas de Aço
 999,1753,100
-// Star Crumb --> 30 Flash Arrows
+// Star Crumb --> 30 Flechas Instantânea
 1000,1760,30
-// Star Dust --> 10 Flash Arrows
+// Star Dust --> 10 Flechas Instantânea
 1001,1760,10
-// Iron Ore --> 50 Iron Arrows
+// Ferro Ore --> 50 Flechas de Ferro
 1002,1770,50
-// Coal --> 8 Shadow Arrows
+// Coal --> 8 Flechas Sombrias
 1003,1767,8
-// Phracon --> 50 Iron Arrows
+// Phracon --> 50 Flechas de Ferro
 1010,1770,50
-// Emveretarcon --> 200 Iron Arrows, 40 Silver Arrows
+// Emveretarcon --> 200 Flechas de Ferro, 40 Flechas de Prata
 1011,1770,200,1751,40
-// Mole Claw --> 50 Iron Arrows, 60 Stone Arrows
+// Mole Claw --> 50 Flechas de Ferro, 60 Flechas de Pedra
 1018,1770,50,1756,60
-// Trunk --> 40 Arrows
+// Trunk --> 40 Flechas
 1019,1750,40
-// Dokebi Horn --> 40 Iron Arrows, 2 Shadow Arrows
+// Dokebi Horn --> 40 Flechas de Ferro, 2 Flechas Sombrias
 1021,1770,40,1767,2
-// Porcupine Quill --> 70 Arrows, 30 Stone Arrows
+// Porcupine Quill --> 70 Flechas, 30 Flechas de Pedra
 1027,1750,70,1756,30
 // Mantis Scythe --> 1 Sharp Arrow
 1031,1764,1
-// Dragon Canine --> 1 Oridecon Arrow, 50 Iron Arrows
+// Dragon Canine --> 1 Flechas de Oridecon, 50 Flechas de Ferro
 1035,1765,1,1770,50
-// Little Evil Horn --> 2 Cursed Arrows, 50 Iron Arrows
+// Little Evil Horn --> 2 Flechas Amalditaçoada, 50 Flechas de Ferro
 1038,1761,2,1770,50
-// Lantern --> 80 Iron Arrows
+// Lantern --> 80 Flechas de Ferro
 1041,1770,80
-// Orc Claw --> 10 Steel Arrows
+// Orc Claw --> 10 Flechas de Aço
 1043,1753,10
-// Zenorc's Fang --> 5 Rusty Arrows
+// Zenorc's Fang --> 5 Flechas Oxidada
 1044,1762,5
-// Ancient Tooth --> 20 Steel Arrows, 300 Crystal Arrows
+// Ancient Tooth --> 20 Flechas de Aço, 300 Flechas de Cristal
 1053,1753,20,1754,300
-// Fang --> 2 Sharp Arrows, 40 Silver Arrows
+// Fang --> 2 Flechas Afiada, 40 Flechas de Prata
 1063,1764,2,1751,40
-// Reins --> 100 Iron Arrows, 50 Steel Arrows
+// Reins --> 100 Flechas de Ferro, 50 Flechas de Aço
 1064,1770,100,1753,50
-// Fine-grained Trunk --> 20 Arrows
+// Fine-grained Trunk --> 20 Flechas
 1066,1750,20
-// Solid Trunk --> 20 Arrows
+// Solid Trunk --> 20 Flechas
 1067,1750,20
-// Barren Trunk --> 20 Arrows
+// Barren Trunk --> 20 Flechas
 1068,1750,20
-// Clock Hand --> 5 Sleep Arrows, 100 Arrows
+// Clock Hand --> 5 Flechas do Sono, 100 Flechas
 1095,1768,5,1750,100
-// Manacles --> 50 Steel Arrows
+// Manacles --> 50 Flechas de Aço
 1098,1753,50
-// Unicorn Horn --> 1000 Silver Arrows
+// Unicorn Horn --> 1000 Flechas de Prata
 2257,1751,1000
-// Opera Masque --> 200 Steel Arrows, 40 Mute Arrows
+// Opera Masque --> 200 Flechas de Aço, 40 Mute Flechas
 2281,1753,200,1769,40
-// Mr. Scream --> 200 Sharp Arrows, 300 Steel Arrows
+// Mr. Scream --> 200 Flechas Afiada, 300 Flechas de Aço
 2288,1764,200,1753,300
-// Welding Mask --> 200 Steel Arrows, 40 Stun Arrows
+// Welding Mask --> 200 Flechas de Aço, 40 Flechas Atordoaras
 2292,1753,200,1758,40
-// Glittering Jacket --> 1000 Flash Arrows
+// Glittering Jacket --> 1000 Flechas Instantânea
 2319,1760,1000
-// Wooden Mail --> 700 Arrows, 500 Iron Arrows
+// Wooden Mail --> 700 Flechas, 500 Flechas de Ferro
 2328,1750,700,1770,500
-// Wooden Mail (Slotted) --> 1000 Arrows, 700 Iron Arrows
+// Wooden Mail (Slotted) --> 1000 Flechas, 700 Flechas de Ferro
 2329,1750,1000,1770,700
-// Silver Robe --> 700 Silver Arrows
+// Silver Robe --> 700 Flechas de Prata
 2332,1751,700
-// Silver Robe (Slotted) --> 1000 Silver Arrows, 10 Immaterial Arrows
+// Silver Robe (Slotted) --> 1000 Flechas de Prata, 10 Flechas Immaterial
 2333,1751,1000,1757,10
-// Shackles --> 700 Iron Arrows, 50 Steel Arrows
+// Shackles --> 700 Flechas de Ferro, 50 Flechas de Aço
 2408,1770,700,1753,50
-// Matyr's Leash --> 150 Arrows of Wind, 100 Steel Arrows, 10 Sharp Arrows
+// Matyr's Leash --> 150 Flechas do Vento, 100 Flechas de Aço, 10 Flechas Afiada
 2618,1755,150,1753,100,1764,10
-// Fin Helm --> 600 Crystal Arrows, 200 Steel Arrows
+// Fin Helm --> 600 Flechas de Cristal, 200 Flechas de Aço
 5014,1754,600,1753,200
-// Ogre Tooth --> 30 Steel Arrows, 5 Rusty Arrows
+// Ogre Tooth --> 30 Flechas de Aço, 5 Flechas Oxidada
 7002,1753,30,1762,5
-// Stiff Horn --> 2 Stun Arrows
+// Stiff Horn --> 2 Flechas Atordoaras
 7008,1758,2
-// Tail of Steel Scorpion --> 250 Steel Arrows, 1 Poison Arrow
+// Tail of Steel Scorpion --> 250 Flechas de Aço, 1 Flechas Venenosas
 7010,1753,250,1763,1
-// Young Twig --> 1000 Mute Arrows
+// Young Twig --> 1000 Mute Flechas
 7018,1769,1000
-// Loki's Whispers --> 1000 Shadow Arrows
+// Loki's Whispers --> 1000 Flechas Sombrias
 7019,1767,1000
-// Mother's Nightmare --> 1000 Cursed Arrows
+// Mother's Nightmare --> 1000 Flechas Amalditaçoada
 7020,1761,1000
-// Foolishness of the Blind --> 200 Flash Arrows
+// Foolishness of the Blind --> 200 Flechas Instantânea
 7021,1760,200
-// Old Hilt --> 1000 Oridecon Arrows
+// Old Hilt --> 1000 Oridecon Flechas
 7022,1765,1000
-// Blade of Darkness --> 600 Sharp Arrows, 200 Shadow Arrows
+// Blade of Darkness --> 600 Flechas Afiada, 200 Flechas Sombrias
 7023,1764,600,1767,200
-// Bloody Edge --> 600 Sharp Arrows, 200 Cursed Arrows
+// Bloody Edge --> 600 Flechas Afiada, 200 Flechas Amalditaçoada
 7024,1764,600,1761,200
-// Lucifer's Lament --> 800 Stun Arrows, 400 Mute Arrows, 800 Sleep Arrows
+// Lucifer's Lament --> 800 Flechas Atordoaras, 400 Mute Flechas, 800 Flechas do Sono
 7025,1758,800,1769,400,1768,800
-// Key of the Clock Tower --> 50 Oridecon Arrows
+// Key of the Clock Tower --> 50 Oridecon Flechas
 7026,1765,50
-// Key of the Underground --> 100 Shadow Arrows
+// Key of the Underground --> 100 Flechas Sombrias
 7027,1767,100
-// Matchstick --> 3000 Fire Arrows
+// Matchstick --> 3000 Fire Flechas
 7035,1752,3000
-// Fang of Garm --> 300 Crystal Arrows
+// Presa de Hatii --> 300 Flechas de Cristal
 7036,1754,300
 
-//New Ingredients
+//Novos Ingredientes
 
-// Ice Cubic --> 100 Crystal Arrows
+// Ice Cubic --> 100 Flechas de Cristal
 7066,1754,100
-// Stone Fragment --> 50 Stone Arrows, 30 Stun Arrows
+// Stone Fragment --> 50 Flechas de Pedra, 30 Flechas Atordoaras
 7067,1756,50,1758,30
-// Burnt Tree --> 250 Fire Arrows
+// Burnt Tree --> 250 Fire Flechas
 7068,1752,250
-// Destroyed Armor --> 150 Steel Arrows
+// Destroyed Armor --> 150 Flechas de Aço
 7069,1753,150
-// Burning Heart --> 150 Fire Arrows
+// Burning Heart --> 150 Fire Flechas
 7097,1752,150
-// Live Coal --> 100 Fire Arrows
+// Live Coal --> 100 Fire Flechas
 7098,1752,100
-// Sharp Leaf --> 30 Sharp Arrows
+// Sharp Leaf --> 30 Flechas Afiada
 7100,1764,30
-// Piece of Shield --> 100 Steel Arrows, 100 Oridecon Arrows, 300 Immaterial Arrows
+// Piece of Shield --> 100 Flechas de Aço, 100 Oridecon Flechas, 300 Flechas Immaterial
 7108,1753,100,1765,100,1757,300
-// Shining Spear Blade --> 100 Oridecon Arrows
+// Shining Spear Blade --> 100 Oridecon Flechas
 7109,1765,100
-// Burning Horseshoe --> 100 Steel Arrows
+// Burning Horseshoe --> 100 Flechas de Aço
 7120,1753,100
-// Dragon Skin --> 10 Steel Arrows, 50 Cursed Arrows, 50 Mute Arrows
+// Dragon Skin --> 10 Flechas de Aço, 50 Flechas Amalditaçoada, 50 Mute Flechas
 7123,1753,10,1761,50,1769,50
-// Piece of Bamboo --> 100 Arrows
+// Piece of Bamboo --> 100 Flechas
 7150,1750,100
-// Poisonous Toad Skin --> 20 Poison Arrows
+// Poisonous Toad Skin --> 20 Flechas Venenosas
 7155,1763,20
-// Hard Feeler --> 20 Sharp Arrows
+// Hard Feeler --> 20 Flechas Afiada
 7163,1764,20
-// Solid Peach --> 30 Stun Arrows
+// Solid Peach --> 30 Flechas Atordoaras
 7164,1758,30
-// Leopard Claw --> 10 Sharp Arrows
+// Leopard Claw --> 10 Flechas Afiada
 7172,1764,10
-// Armor Piece of Dullahan --> 150 Shadow Arrows
+// Armor Piece of Dullahan --> 150 Flechas Sombrias
 7210,1767,150
-// Tangled Chains --> 50 Steel Arrows, 50 Shadow Arrows
+// Tangled Chains --> 50 Flechas de Aço, 50 Flechas Sombrias
 7221,1753,50,1767,50
-// Cat's Eye --> 200 Arrows of Wind
+// Cat's Eye --> 200 Flechas do Vento
 7263,1755,200
-// Dark Crystal Fragment --> 30 Cursed Arrows, 50 Shadow Arrows
+// Dark Crystal Fragment --> 30 Flechas Amalditaçoada, 50 Flechas Sombrias
 7315,1761,30,1767,50
-// Insect Leg --> 10 Sharp Arrows, 50 Poison Arrows
+// Insect Leg --> 10 Flechas Afiada, 50 Flechas Venenosas
 7316,1764,10,1763,50
-// Old Pick --> 100 Rusty Arrows, 50 Steel Arrows
+// Old Pick --> 100 Flechas Oxidada, 50 Flechas de Aço
 7318,1762,100,1753,50
-// Used Iron Plate --> 100 Rusty Arrows, 100 Steel Arrows
+// Placa Ferro Usada --> 100 Flechas Oxidada, 100 Flechas de Aço
 7319,1762,100,1753,100
-// Crystal Fragment --> 10 Flash Arrows, 30 Sleep Arrows
+// Fragmento de Cristal --> 10 Flechas Instantânea, 30 Flechas do Sono
 7321,1760,10,1768,30
-// Battered Kettle --> 50 Steel Arrows
+// Chaleira Maltratada --> 50 Flechas de Aço
 7323,1753,50
-// Will of the Darkness --> 30 Cursed Arrows, 30 Poison Arrows, 50 Shadow Arrows
+// Vontade das Trevas --> 30 Flechas Amalditaçoada, 30 Flechas Venenosas, 50 Flechas Sombrias
 7340,1761,30,1763,30,1767,50
-// Golden Ornament --> 200 Silver Arrows, 300 Holy Arrows
+// Enfeite dourado --> 200 Flechas de Prata, 300 Flechas Sagradas
 7435,1751,200,1772,300
-// Cursed Seal --> 50 Cursed Arrows, 50 Mute Arrows
+// Cursed Seal --> 50 Flechas Amalditaçoada, 50 Mute Flechas
 7442,1761,50,1769,50
-// Green Bijou --> 100 Stone Arrows, 80 Poison Arrows
+// Green Bijou --> 100 Flechas de Pedra, 80 Flechas Venenosas
 7445,1756,100,1763,80
-// Blue Bijou --> 50 Arrows of Wind, 50 Crystal Arrows, 80 Frozen Arrows
+// Blue Bijou --> 50 Flechas do Vento, 50 Flechas de Cristal, 80 Flechas de Gelo
 7446,1755,50,1754,50,1759,80
-// Red Bijou --> 100 Fire Arrows, 80 Flash Arrows
+// Red Bijou --> 100 Fire Flechas, 80 Flechas Instantânea
 7447,1752,100,1760,80
-// Yellow Bijou --> 50 Silver Arrows, 50 Immaterial Arrows, 80 Sleep Arrows
+// Yellow Bijou --> 50 Flechas de Prata, 50 Flechas Immaterial, 80 Flechas do Sono
 7448,1751,50,1757,50,1768,80
-// Skeletal Armor Piece --> 500 Immaterial Arrows, 200 Shadow Arrows, 100 Oridecon Arrows
+// Skeletal Armor Piece --> 500 Flechas Immaterial, 200 Flechas Sombrias, 100 Oridecon Flechas
 7450,1757,500,1767,200,1765,100
-// Fire Dragon Scale --> 300 Fire Arrows, 300 Stun Arrows
+// Fire Dragon Scale --> 300 Fire Flechas, 300 Flechas Atordoaras
 7451,1752,300,1758,300
-// Valhalla's Flower --> 600 Immaterial Arrows, 600 Holy Arrows, 600 Sharp Arrows
+// Valhalla's Flower --> 600 Flechas Immaterial, 600 Flechas Sagradas, 600 Flechas Afiada
 7510,1757,600,1772,600,1764,600
-// Darkness Rune --> 300 Shadow Arrows, 150 Flash Arrows
+// Darkness Rune --> 300 Flechas Sombrias, 150 Flechas Instantânea
 7511,1767,300,1760,150
-// Ice Heart --> 50 Crystal Arrows, 50 Frozen Arrows
+// Ice Heart --> 50 Flechas de Cristal, 50 Flechas de Gelo
 7561,1754,50,1759,50
-// Ice Scale --> 150 Crystal Arrows, 400 Frozen Arrows, 200 Mute Arrows
+// Ice Scale --> 150 Flechas de Cristal, 400 Flechas de Gelo, 200 Mute Flechas
 7562,1754,150,1759,400,1769,200
-// Will of Red Darkness --> 200 Cursed Arrows, 200 Poison Arrows, 100 Shadow Arrows
+// Will of Red Darkness --> 200 Flechas Amalditaçoada, 200 Flechas Venenosas, 100 Flechas Sombrias
 7566,1761,200,1763,200,1767,100
-// Clattering Skull --> 50 Shadow Arrows, 50 Cursed Arrows
+// Clattering Skull --> 50 Flechas Sombrias, 50 Flechas Amalditaçoada
 7752,1767,50,1761,50
-// Broken Farm Tools --> 50 Rusty Arrows, 10 Iron Arrows, 20 Cursed Arrows
+// Broken Farm Tools --> 50 Flechas Oxidada, 10 Flechas de Ferro, 20 Flechas Amalditaçoada
 7753,1762,50,1770,10,1761,20
