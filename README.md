@@ -7,4 +7,4 @@ essa tag é dada aos membros que fizem doações ao projeto. eles tem total libe
 rAthenaBR enquanto é feito trabalho de tradução.
 Para saber mais ou como doar entre em contato via discord.
 
-|[Forum](#)|[Discord](https://discord.gg/pQNH9Pg)|[Doações](#)|
+|[Forum](#)|[Discord](https://discord.gg/pQNH9Pg)|
