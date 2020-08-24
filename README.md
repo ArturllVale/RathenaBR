@@ -1,6 +1,6 @@
 <img src="branding/logo.png" align="center" height="90" />
 
-[![Parceiros](#)](#) | [![Parceiros] (#)](#) | [![Parceiros] (#)](#) |
+[![Servidores que colaboram com projeto](#)](#) | [![Servidores que colaboram com projeto] (#)](#) | [![Servidores que colaboram com projeto] (#)](#) |
 > Doações rAthenaBR
   O Emulador é grátis para todos. Porem aceito doações rsrs
   Membros que fazem ou fizeram doações, receberam a tag "MEMBRO VIP"
