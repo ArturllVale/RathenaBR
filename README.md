@@ -1,4 +1,4 @@
-<img src="branding/logo.png" align="center" height="90" />
+<img src="branding/logo.png" align="center" />
 
 [![Servidores que colaboram com projeto](#)](#) | [![Servidores que colaboram com projeto] (#)](#) | [![Servidores que colaboram com projeto] (#)](#) |
 > Doações rAthenaBR
