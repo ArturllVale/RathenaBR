@@ -1,11 +1,13 @@
-//===== rAthena Script =======================================
-//= Lutie Town Pre-Renewal
-//===== Description: =========================================
-//= Lutie - City NPCs
-//===== Additional Comments: =================================
-//= 1.0 First version. [Lemongrass]
-//============================================================
+// ===== Script rAthena ===========================================
+// = Pré-renovação da cidade de Lutie
+// ===== Descrição: ===============================================
+// = Lutie - NPCs da cidade
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Lemongrass]
+// ====================================================== ============
 
-// Teleport to Lutie
+// Teleporta para Lutie
 //============================================================
 aldebaran,223,222,4	duplicate(Mr. Claus)	Mr. Claus#1	718

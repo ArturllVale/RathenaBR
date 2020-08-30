@@ -1,9 +1,11 @@
-// Gift Box Obtainable Items Database
+// Banco de dados de itens que podem ser obtidos de caixas de presente
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // GroupID,ItemID,Rate
 
-// GiftBox
+// Caixa de presente
 IG_GiftBox,501,1	// Red Potion
 IG_GiftBox,502,1	// Orange Potion
 IG_GiftBox,503,1	// Yellow Potion
@@ -74,7 +76,7 @@ IG_GiftBox,1000,1	// Star Crumb
 IG_GiftBox,1558,1	// Girl's Diary
 IG_GiftBox,4005,1	// Santa Poring Card
 IG_GiftBox,7034,1	// Red Stocking
-// GiftBox_1
+// Caixa de presente_1
 IG_GiftBox_1,501,1	// Red Potion
 IG_GiftBox_1,502,1	// Orange Potion
 IG_GiftBox_1,503,1	// Yellow Potion
@@ -145,7 +147,7 @@ IG_GiftBox_1,1000,1	// Star Crumb
 IG_GiftBox_1,1558,1	// Girl's Diary
 IG_GiftBox_1,4005,1	// Santa Poring Card
 IG_GiftBox_1,7034,1	// Red Stocking
-// GiftBox_2
+// Caixa de presente_2
 IG_GiftBox_2,501,1	// Red Potion
 IG_GiftBox_2,502,1	// Orange Potion
 IG_GiftBox_2,503,1	// Yellow Potion
@@ -216,7 +218,7 @@ IG_GiftBox_2,1000,1	// Star Crumb
 IG_GiftBox_2,1558,1	// Girl's Diary
 IG_GiftBox_2,4005,1	// Santa Poring Card
 IG_GiftBox_2,7034,1	// Red Stocking
-// Gift_Box3
+// Caixa de presente_3
 IG_GiftBox_3,501,1	// Red Potion
 IG_GiftBox_3,502,1	// Orange Potion
 IG_GiftBox_3,503,1	// Yellow Potion
@@ -287,7 +289,7 @@ IG_GiftBox_3,1000,1	// Star Crumb
 IG_GiftBox_3,1558,1	// Girl's Diary
 IG_GiftBox_3,4005,1	// Santa Poring Card
 IG_GiftBox_3,7034,1	// Red Stocking
-// GiftBox_4
+// Caixa de presente_4
 IG_GiftBox_4,501,1	// Red Potion
 IG_GiftBox_4,502,1	// Orange Potion
 IG_GiftBox_4,503,1	// Yellow Potion
@@ -358,7 +360,7 @@ IG_GiftBox_4,1000,1	// Star Crumb
 IG_GiftBox_4,1558,1	// Girl's Diary
 IG_GiftBox_4,4005,1	// Santa Poring Card
 IG_GiftBox_4,7034,1	// Red Stocking
-// GiftBox_China
+// Caixa de presente China
 IG_GiftBoxChina,501,1	// Red Potion
 IG_GiftBoxChina,502,1	// Orange Potion
 IG_GiftBoxChina,503,1	// Yellow Potion
@@ -623,7 +625,7 @@ IG_GiftBoxChina,5009,1	// Safety Helmet
 IG_GiftBoxChina,5010,1	// Indian Fillet
 IG_GiftBoxChina,5014,1	// Fin Helm
 IG_GiftBoxChina,5015,2	// Egg Shell
-// Old Gift Box
+// Caixa de presente antiga
 IG_OldGiftBox,5270,45	// Happy Wig
 IG_OldGiftBox,5271,15	// Phoenix Crown
 IG_OldGiftBox,5272,40	// Smiling Mask

@@ -1,28 +1,30 @@
-// Old Blue Box Obtainable Items Database
+// Banco de dados de itens obtidos do Old Blue Box
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // GroupID,ItemID,Rate
 
-IG_BlueBox,501,12	// Red Potion
-IG_BlueBox,502,12	// Orange Potion
-IG_BlueBox,503,12	// Yellow Potion
-IG_BlueBox,504,12	// White Potion
-IG_BlueBox,505,12	// Blue Potion
-IG_BlueBox,506,12	// Green Potion
-IG_BlueBox,507,12	// Red Herb
-IG_BlueBox,508,12	// Yellow Herb
-IG_BlueBox,509,12	// White Herb
-IG_BlueBox,510,12	// Blue Herb
-IG_BlueBox,511,12	// Green Herb
-IG_BlueBox,512,12	// Apple
+IG_BlueBox,501,12	// Poção Vermelha
+IG_BlueBox,502,12	// Poção Laranja
+IG_BlueBox,503,12	// Poção Amarela
+IG_BlueBox,504,12	// Poção Branca
+IG_BlueBox,505,12	// Poção Azul
+IG_BlueBox,506,12	// Poção Verde
+IG_BlueBox,507,12	// Erva vermelha
+IG_BlueBox,508,12	// Erva Amarela
+IG_BlueBox,509,12	// Erva Branca
+IG_BlueBox,510,12	// Erva Azul
+IG_BlueBox,511,12	// Erva Verde
+IG_BlueBox,512,12	// Maça
 IG_BlueBox,513,12	// Banana
-IG_BlueBox,514,12	// Grape
-IG_BlueBox,515,12	// Carrot
-IG_BlueBox,516,12	// Potato
-IG_BlueBox,517,12	// Meat
-IG_BlueBox,518,12	// Honey
-IG_BlueBox,519,12	// Milk
-IG_BlueBox,520,12	// Hinalle Leaflet
+IG_BlueBox,514,12	// Uva
+IG_BlueBox,515,12	// Cenoura
+IG_BlueBox,516,12	// Batata
+IG_BlueBox,517,12	// Carne
+IG_BlueBox,518,12	// Mel
+IG_BlueBox,519,12	// Leite
+IG_BlueBox,520,12	// Folha de Hinalle
 IG_BlueBox,521,12	// Aloe Leaflet
 IG_BlueBox,522,12	// Mastela Fruit
 IG_BlueBox,523,12	// Holy Water

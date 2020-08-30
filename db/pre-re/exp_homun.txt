@@ -1,4 +1,4 @@
-// Homunculus Experience Tables
+// Tabelas de experiência de Homunculus
 50
 110
 180

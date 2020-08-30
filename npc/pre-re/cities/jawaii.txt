@@ -1,16 +1,18 @@
-//===== rAthena Script =======================================
-//= Jawaii Town Pre-Renewal
-//===== By: ================================================== 
-//= Daegaladh
-//===== Current Version: ===================================== 
-//= 1.0
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: ========================================= 
-//= [Official Conversion]
-//= Jawaii town NPCs.
-//===== Additional Comments: ================================= 
-//= 1.0 First Version.
+// ===== Script rAthena ===========================================
+// = Pré-renovação da cidade de Jawaii
+// ===== Por: =============================================== =========
+// = Daegaladh
+// ===== Taduzido Por: =========================================
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = [Conversão oficial]
+// = NPCs da cidade Jawaii.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão.
 //============================================================
 
 izlude,171,185,3	duplicate(Honeymoon_Helper_Izlude)	Honeymoon Helper#Izlude	71

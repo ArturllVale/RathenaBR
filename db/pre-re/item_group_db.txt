@@ -1,4 +1,6 @@
-// Item Group Database
+// Banco de dados do grupo de itens
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // GroupID,ItemID,Rate{,Amount,Random,isAnnounced,Duration,GUID,isBound,isNamed}

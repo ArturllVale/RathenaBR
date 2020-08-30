@@ -1,15 +1,17 @@
-//===== rAthena Script ======================================= 
-//= Izlude Airport NPCs
-//===== By: ================================================== 
-//= rAthena Dev Team
-//===== Current Version: =====================================
-//= 1.0
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: ========================================= 
-//= Izlude Airport NPCs
-//===== Additional Comments: ================================= 
-//= 1.0 First version.
+// ===== Script rAthenaBR ===========================================
+// = NPCs do aeroporto de Izlude
+// ===== Por: =============================================== =========
+// = rAthena Dev Team
+// ===== Traduzido por: ===========================================
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = rAthena
+// ===== Descrição: ===============================================
+// = NPCs do aeroporto de Izlude
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão.
 //============================================================ 
 
 izlude,206,55,3	duplicate(Airship_Staff_izlude)	Airship Staff#izlude	90

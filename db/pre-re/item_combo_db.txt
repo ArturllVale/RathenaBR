@@ -1,6 +1,8 @@
-// Item Combos Database
+// Banco de dados de combinações de itens
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // ID:ID:ID:ID,{ Script }
 
 1166:2527,{ bonus2 bAddRace,RC_Dragon,5; }

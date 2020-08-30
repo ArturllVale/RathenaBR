@@ -1,22 +1,24 @@
-// Item Delay Database
+// Banco de dados de atraso do item
 //
-// Structure of Database:
+// Traduzido por: (Guru)
+//
+// Estrutura do banco de dados:
 // <ItemID>,<Delay>{,<SC_GroupID>}
 //
 // <ItemID>
-//     ID of item that will has reuse delay.
+//     ID do item que terá atraso na reutilização.
 // <Delay>
-//     Re-use delay in milliseconds.
+//    Retardo de reutilização em milissegundos.
 // <SC_GroupID>
-//     SC (status change) group for the item.
+//     SC (status change) grupo para o item.
 //     Example for SC_REUSE_LIMIT_MTF
-//         12658,10000,SC_REUSE_LIMIT_MTF // Transformation Scroll(Deviruchi)
-//         12659,10000,SC_REUSE_LIMIT_MTF // Transformation Scroll(Raydric)
-//     -> 12658 has reuse delay for 10 seconds, and also,
-//        12659 cannot be used when this delay is active.
-//     Since this is optional, default is -1 will ignores the
-//     delay group and the delay will be stored in character's
-//     data that has limit set in src/map/itemdb.hpp as MAX_ITEMDELAYS.
+//         12658,10000,SC_REUSE_LIMIT_MTF // Transformação de pergaminho (Deviruchi)
+//         12659,10000,SC_REUSE_LIMIT_MTF // Pergaminho de transformação (Raydric)
+//     -> 12658 tem retardo de reutilização de 10 segundos, e também,
+//        12659 não pode ser usado quando este retardo está ativo.
+// Como isso é opcional, o padrão é -1 irá ignorar o
+// grupo de atraso e o atraso será armazenado no personagem
+// dados que possuem limite definido em src/map/itemdb.hpp como MAX_ITEMDELAYS.
 
 // SC_REUSE_LIMIT_A
 14538,300000,SC_REUSE_LIMIT_A	//Glass_Of_Illusion
