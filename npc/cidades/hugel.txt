@@ -1,0 +1,206 @@
+// ===== Script rAthena ===========================================
+// = Hugel City
+// ===== Por: =============================================== =========
+// = vicious_pucca, Poki # 3, erKURITA, Munin e todos no
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// = comentários
+// ===== Versão Atual: ===========================================
+// = 1,7
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = NPC's para a cidade de Hugel.
+// ===== Comentários adicionais: ===================================
+// = Cabos e Sprites estão 100% corretos, mas os nomes não.
+// = Além disso, ninguém sabe o que os NPCs estão falando agora: / [Poki # 3]
+// = Nota: Nem todos os sprites estavam corretos: P [erKURITA]
+// = 1.0 Adicionada a primeira loja, fogos de artifício. Obrigado RockmanEXE pela informação [erKURITA]
+// = Adicionados mais npc ausentes, mas, novamente, apenas locais e nomes temporários = / [erKURITA]
+// = Iniciada a base do Poring Track. [erKURITA]
+// = Moveu a senhora idosa para npc \ guias \ guias_hu.txt, pois é a guarda de Hugel [erKURITA]
+// = Agradecimentos especiais ao RockmanEXE que forneceu todas as informações necessárias = 3
+// = Yan e Yalmire sequestrados / movidos (nomes temporários) para npc \ events \ custom \ p_track. [erKURITA]
+// = 1.1 Comentou toda a lista de npcs fictícios. Eles estão lá para nada de qualquer maneira,
+// = apenas usando memória. [erKURITA]
+// = 1.2 Adicionados alguns NPCs com script de Munin e corrigidos um pouco o formato [Playtester]
+// = 1.3 Movido alguns NPCs relacionados a missões para o arquivo apropriado. [SinSloth]
+// = 1.4 Otimizado a loja de suprimentos para festas [DZeroX]
+// = 1.5 Loja de suprimentos para festas fixas. [L0ne_W0lf]
+// = 1.6 Duplicado "Mudie" removido. [L0ne_W0lf]
+// = 1.7 Espaço em branco e lixo removidos. [Kisuka]
+//============================================================
+
+// Hugel
+//============================================================
+hugel,189,143,5	script	Young Man	898,{
+	mes "[Young Man]";
+	mes "Huh. Então aquela gigante";
+	mes "bolsa de ar, pode fazer";
+	mes "pessoas flutuarem?";
+	mes "Então, se eu encher minha barriga";
+	mes "com ar, funciona da mesma forma?";
+	close;
+}
+
+hugel,126,151,3	script	Emily	90,{
+	mes "[Emily]";
+	mes "Eu me sinto abençoada em";
+	mes "morar nessa";
+	mes "cidadizinha. É tão linda e";
+	mes "qualquer pessoa daqui é tão legal~";
+	next;
+	mes "[Emily]";
+	mes "Por alguma razão, minha irmã";
+	mes "mais velha, quer se mudar";
+	mes "daqui, o mais rápido que ela puder. Ela";
+	mes "diz que está ficando com medo";
+	mes "das pessoas que moram aqui.";
+	mes "Você não acha isso estranho?";
+	close;	
+}
+
+hugel,86,165,5	script	Kayplas	896,{
+	mes "[Kayplas]";
+	mes "Ooh, eu queria";
+	mes "ter aquela mamadeira vermelha.";
+	mes "Eu devia pedir pra minha mãe";
+	mes "comprar uma pra mim. Não";
+	mes "parece tão cara, não é?";
+	close;	
+}
+
+hugel,71,197,3	script	Lisa	90,{
+	mes "[Lisa]";
+	mes "Hugel é uma";
+	mes "pequena e singela cidade.";
+	mes "Todo mundo conhece todo mundo,";
+	mes "todos sabem o que os outros";
+	mes "estão fazendo.";
+	mes "Isso é tão sufocante!";
+	next;
+	mes "[Lisa]";
+	mes "Não há privacidade em";
+	mes "pequenas cidades. Algum dia,";
+	mes "quero sair daqui e";
+	mes "morar numa cidade grande~";
+	close;	
+}
+
+hugel,169,112,5	script	Velha Nikki	892,{
+	mes "[Velha Nikki]";
+	mes "Você não deve ser";
+	mes "daqui. Ah, você é";
+	mes "um aventureiro, certo?";
+	mes "Sabe como eu deduzi isso?";
+	next;
+	mes "[Velha Nikki]";
+	mes "É porque todos que";
+	mes "moram aqui, começa";
+	mes "a ter a mesma aparência após algum tempo.";
+	mes "E você certamente não olha";
+	mes "para velhas como nós. Bem, tenha";
+	mes "um ótimo dia, aventureiro~";
+	close;	
+}
+
+hugel,175,115,5	script	Marius	897,{
+	mes "[Marius]";
+	mes "Sim, eu sou um velho, mas";
+	mes "eu posso bater em uma pessoa metida";
+	mes "como você qualquer dia da semana!";
+	mes "Sabe, Hugel tem uma";
+	mes "expectativa de vida maior do que a das outras cidades. Sabe por quê?";
+	next;
+	mes "[Marius]";
+	mes "É porque os velhos";
+	mes "nessa cidade se recusam";
+	mes "a morrer!";
+	mes "Agora, vamos lá! Deixe-me mostrar";
+	mes "o quanto eu sou forte! Vamos";
+	mes "brigar ou sei lá, garoto~";
+	close;
+}
+
+//Por dentro do Hugel
+//============================================================
+hu_in01,111,386,4	script	Chris	86,{
+	mes "[Chris]";
+	mes "Sabe, as pessoas não";
+	mes "enfrentam monstros perigosos, eles";
+	mes "só se protegem equipando armaduras.";
+	mes "É apenas a maneira como elas são.";
+	next;
+	mes "[Chris]";
+	mes "Se você quiser comprar";
+	mes "algumas armaduras,";
+	mes "então eu sugiro comprar";
+	mes "numa cidade grande.";
+	close;	
+}
+
+hu_in01,23,311,4	script	Vendedor de Fogos	898,{
+	mes "[Vendedor de Fogos]";
+	mes "Bem-vindo venda de itens";
+	mes "para festas!";
+	mes "Por quê você não solta alguns";
+	mes "fogos de artifício com seus";
+	mes "amigos?";
+	mes "Podemos te dar 5 deles por";
+	mes "500 zenys.";
+	next;
+	switch (select("Comprar:Cancelar")) {
+		case 1:
+			if (Zeny < 500) {
+				mes "[Vendedor de Fogos]";
+				mes "Lamento, mas você não tem";
+				mes "dinheiro o bastante~";
+				close;
+			}
+			set Zeny,Zeny-500;
+			getitem 12018,5;	// Fogos de Artificios
+			mes "[Vendedor de Fogos]";
+			mes "Aqui está!";
+			mes "Divirtar-se com eles!";
+			close;
+		case 2:
+			mes "[Vendedor de Fogos]";
+			mes "Obrigado, volte novamente quando quiser.";
+			close;
+	}
+}
+
+hu_in01,18,94,0	script	Assistente#1	49,{
+	mes "[Luda]";
+	mes "Bem-vindo ao";
+	mes "Escritório da Expedição ao Templo.";
+	mes "Eu sou Luda, um assistente";
+	mes "temporário. Meu trabalho é";
+	mes "manter esse escritório arrumado e";
+	mes "limpo, mas veja só este lugar!";
+	next;
+	mes "[Luda]";
+	mes "Mesmo assim, eu acho que posso";
+	mes "cuidar dessa tarefa.";
+	mes "Esta sala é o escritório da";
+	mes "equipe da República de Schwaltzvalt";
+	mes "e a outra é a equipe é da República";
+	mes "de Rune-Midgard.";
+	next;
+	mes "[Luda]";
+	mes "Eu tenho que limpar as duas salas,";
+	mes "então estou sempre ocupado.";
+	mes "Por que você não se alista como";
+	mes "voluntário para a expedição? Eu sei que eles";
+	mes "não podem pagar você, mas é";
+	mes "uma grande chance de explorar.";
+	close;
+}
+
+hu_in01,26,77,4	script	Assistente#2	50,{
+	mes "^3355FFEste assistente temporário está";
+	mes "completamente desgostoso";
+	mes "com a tarefa de organizar";
+	mes "livros e arquivos.^000000";
+	close;
+}

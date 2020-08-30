@@ -1,22 +1,24 @@
-//===== rAthena Script ======================================= 
-//= Kafras (Cities/Dungeons/Fields)
-//===== By: ================================================== 
-//= Daegaladh
-//===== Current Version: ===================================== 
-//= 1.0
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: =========================================
-//= Argument settings for callfunc "F_Kafra":
-//=  arg(0): 0 - Default Kafra message
-//=          1 - Niflhiem Kafra message
-//=          2 - Guild Kafra message
-//=  arg(1): 1 - Disable teleport menu 
-//=  arg(2): 1 - Disable info menu
-//=  arg(3): Cost of Storage service
-//=  arg(4): Cost of Rent a Pushcart service
-//===== Additional Comments: ================================= 
-//= 1.0 First version.
+// ===== Script rAthena ===========================================
+// = Kafras (Cidades / Masmorras / Campos)
+// ===== Por: =============================================== =========
+// = Daegaladh
+// ===== taduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Configurações de argumento para callfunc "F_Kafra":
+// = arg (0): 0 - Mensagem Kafra padrão
+// = 1 - mensagem Niflhiem Kafra
+// = 2 - Mensagem Kafra da Guilda
+// = arg (1): 1 - Desativar menu de teletransporte
+// = arg (2): 1 - Desativar menu de informações
+// = arg (3): Custo do serviço de armazenamento
+// = arg (4): Custo de alugar um serviço Pushcart
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão.
 //============================================================ 
 
 // Izlude

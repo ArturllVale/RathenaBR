@@ -1,60 +1,62 @@
-//===== rAthena Script ======================================= 
-//= Dungeon Teleport Service
-//===== By: ================================================== 
-//= Evera
-//===== Current Version: ===================================== 
-//= 2.9a
-//===== Compatible With: ===================================== 
-//= rAthena Project
-//===== Description: =========================================
-//= [Official Conversion]
-//= Cool Event Corp NPCs vs. Kafra Dungeon Teleport Service and voting system.
-//= This is a special event on official servers where there's a
-//= big competition between Kafra Corp. and Cool Event Corp.
-//= To warp to selected levels of certain dungeons.
+// ===== Script rAthena ===========================================
+// = Serviço de teletransporte de calabouço
+// ===== Por: =============================================== =========
+// = Evera
+// ===== Traduzido por: ============================================ ==========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 2.9a
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: =========================================
+// = [Conversão oficial]
+// = NPCs Cool Event Corp vs. Kafra Dungeon Teleport Service e sistema de votação.
+// = Este é um evento especial nos servidores oficiais onde há um
+// = grande competição entre Kafra Corp. e Cool Event Corp.
+// = Para teletransportar para níveis selecionados de certas masmorras.
 //
-// Global Variables in use:
-//	Voting Time check:		$DTS_Time
-//	Cool Event Corp. Vote Numbers:	$DTS_JondaVotes
-//	Kafra Vote Numbers:		$DTS_KafraVotes
-//	Winner:				$DTS_Result
-//	Teleport Service Period Check:	$DTS_PeriodCheck
-//	Kafra Points:			$DTS_KafraWins
-//	Cool Event Corp. Points:	$DTS_JondaWins
-//	Setitem Check:			$DTS_VoteCount
-// For Detailed information on what each varibale does, see
-// the "Vote Globalvar Girl#yuno" NPC at the end of the file.
-// Character Variable in use: lhz_vote (how many times player has voted, keeps htem from re-voting.)
-//===== Additional Comments: ================================= 
-//= 1.0 Initial release [Evera]
-//= 1.1 SVN release, removed from major town (found true info after research),
-//=     put more arg(2) parameters, fixed a few bugs [Evera]
-//= 1.2 Mushed some variables together, optimized a bit [Evera]
-//= 1.3 Removed selfconfig [Evera]
-//= 1.4 Changed global variables to read from 3 global variables, updated names,
-//=      fixed array bug [Evera]
-//= 1.5 Mushed voting varialbes into 1 variable. [Evera]
-//= 1.6 Removed Duplicates [Silent]
-//= 1.7 Fixed bug of DTS_Admin not running by itself [Evera]
-//= 1.8 Changed requirement to lvl 60 [Evera]
-//= 1.9 Removed global eligibility option [Evera]
-//= 2.0 Fixed zeny bug [Evera]
-//= 2.1 Fixed headers with and updated with newer information [Evera]
-//= 2.2 Changed dtseligible 2 to MISC_QUEST|128, to clean up variable usage. [Evera]
-//=     Also added F_ClearGarbage function to the scripts. [Evera]
-//= 2.3 Changed dtseligible to be $dtsday when MISC_QUEST|128
-//=     Added $dtsday for vote session counter
-//=     Fixed bug that involved having both warpers enabled at the same time. [Evera]
-//=     New $dtsday system and bug fix[Evera]
-//= 2.3a fixed 2 bugs with comparision [Lupus]
-//= 2.3b corrected Glast warp coords [Lupus] 2.3c Bailand -> Bayalan
-//= 2.4 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
-//= 2.5 Converted from Aegis file. (11.3) [L0ne_W0lf]
-//= 2.6 Moved Morocc NPCs to Morocc Ruins. [L0ne_W0lf]
-//= 2.7 Fixed a typo, a - to a +. Not sure how that happened. [L0ne_w0lf]
-//= 2.8 Corrected another typo this time in a variable.
-//= 2.9 Added GM management function. [Euphy]
-//= 2.9a Tweaked NPC sprite & cutin used. [Liam]
+// Variáveis ​​globais em uso:
+// Verificação da hora da votação: $ DTS_Time
+// Números de votação da Cool Event Corp.: $ DTS_JondaVotes
+// Números de votação do Kafra: $ DTS_KafraVotes
+// Vencedor: $ DTS_Result
+// Verificação do período do serviço de teletransporte: $ DTS_PeriodCheck
+// Pontos Kafra: $ DTS_KafraWins
+// Pontos Cool Event Corp.: $ DTS_JondaWins
+// Setitem Check: $ DTS_VoteCount
+// Para obter informações detalhadas sobre o que cada varibale faz, consulte
+// o NPC "Vote Globalvar Girl # yuno" no final do arquivo.
+// Character Variable in use: lhz_vote (quantas vezes o jogador votou, impede que o htem volte a votar.)
+// ===== Comentários adicionais: ===================================
+// = 1.0 versão inicial [Evera]
+// = versão 1.1 SVN, removido da cidade principal (informações verdadeiras encontradas após pesquisa),
+// = colocou mais parâmetros arg (2), corrigiu alguns bugs [Evera]
+// = 1,2 Mushed algumas variáveis ​​juntas, otimizado um pouco [Evera]
+// = 1.3 Selfconfig removido [Evera]
+// = 1.4 Variáveis ​​globais alteradas para ler a partir de 3 variáveis ​​globais, nomes atualizados,
+// = bug de array corrigido [Evera]
+// = 1.5 Varialbes de votação condensada em 1 variável. [Evera]
+// = 1.6 Duplicados removidos [silencioso]
+// = 1.7 Corrigido bug de DTS_Admin não rodando sozinho [Evera]
+// = 1.8 Requisito alterado para nível 60 [Evera]
+// = 1.9 Opção de elegibilidade global removida [Evera]
+// = 2.0 Bug zeny corrigido [Evera]
+// = 2.1 Cabeçalhos corrigidos e atualizados com informações mais recentes [Evera]
+// = 2.2 Alterado dtseligible 2 para MISC_QUEST | 128, para limpar o uso da variável. [Evera]
+// = Também adicionou a função F_ClearGarbage aos scripts. [Evera]
+// = 2.3 Dtseligible alterado para $ dtsday quando MISC_QUEST | 128
+// = Adicionado $ dtsday para contador de sessão de votação
+// = Corrigido bug que envolvia ter os dois warpers habilitados ao mesmo tempo. [Evera]
+// = Novo sistema $ dtsday e correção de bug [Evera]
+// = 2.3a corrigiu 2 bugs com comparação [Lupus]
+// = 2.3b corrigidos Glast warp coords [Lupus] 2.3c Bailand -> Bayalan
+// = 2.4 NPCs corrigidos para cair dentro das restrições adequadas. [L0ne_W0lf]
+// = 2,5 convertido do arquivo Aegis. (11.3) [L0ne_W0lf]
+// = 2.6 NPCs Morocc movidos para as Ruínas Morocc. [L0ne_W0lf]
+// = 2.7 Corrigido um erro de digitação, de - a +. Não tenho certeza de como isso aconteceu. [L0ne_w0lf]
+// = 2.8 Corrigido outro erro de digitação desta vez em uma variável.
+// = 2.9 Adicionada função de gerenciamento GM. [Euphy]
+// = 2.9a Sprite e cutin NPC ajustados usados. [Liam]
 //============================================================ 
 
 einbroch,246,70,0	script	Vote Timer#ein	-1,{
@@ -72,7 +74,7 @@ OnEnable:
 	end;
 
 OnTimer60000:
-	// A part that keeps the same status even after a server shut down
+	// Uma parte que mantém o mesmo status mesmo após o desligamento de um servidor
 	if ($DTS_Result == 1) {
 		if ($DTS_JondaWins == 0) {
 			donpcevent "Vote Timer2#ein::OnEnable";
@@ -259,16 +261,16 @@ OnEnable:
 OnTimer60000:
 	stopnpctimer;
 	if ($DTS_PeriodCheck == 8640) {
-		set $DTS_PeriodCheck,0; //Global Variable
-		set $DTS_Result,0; //Global Variable
-		set $DTS_KafraVotes,0; //Global Variable
-		set $DTS_JondaVotes,0; //Global Variable
+		set $DTS_PeriodCheck,0; // Variável Global
+		set $DTS_Result,0; // Variável Global
+		set $DTS_KafraVotes,0; // Variável Global
+		set $DTS_JondaVotes,0; // Variável Global
 		set $DTS_JondaWins,$DTS_JondaWins-1;
 		set $DTS_VoteCount,$DTS_VoteCount+1;
 		donpcevent "Vote Timer#ein::OnEnable";
 	}
 	else {
-		set $DTS_PeriodCheck,$DTS_PeriodCheck+1; //Global Variable
+		set $DTS_PeriodCheck,$DTS_PeriodCheck+1; // Variável Global
 		donpcevent "Vote Timer3#ein::OnEnable";
 	}
 	end;
@@ -282,26 +284,26 @@ OnEnable:
 OnTimer60000:
 	stopnpctimer;
 	if ($DTS_PeriodCheck == 8640) {
-		set $DTS_PeriodCheck,0; //Global Variable
-		set $DTS_Result,0; //Global Variable
-		set $DTS_KafraVotes,0; //Global Variable
-		set $DTS_JondaVotes,0; //Global Variable
+		set $DTS_PeriodCheck,0; // Variável Global
+		set $DTS_Result,0; // Variável Global
+		set $DTS_KafraVotes,0; // Variável Global
+		set $DTS_JondaVotes,0; // Variável Global
 		set $DTS_KafraWins,$DTS_KafraWins-1;
 		set $DTS_VoteCount,$DTS_VoteCount+1;
 		donpcevent "Vote Timer#ein::OnEnable";
 	}
 	else {
-		set $DTS_PeriodCheck,$DTS_PeriodCheck+1; //Global Variable
+		set $DTS_PeriodCheck,$DTS_PeriodCheck+1; // Variável Global
 		donpcevent "Vote Timer4#ein::OnEnable";
 	}
 	end;
 }
 
-// Voting Poll NPCs Kafras and Cool Corp.
-// Cool Event Staff should actually be Cool Event Voting Staff
-// names had to be shortened to keep them unique.
+// Votação Poll NPCs Kafras e Cool Corp.
+// Cool Event Staff deveria ser Cool Event Voting Staff
+// nomes tiveram que ser encurtados para mantê-los únicos.
 function	script	F_VoteKafra	{
-	callfunc "F_ClearGarbage";				//Clear outdated, unused variables
+	callfunc "F_ClearGarbage";				// Limpar variáveis ​​desatualizadas e não utilizadas
 	switch(getarg(0)){
 	case 1: cutin "kafra_01",2; break;
 	case 2: cutin "kafra_02",2; break;
@@ -313,57 +315,35 @@ function	script	F_VoteKafra	{
 	case 8: cutin "kafra_08",2; break;
 	case 9: cutin "kafra_09",2; break;
 	}
-	mes "[Kafra Voting Staff]";
-	mes "Greetings, adventurer.";
-	mes "As you may be aware, we";
-	mes "are holding an election to";
-	mes "determine which company will";
-	mes "provide the Dungeon Teleport";
-	mes "Service. How may I help you?";
+	mes "[CEI - Assistente da Eleição]";
+	mes "Saudações, aventureiro.";
+	mes "Como você deve estar sabendo, nós";
+	mes "estão realizando uma eleição para";
+	mes "determinar qual empresa irá";
+	mes "fornecer os Serviços de Teletransporte aos Calabouços.";
+	mes "Como posso ajudá-lo?";
 	next;
-	switch(select("Reason for Election:Cast a Vote:Use Teleport Service:Cancel")) {
+	switch(select("Motivo de eleição:Lançar um voto:Usar o serviço de teletransporte:Cancelar")) {
 	case 1:
-		mes "[Kafra Voting Staff]";
-		mes "Cool Event Corp and the";
-		mes "Kafra Corporation have both";
-		mes "been planning to provide a";
-		mes "Teleport Service to dungeons.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "A Corporação Eventos Incríveis e a Corporação Kafra que ambos têm planejado prover um Serviço de Teletransporte aos Calabouços.";
 		next;
-		mes "[Kafra Voting Staff]";
-		mes "But due to technological";
-		mes "limitations, only one company";
-		mes "can serve as provider for this";
-		mes "Dungeon Teleport Service at a";
-		mes "time. There, both companies have agreed to hold special elections.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Mas devido a limitações tecnológicas, só uma compania pode servir de cada vez como provedor para este Serviço de Teletransporte aos Calabouço. Então, ambas as corporações concordaram em organizar uma eleição especial.";
 		next;
-		mes "[Kafra Voting Staff]";
-		mes "Each company has its own";
-		mes "policies and guarantees in";
-		mes "regards to the Dungeon Teleport Service, and in this election, the";
-		mes "customers will ultimately decide and choose what's best for them.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Cada corporação tem suas próprias políticas e garantias com respeito ao Serviço de Teletransporte aos Calabouços, e nesta eleição, os clientes decidirão e escolherão o que é melhor para eles.";
 		next;
-		mes "[Kafra Voting Staff]";
-		mes "For now, the Dungeon";
-		mes "Teleport Service will be";
-		mes "provided in a series of trial periods. This way, customers can";
-		mes "see the benefits of both companies before making the final decision.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Para agora, o Serviço de Teletransporte aos Calabouços será provido em uma série de períodos de testes. Deste modo, os clientes podem ver os benefícios de ambas as companias antes de fazer a decisão final.";
 		next;
-		mes "[Kafra Voting Staff]";
-		mes "If you are qualified,";
-		mes "please vote in each election";
-		mes "to decide which company will";
-		mes "provide the Dungeon Teleport";
-		mes "Service for the next trial period. Thank you for your support~";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Se você está qualificado, por favor vote em cada eleição para decidir qual compania proverá o Serviço de Teletransporte aos Calabouços do próximo período de testes. Obrigada por seu apoio.";
 		break;
 	case 2:
 		//if (lhz_boss < 17) {
-		//	mes "[Kafra Voting Staff]";
-		//	mes "Oh, I'm so sorry, but you";
-		//	mes "are currently not qualified to";
-		//	mes "vote. For voting qualification";
-		//	mes "information, please visit the";
-		//	mes "Al De Baran Kafra Headquarters.";
-		//	mes "Thank you and have a nice day.";
+		//	mes "[CEI - Assistente da Eleição]";
+		//	mes "Oh, eu sinto muito, mas você não está qualificado para votar atualmente. Para informação de qualificação de voto, por favor visite nossa sede em Al De Baran. Obrigada e tenha um dia agradável.";
 		//	close2;
 		//	cutin "",255;
 		//	end;
@@ -371,169 +351,169 @@ function	script	F_VoteKafra	{
 		//else {
 			if ($DTS_Result == 0) {
 				if (lhz_vote <= $DTS_VoteCount) {
-					mes "[Kafra Voting Staff]";
-					mes "We, the Kafra Corporation,";
-					mes "are planning to provide the";
-					mes "Dungeon Teleport Service";
-					mes "to the following dungeons...";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Nós, a Kafra Corporation,";
+					mes "estão planejando fornecer o";
+					mes "Serviço de teletransporte de masmorras";
+					mes "para as seguintes masmorras ...";
 					next;
 					mes " ";
 					mes " ";
 					if ($DTS_KafraWins == 0) {
-						mes "^FF0000Toy Factory, Level 2^000000";
+						mes "^FF0000Fábrica de brinquedos, Nível 2^000000";
 					}
 					else if ($DTS_KafraWins == 1) {
-						mes "^FF0000Toy Factory, Level 2^000000";
-						mes "^FF0000Al De Baran Clock Tower, Level 3 ^000000";
+						mes "^FF0000Fábrica de brinquedos, Nível 2^000000";
+						mes "^FF0000Torre do Relógio, Nível 3 ^000000";
 					}
 					else {
-						mes "^FF0000Toy Factory, Level 2^000000";
-						mes "^FF0000Al De Baran Clock Tower, Level 3 Lava Dungeon, Level 2^000000";
+						mes "^FF0000Fábrica de brinquedos, Nível 2^000000";
+						mes "^FF0000Torre do Relógio, Nível 3 Calabouço de Magma, Nível 2^000000";
 					}
 					next;
-					mes "[Kafra Voting Staff]";
-					mes "If you are interested in";
-					mes "a Teleport Service to this";
-					mes "area, then please vote for";
-					mes "us. Would you like to vote";
-					mes "for the Kafra Corporation?";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Se você estiver interessado em";
+					mes "um serviço de teletransporte para este";
+					mes "área, então por favor vote em";
+					mes "nos. Você gostaria de votar";
+					mes "para a Kafra Corporation?";
 					next;
-					switch(select("No:Yes")) {
+					switch(select("Não:Sim")) {
 					case 1:
-						mes "[Kafra Voting Staff]";
-						mes "I understand. But if you";
-						mes "happen to change your mind,";
-						mes "you are welcome to come back";
-						mes "at any time. Thank you and";
-						mes "have a good day, adventurer.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Compreendo. Mas se acontecer";
+						mes "de você mudar sua mente,";
+						mes "você é bem-vindo para voltar";
+						mes "a qualquer momento. Obrigado e";
+						mes "Tenha um bom dia, aventureiro.";
 						break;
 					case 2:
 						set lhz_vote,$DTS_VoteCount+1;
 						set $DTS_KafraVotes,$DTS_KafraVotes+1;
-						mes "[Kafra Voting Staff]";
-						mes "Thanks for your vote!";
-						mes "We'll continue to do our best";
-						mes "to provide the highest quality";
-						mes "service to our customers. Have";
-						mes "a good day and remember that the Kafra service is on your side~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Obrigado pelo seu voto!";
+						mes "Continuaremos a fazer o nosso melhor";
+						mes "para fornecer a mais alta qualidade";
+						mes "no serviço aos nossos clientes. Tenha";
+						mes "um bom dia e lembre-se que o serviço Kafra está do seu lado~";
 						break;
 					}
 				}
 				else {
-					mes "[Kafra Voting Staff]";
-					mes "I'm sorry, but you've ";
-					mes "already participated in";
-					mes "this election. When the next";
-					mes "election comes, you will be";
-					mes "able to vote once again.";
-					mes "Thank you for your support~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Me desculpe, mas você ";
+					mes "já participou";
+					mes "desta eleição. Quando o próxima";
+					mes "eleição vier, você será";
+					mes "capaz de votar mais uma vez.";
+					mes "Obrigado pelo seu apoio ~";
 				}
 			}
 			else if ($DTS_Result == 3) {
 				if (lhz_vote <= $DTS_VoteCount) {
-					mes "[Kafra Voting Staff]";
-					mes "After totalling the number of";
-					mes "votes from the last election,";
-					mes "we have concluded that the";
-					mes "minimum voter participation";
-					mes "condition was not satisfied.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Depois de totalizar o número de";
+					mes "votos da última eleição,";
+					mes "concluímos que a";
+					mes "participação mínima dos eleitores";
+					mes "não foi satisfeita.";
 					next;
-					mes "[Kafra Voting Staff]";
-					mes "Therefore, another election to";
-					mes "determine which company will";
-					mes "provide the Dungeon Teleport";
-					mes "Service will be held. The Kafra";
-					mes "Corporation will teleport to";
-					mes "the following dungeons...";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Portanto, será realizada outra eleição para";
+					mes "determinar qual empresa irá";
+					mes "fornecer o Teletransporte para Calabouços";
+					mes "O serviço será realizado. pela";
+					mes "Corporação Kafra, você vai poder se teletransportar para";
+					mes "as seguintes masmorras ...";
 					next;
 					mes " ";
 					mes " ";
 					if ($DTS_KafraWins == 0) {
-						mes "^FF0000Toy Factory, Level 2^000000";
+						mes "^FF0000Fábrica de Brinquedos, Nível 2^000000";
 					}
 					else if ($DTS_KafraWins == 1) {
-						mes "^FF0000Toy Factory, Level 2^000000";
-						mes "^FF0000Al De Baran Clock Tower, Level 3 ^000000";
+						mes "^FF0000Fábrica de Brinquedo, Nível 2^000000";
+						mes "^FF0000Torre do Relógio, Nível 3 ^000000";
 					}
 					else {
-						mes "^FF0000Toy Factory, Level 2^000000";
-						mes "^FF0000Al De Baran Clock Tower, Level 3 Lava Dungeon, Level 2^000000";
+						mes "^FF0000Fábrica de Brinquedo, Nível 2^000000";
+						mes "^FF0000Torre do Relógio, Nível 3 Calabouço de Magma, Nível 2^000000";
 					}
 					next;
-					mes "[Kafra Voting Staff]";
-					mes "If you are interested in";
-					mes "a Teleport Service to these";
-					mes "areas, then please vote for";
-					mes "us. Would you like to vote";
-					mes "for the Kafra Corporation?";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Se você estiver interessado em";
+					mes "usar os serviço de teletransporte para estas";
+					mes "áreas, então por favor vote em";
+					mes "nos. Você gostaria de votar";
+					mes "na Kafra Corporation?";
 					next;
-					switch(select("No:Yes")) {
+					switch(select("Não:Sim")) {
 					case 1:
-						mes "[Kafra Voting Staff]";
-						mes "I understand. But if you";
-						mes "happen to change your mind,";
-						mes "you are welcome to come back";
-						mes "at any time. Thank you and";
-						mes "have a good day, adventurer.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Compreendo. Mas se acontecer";
+						mes "de você mudar sua mente,";
+						mes "você é bem-vindo para voltar";
+						mes "a qualquer momento. Obrigado e";
+						mes "Tenha um bom dia, aventureiro.";
 						break;
 					case 2:
 						set lhz_vote,$DTS_VoteCount+1;
 						set $DTS_KafraVotes,$DTS_KafraVotes+1;
-						mes "[Kafra Voting Staff]";
-						mes "Thanks for your vote!";
-						mes "We'll continue to do our best";
-						mes "to provide the highest quality";
-						mes "service to our customers. Have";
-						mes "a good day and remember that the Kafra service is on your side~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Obrigado pelo seu voto!";
+						mes "Continuaremos a fazer o nosso melhor";
+						mes "para fornecer a mais alta qualidade";
+						mes "no serviço aos nossos clientes. Tenha";
+						mes "um bom dia e lembre-se que o serviço Kafra está do seu lado~";
 						break;
 					}
 				}
 				else {
-					mes "[Kafra Voting Staff]";
-					mes "After totalling the number of";
-					mes "votes from the last election,";
-					mes "we have concluded that the";
-					mes "minimum voter participation";
-					mes "condition was not satisfied.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Depois de totalizar o número de";
+					mes "votos da última eleição,";
+					mes "concluímos que a";
+					mes "participação mínima dos eleitores";
+					mes "não foi satisfeita.";
 					next;
-					mes "[Kafra Voting Staff]";
-					mes "Therefore, another election to";
-					mes "determine which company will";
-					mes "provide the Dungeon Teleport";
-					mes "Service will be held. However,";
-					mes "since you've already voted, you cannot vote again in this election.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Portanto, outra eleição para";
+					mes "determinar qual empresa irá";
+					mes "fornecer o serviço de Teletransporte para Calabouços";
+					mes "será realizado. Contudo,";
+					mes "visto que você já votou, você não pode votar novamente nesta eleição.";
 					next;
-					mes "[Kafra Voting Staff]";
-					mes "Your participation in these";
-					mes "elections is much appreciated,";
-					mes "and we encourage you to vote";
-					mes "again during the next election.";
-					mes "Thank you and have a nice day~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Sua participação nestes";
+					mes "eleições são muito apreciadas,";
+					mes "e nós o encorajamos a votar";
+					mes "novamente durante a próxima eleição.";
+					mes "Obrigado e tenha um bom dia~";
 				}
 			}
 			else {
-				mes "[Kafra Voting Staff]";
-				mes "I'm sorry, but there are";
-				mes "no elections taking place at";
-				mes "this time. When the polls are";
-				mes "open, we encourage you to take";
-				mes "part and voice your opinions.";
-				mes "Thank you for your support~";
+				mes "[CEI - Assistente da Eleição]";
+				mes "Me desculpe, mas não";
+				mes "tem nenhuma eleições ocorrendo";
+				mes "no momento. Quando as pesquisas iniciarem,";
+				mes "nós encorajamos vocês aventureiros a tomar";
+				mes "uma iniciativa e expresse suas opiniões.";
+				mes "Obrigado pelo seu apoio~";
 			}
 		//}
 		break;
 	case 3:
 		if ($DTS_Result == 2) {
-			mes "[Kafra Voting Staff]";
-			mes "Thank you for choosing the";
-			mes "Dungeon Teleport Service.";
-			mes "Please keep in mind that the";
-			mes "Free Warp Tickets and Kafra";
-			mes "Special Reserve Points do not";
-			mes "apply in this special service.";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Obrigado por escolher o";
+			mes "Serviço de Teletransporte para Calabouços";
+			mes "Por favor, tenha em mente que os";
+			mes "Ingressos de Warp, Kafra grátis";
+			mes " e Pontos de reserva especial não";
+			mes "se aplicar neste serviço especial.";
 			next;
 			if ($DTS_KafraWins == 0) {
-				switch(select("Toy Factory, Level 2 -> 4,000 z:Cancel")) {
+				switch(select("Fábrica de Brinquedos, Nível 2 -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						cutin "",255;
@@ -542,23 +522,22 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Toy Factory. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 2:
-					mes "[Kafra Voting Staff]";
-					mes "We, here at Kafra Corporation,";
-					mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Nós, aqui na Corporação Kafra,";
+					mes "estamos sempre se esforçando para lhe fornecer os melhores serviços. Esperamos atender às suas necessidades de aventura com excelência.";
 					break;
 				}
 			}
 			else if ($DTS_KafraWins == 1) {
-				switch(select("Toy Factory, Level 2 -> 4,000 z:Clock Tower, Level 3 -> 4,000 z:Cancel")) {
+				switch(select("Fábrica de Brinquedos, Nível 2 -> 4,000 z:Torre do Relógio, Nível 3 -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						set Zeny, Zeny-4000;
@@ -567,12 +546,11 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Toy Factory. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 2:
@@ -583,23 +561,22 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Clock Tower. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 3:
-					mes "[Kafra Voting Staff]";
-					mes "We, here at Kafra Corporation,";
-					mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Nós, aqui na Corporação Kafra,";
+					mes "estamos sempre se esforçando para lhe fornecer os melhores serviços. Esperamos atender às suas necessidades de aventura com excelência.";
 					break;
 				}
 			}
 			else {
-				switch(select("Toy Factory, Level 2 -> 4,000 z:Clock Tower, Level 3 -> 4,000 z:Lava Dungeon, Level 2 -> 4,000 z:Cancel")) {
+				switch(select("Fábrica de Brinquedos, Nível 2 -> 4,000 z:Torre do Relógio, Nível 3 -> 4,000 z:Calabouço de Magma, Nível 2 -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						set Zeny, Zeny-4000;
@@ -608,12 +585,11 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Toy Factory. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 2:
@@ -624,12 +600,11 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Clock Tower. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 3:
@@ -640,44 +615,42 @@ function	script	F_VoteKafra	{
 						end;
 					}
 					else {
-						mes "[Kafra Voting Staff]";
-						mes "I'm sorry, but you don't";
-						mes "have enough money to pay";
-						mes "the 4,000 zeny fee to teleport";
-						mes "to the Lava Dungeon. Please";
-						mes "check your funds again.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você não";
+						mes "tem zeny suficiente para pagar";
+						mes "a taxa de 4.000 zeny para se teletransportar.";
+						mes "Por favor, verifique seus fundos novamente.";
 					}
 					break;
 				case 4:
-					mes "[Kafra Voting Staff]";
-					mes "We, here at Kafra Corporation,";
-					mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Nós, aqui na Corporação Kafra,";
+					mes "estamos sempre se esforçando para lhe fornecer os melhores serviços. Esperamos atender às suas necessidades de aventura com excelência.";
 					break;
 				}
 			}
 		}
 		else if ($DTS_Result == 1) {
-			mes "[Kafra Voting Staff]";
-			mes "I'm sorry, but because of";
-			mes "the results from the most";
-			mes "recent election, Cool Event";
-			mes "Corp. is currently handling";
-			mes "the Dungeon Teleport Service. We apologize for the inconvenience.";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Me desculpe, mas por causa dos";
+			mes "resultados da maioria";
+			mes "da eleição recente,";
+			mes "à Corporação Kafra está lidando com";
+			mes "o Serviço de Teletransporte para Calabouços. Pedimos desculpas pela inconveniência.";
 		}
 		else {
-			mes "[Kafra Voting Staff]";
-			mes "I'm sorry, but the";
-			mes "Dungeon Teleport Service";
-			mes "is not active during the voting";
-			mes "period. Once the election is";
-			mes "over, the Dungeon Teleport";
-			mes "Service will become available.";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Me desculpe, mas o";
+			mes "Serviço de teletransporte para Calabouços";
+			mes "não está ativo durante a votação";
+			mes "Assim que a eleição acabar, o";
+			mes "Serviço de teletransporte para Calabouços estará disponível.";
 		}
 		break;
 	case 4:
-		mes "[Kafra Voting Staff]";
-		mes "We, here at Kafra Corporation,";
-		mes "are always endeavoring to provide you with the best services. We hope that we meet your adventuring needs and standards of excellence.";
+		mes "[CEI - Assistente da Eleição]";
+				mes "Nós, aqui na Corporação Kafra,";
+				mes "estamos sempre se esforçando para lhe fornecer os melhores serviços. Esperamos atender às suas necessidades de aventura com excelência.";
 		break;
 	}
 	close2;
@@ -711,61 +684,61 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 }
 
 -	script	Cool Event Staff::VotingStaffCCE	874,{
-	callfunc "F_ClearGarbage";				//Clear outdated, unused variables
+	callfunc "F_ClearGarbage";				// Limpar variáveis ​​desatualizadas e não utilizadas
 	cutin "zonda_01",2;
-	mes "[Cool Event Corp. Voting Staff]";
-	mes "Hello! Don't forget to make";
-	mes "your voice be heard and make";
-	mes "sure you vote in the elections";
-	mes "between Cool Event Corp. and";
-	mes "Kafra Corporation for control of the Dungeon Teleport Service!";
+	mes "[CEI - Assistente da Eleição]";
+	mes "Olá! Não se esqueça de fazer";
+	mes "com que sua voz seja ouvida, e";
+	mes "claro não se esqueça de votar nas eleições";
+	mes "entre Corporação Eventos e";
+	mes "Corporação Kafra pelo controle do Serviço de Teletransporte para Calabouços!";
 	next;
-	switch(select("Reason for Election:Cast a Vote:Use Teleport Service:Cancel")) {
+	switch(select("Motivo da eleição:Lançar um voto:Usar serviço de teletransporte:Cancelar")) {
 	case 1:
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "Cool Event Corp. has been";
-		mes "planning to provide a new";
-		mes "Dungeon Teleport Service to";
-		mes "its customers, a service not";
-		mes "already provided by the Kafra";
-		mes "Corporation. However...";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Corporação Eventos foi";
+		mes "planejando fornecer um novo";
+		mes "Serviço de teletransporte para Calabouços, para";
+		mes "seus clientes, um serviço não";
+		mes "fornecido pelo Corporação Kafra.";
+		mes "Contudo...";
 		next;
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "Kafra Corporation, which";
-		mes "already monopolizes the";
-		mes "public teleportation market,";
-		mes "actually also had plans to";
-		mes "provide a similar service.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Corporação Kafra, que";
+		mes "já monopoliza o";
+		mes "mercado público de teletransporte,";
+		mes "na verdade, também tinha planos para";
+		mes "fornecer um serviço semelhante.";
 		next;
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "Because of technological";
-		mes "limitations, only one company";
-		mes "can be chosen as the provider";
-		mes "of this Dungeon Teleport Service. Hence, we will let the customers";
-		mes "decide through these elections.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Por causa da tecnologia";
+		mes "limitada, apenas uma empresa";
+		mes "pode ser escolhido como o provedor";
+		mes "deste Serviço de Teletransporte para Calabouços. Portanto, vamos deixar os clientes";
+		mes "decidir por meio dessas eleições.";
 		next;
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "Multiple elections will be";
-		mes "held so that our customers";
-		mes "can test out the special services of each company for themselves.";
-		mes "However, keep in mind that you must be eligible in order to vote.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Múltiplas eleições serão";
+		mes "realizada para que nossos clientes";
+		mes "possa testar os serviços especiais de cada empresa por si próprios.";
+		mes "No entanto, lembre-se de que você deve ser elegível para votar.";
 		next;
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "For voter eligibility";
-		mes "details, please visit our";
-		mes "headquarters in the city of";
-		mes "Lighthalzen located in the";
-		mes "Schwarzwald Republic.";
-		mes "Thank you for your time.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Para elegibilidade do eleitor,";
+		mes "visite nossa";
+		mes "sede na cidade de";
+		mes "Lighthalzen localizado na";
+		mes "República de Schwarzwald.";
+		mes "Obrigado pelo seu tempo.";
 		break;
 	case 2:
 		//if (lhz_boss < 17) {
-		//	mes "[Cool Event Corp. Voting Staff]";
-		//	mes "I'm sorry, but you are not";
-		//	mes "eligible to vote at this time.";
-		//	mes "Please visit our headquarters";
-		//	mes "in Lighthalzen for information";
-		//	mes "related to acquiring voting rights. Thank you for your time.";
+		//	mes "[CEI - Assistente da Eleição]";
+		//	mes "Me desculpe, mas você não é";
+		//	mes "elegível para votar neste momento.";
+		//	mes "Visite nossa sede";
+		//	mes "em Lighthalzen para informações";
+		//	mes "relacionadas com a aquisição de direitos de voto. Obrigado pelo seu tempo.";
 		//	close2;
 		//	cutin "zonda_01",255;
 		//	end;
@@ -773,167 +746,167 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 		//else {
 			if ($DTS_Result == 0) {
 				if (lhz_vote <= $DTS_VoteCount) {
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Cool Event Corp.,";
-					mes "if chosen to provide the";
-					mes "Dungeon Teleport Service,";
-					mes "will teleport adventurers to";
-					mes "the following dungeons...";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Corporação Eventos,";
+					mes "se escolhido para fornecer o";
+					mes "Serviço de teletransporte para Calabouços,";
+					mes "irá teletransportar aventureiros para";
+					mes "as seguintes masmorras...";
 					next;
 					mes " ";
 					mes " ";
 					if ($DTS_JondaWins == 0) {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
 					}
 					else if ($DTS_JondaWins == 1) {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
-						mes "^FF0000Clock Tower, 3rd Floor^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
+						mes "^FF0000Torre do Relógio, Nível 3^000000";
 					}
 					else {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
-						mes "^FF0000Clock Tower, 3rd Floor^000000";
-						mes "^FF0000Glast Heim Entrance^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
+						mes "^FF0000Torre do Relógio, Nível 3^000000";
+						mes "^FF0000Entrada de Glastheim^000000";
 					}
 					next;
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "If you are interested in";
-					mes "these destinations, then";
-					mes "it would be in your best";
-					mes "interest to vote for us.";
-					mes "Would you like to vote";
-					mes "for Cool Event Corp.?";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Se você estiver interessado";
+					mes "nesses destinos, então";
+					mes "seria do seu interesse";
+					mes "votar em nós.";
+					mes "Você gostaria de votar";
+					mes "na Corporação Eventos?";
 					next;
-					switch(select("No:Yes")) {
+					switch(select("Não:Sim")) {
 					case 1:
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "Ah, I see... Well, if you";
-						mes "happen to change your mind,";
-						mes "feel free to come back and";
-						mes "cast your vote for Cool Event";
-						mes "Corp, alright? Have a nice day~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Ah, entendo ... Bem, se você";
+						mes "aconteceu de mudar sua mente,";
+						mes "fique à vontade para voltar e";
+						mes "vote para Corporação Eventos";
+						mes "certo? Tenha um bom dia~";
 						break;
 					case 2:
 						set lhz_vote,$DTS_VoteCount+1;
 						set $DTS_JondaVotes,$DTS_JondaVotes+1;
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "Thank you for your vote!";
-						mes "It's customers like you who";
-						mes "ensure the success and great";
-						mes "service that you have come to";
-						mes "expect from Cool Event Corp.";
-						mes "Thank you and have a nice day~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Obrigado pelo seu voto!";
+						mes "São clientes como você que";
+						mes "garante o sucesso e ótimo";
+						mes "serviço que você veio";
+						mes "esperar da Corporação Eventos";
+						mes "Obrigado e tenha um bom dia~";
 						break;
 					}
 				}
 				else {
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "I'm sorry, but you've";
-					mes "already cast your vote";
-					mes "in this election. However,";
-					mes "please don't let that stop you";
-					mes "from voting for Cool Event";
-					mes "Corp. in the next election~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Me desculpe, mas você";
+					mes "já deu o seu voto";
+					mes "nesta eleição. Contudo,";
+					mes "por favor não deixe isso te impedir";
+					mes "de votar no Corporação Eventos";
+					mes "na próxima eleição~";
 				}
 			}
 			else if ($DTS_Result == 3) {
 				if (lhz_vote <= $DTS_VoteCount) {
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Unfortunately, there wasn't";
-					mes "enough voter turnout in the";
-					mes "last election, so we're holding";
-					mes "another election to determine";
-					mes "which company will provide the";
-					mes "Dungeon Teleport Service.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Infelizmente, não havia";
+					mes "participantes suficiente na";
+					mes "última eleição, então estamos preparando";
+					mes "outra eleição para determinar";
+					mes "qual empresa fornecerá o";
+					mes "Serviço de teletransporte para Calabouços.";
 					next;
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Cool Event Corp.,";
-					mes "if chosen to provide the";
-					mes "Dungeon Teleport Service,";
-					mes "will teleport adventurers to";
-					mes "the following dungeons...";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Corporação Eventos,";
+					mes "se escolhido para fornecer o";
+					mes "Serviço de teletransporte para Calabouços,";
+					mes "irá teletransportar aventureiros para";
+					mes "as seguintes masmorras ...";
 					next;
 					mes " ";
 					mes " ";
 					if ($DTS_JondaWins == 0) {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
 					}
 					else if ($DTS_JondaWins == 1) {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
-						mes "^FF0000Clock Tower, 3rd Floor^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
+						mes "^FF0000Torre do Relógio, Nível 3^000000";
 					}
 					else {
-						mes "^FF0000Byalan Dungeon, Level 3^000000";
-						mes "^FF0000Clock Tower, 3rd Floor^000000";
-						mes "^FF0000Glast Heim Entrance^000000";
+						mes "^FF0000Calabouço de Byalan, Nível 3^000000";
+						mes "^FF0000Torre do Relógio, Nível 3^000000";
+						mes "^FF0000Entrada de Glastheim^000000";
 					}
 					next;
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "If you are interested in";
-					mes "these destinations, then";
-					mes "it would be in your best";
-					mes "interest to vote for us.";
-					mes "Would you like to vote";
-					mes "for Cool Event Corp.?";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Se você estiver interessado";
+					mes "nesses destinos, então";
+					mes "seria d seu melhor";
+					mes "interesse votar em nós.";
+					mes "Você gostaria de votar";
+					mes "para Corporação Eventos.?";
 					next;
-					switch(select("No:Yes")) {
+					switch(select("Não:Sim")) {
 					case 1:
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "Ah, I see... Well, if you";
-						mes "happen to change your mind,";
-						mes "feel free to come back and";
-						mes "cast your vote for Cool Event";
-						mes "Corp, alright? Have a nice day~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Ah, entendo ... Bem, se você";
+						mes "aconteceu de mudar sua mente,";
+						mes "fique à vontade para voltar e";
+						mes "vote para Corporação Eventos";
+						mes "certo? Tenha um bom dia~";
 						break;
 					case 2:
 						set lhz_vote,$DTS_VoteCount+1;
 						set $DTS_JondaVotes,$DTS_JondaVotes+1;
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "Thank you for your vote!";
-						mes "It's customers like you who";
-						mes "ensure the success and great";
-						mes "service that you have come to";
-						mes "expect from Cool Event Corp.";
-						mes "Thank you and have a nice day~";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Obrigado pelo seu voto!";
+						mes "São clientes como você que";
+						mes "garante o sucesso e ótimo";
+						mes "serviço que você veio";
+						mes "esperar da Corporação Eventos";
+						mes "Obrigado e tenha um bom dia~";
 						break;
 					}
 				}
 				else {
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Unfortunately, there wasn't";
-					mes "enough voter turnout in the";
-					mes "last election, so we're holding";
-					mes "another election to determine";
-					mes "which company will provide the";
-					mes "Dungeon Teleport Service.";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Infelizmente, não havia";
+					mes "participantes suficiente na";
+					mes "última eleição, então estamos preparando";
+					mes "outra eleição para determinar";
+					mes "qual empresa fornecerá o";
+					mes "Serviço de teletransporte para Calabouços.";
 					next;
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "We appreciate that";
-					mes "you've already participated";
-					mes "in this second election by";
-					mes "casting your vote. Thank";
-					mes "you for your support~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Nós apreciamos isso";
+					mes "você já participou";
+					mes "nesta segunda eleição,";
+					mes "lançando seu voto. Obrigado";
+					mes "pelo seu apoio~";
 				}
 			}
 			else {
-				mes "[Cool Event Corp. Voting Staff]";
-				mes "I'm sorry, but an election is";
-				mes "not currently being held at this time. Please come and cast your";
-				mes "vote at the next election to decide which company will provide the";
-				mes "Dungeon Teleport Service.";
+				mes "[CEI - Assistente da Eleição]";
+				mes "Me desculpe, mas a eleição";
+				mes "não está sendo realizada neste momento. Por favor, venha e lance seu";
+				mes "votar na próxima eleição para decidir qual empresa fornecerá o";
+				mes "Serviço de teletransporte para Calabouços.";
 			}
 		//}
 		break;
 	case 3:
 		if ($DTS_Result == 1) {
-			mes "[Cool Event Corp. Voting Staff]";
-			mes "Please remember that we";
-			mes "cannot accept Free Warp Tickets";
-			mes "or award Special Reserve Points";
-			mes "for this service. Now, please";
-			mes "choose your destination.";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Por favor, lembre-se que nós";
+			mes "não pode aceitar bilhetes de Warp grátis";
+			mes "ou pontos de reserva especial";
+			mes "para este serviço. Agora por favor";
+			mes "escolha o seu destino.";
 			next;
 			if ($DTS_JondaWins == 0) {
-				switch(select("Byalan Dungeon, Level 3 -> 4,000 z:Cancel")) {
+				switch(select("Calabouço de Byalan, Nível 3 -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						set Zeny, Zeny-4000;
@@ -942,26 +915,26 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 2:
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Always be assured that";
-					mes "Cool Event Corp. will do";
-					mes "everything in its power to";
-					mes "ensure the satisfaction of";
-					mes "its customers, young and old";
-					mes "and big and small. Thank you~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Esteja certo de que";
+					mes "Corporação Eventos fará";
+					mes "de tudo para garantir";
+					mes "a satisfação de seus";
+					mes "clientes, jovens e velhos";
+					mes "e grandes e pequenos. Obrigado~";
 					break;
 				}
 			}
 			else if ($DTS_JondaWins == 1) {
-				switch(select("Byalan Dungeon, Level 3 -> 4,000 z:Clock Tower, 3rd Floor -> 4,000 z:Cancel")) {
+				switch(select("Calabouço de Byalan 3 -> 4,000 z:Torre do Relógio, Nível 3 -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						set Zeny, Zeny-4000;
@@ -970,11 +943,11 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 2:
@@ -985,33 +958,33 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 3:
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Always be assured that";
-					mes "Cool Event Corp. will do";
-					mes "everything in its power to";
-					mes "ensure the satisfaction of";
-					mes "its customers, young and old";
-					mes "and big and small. Thank you~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Esteja certo de que";
+					mes "Corporação Eventos fará";
+					mes "de tudo para garantir";
+					mes "a satisfação de seus";
+					mes "clientes, jovens e velhos";
+					mes "e grandes e pequenos. Obrigado~";
 					break;
 				}
 			}
 			else {
-				mes "[Cool Event Corp. Voting Staff]";
-				mes "Please remember that we";
-				mes "cannot accept Free Warp Tickets";
-				mes "or award Special Reserve Points";
-				mes "for this service. Now, please";
-				mes "choose your destination.";
+				mes "[CEI - Assistente da Eleição]";
+			mes "Por favor, lembre-se que nós";
+			mes "não pode aceitar bilhetes de Warp grátis";
+			mes "ou pontos de reserva especial";
+			mes "para este serviço. Agora por favor";
+			mes "escolha o seu destino.";
 				next;
-				switch(select("Byalan Dungeon, Level 3 -> 4,000 z:Clock Tower, 3rd Floor -> 4,000 z:Glast Heim Entrance -> 4,000 z:Cancel")) {
+				switch(select("Calabouço de Byalan, Nível 3 -> 4,000 z:Torre do Relógio, Nível 3 -> 4,000 z:Entrada de Glastheim -> 4,000 z:Cancelar")) {
 				case 1:
 					if (Zeny >= 4000) {
 						set Zeny, Zeny-4000;
@@ -1020,11 +993,11 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 2:
@@ -1035,11 +1008,11 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 3:
@@ -1050,51 +1023,51 @@ lighthalzen,163,60,4	script	Kafra Voting Staff#lght	861,{
 						end;
 					}
 					else {
-						mes "[Cool Event Corp. Voting Staff]";
-						mes "I'm sorry, but you do";
-						mes "not have enough zeny to";
-						mes "teleport to this destination.";
-						mes "The teleport fee is 4,000 zeny.";
+						mes "[CEI - Assistente da Eleição]";
+						mes "Me desculpe, mas você";
+						mes "não tem zeny suficiente para";
+						mes "teletransporte-se para este destino.";
+						mes "A taxa de teletransporte é de 4.000 zeny.";
 					}
 					break;
 				case 4:
-					mes "[Cool Event Corp. Voting Staff]";
-					mes "Always be assured that";
-					mes "Cool Event Corp. will do";
-					mes "everything in its power to";
-					mes "ensure the satisfaction of";
-					mes "its customers, young and old";
-					mes "and big and small. Thank you~";
+					mes "[CEI - Assistente da Eleição]";
+					mes "Esteja certo de que";
+					mes "Corporação Eventos fará";
+					mes "de tudo para garantir";
+					mes "a satisfação de seus";
+					mes "clientes, jovens e velhos";
+					mes "e grandes e pequenos. Obrigado~";
 					break;
 				}
 			}
 		}
 		else if ($DTS_Result == 2) {
-			mes "[Cool Event Corp. Voting Staff]";
-			mes "I'm sorry, but Cool Event";
-			mes "Corp. does not currently offer";
-			mes "the Dungeon Teleport Service";
-			mes "due to the results of the last";
-			mes "election. Please vote for us";
-			mes "next time, alright? Good day~";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Me desculpe, mas Corporação Eventos";
+			mes "não oferece atualmente o";
+			mes "Serviço de Teletransporte para Calabouços.";
+			mes "devido aos resultados da última";
+			mes "eleição. Por favor vote em nós";
+			mes "da próxima vez, certo? Bom dia~";
 		}
 		else {
-			mes "[Cool Event Corp. Voting Staff]";
-			mes "I'm sorry, but the";
-			mes "Dungeon Teleport Service is";
-			mes "unavailable during elections";
-			mes "and will be reactivated after the election results are announced.";
-			mes "Thank you and have a nice day.";
+			mes "[CEI - Assistente da Eleição]";
+			mes "Me desculpe, mas o";
+			mes "Serviço de Teletransporte para Calabouços.";
+			mes "Está indisponível durante as eleições";
+			mes "e será reativado após o anúncio dos resultados das eleições.";
+			mes "Obrigado e tenha um bom dia.";
 		}
 		break;
 	case 4:
-		mes "[Cool Event Corp. Voting Staff]";
-		mes "Cool Event Corp. is always";
-		mes "working to make sure that";
-		mes "not only are our customers";
-		mes "satisfied, but that we also";
-		mes "exceed your utmost standards.";
-		mes "Thank you and have a good day.";
+		mes "[CEI - Assistente da Eleição]";
+		mes "Corporação Eventos está sempre";
+		mes "trabalhando para ter certeza de que";
+		mes "não são apenas nossos clientes";
+		mes "satisfeito, mas que nós também";
+		mes "serviços com padrões máximos.";
+		mes "Obrigado e tenha um bom dia.";
 		break;
 	}
 	close2;
@@ -1123,7 +1096,7 @@ OnEnable:
 OnTimer7200000:
 	stopnpctimer;
 	if (($DTS_Result == 0) || ($DTS_Result == 3)) {
-		announce "Currently, the Dungeon Teleport Service Provider Election is being held in all major cities. Your participation is appreciated.",bc_all,"0x70dbdb";
+		announce "Atualmente, a Eleição do Provedor de Serviços de Teletransporte para Calabouços está sendo realizada em todas as grandes cidades. Agradecemos sua participação.",bc_all,"0x70dbdb";
 	}
 	donpcevent "Scrutiny Association#5::OnEnable";
 	end;
@@ -1135,19 +1108,19 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	announce "All the votes for the Dungeon Teleport Service Provider Election have been received and counted.",bc_all,"0x70dbdb";
+	announce "Todos os votos para a Eleição do Provedor de Serviço de Teletransporte para Calabouços foram recebidos e contados.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer5000:
-	announce "The results are now in...",bc_all,"0x70dbdb";
+	announce "Os resultados estão agora em...",bc_all,"0x70dbdb";
 	end;
 
 OnTimer10000:
-	announce "This time, Cool Event Corp. will be the Dungeon Teleport Service Provider.",bc_all,"0x70dbdb";
+	announce "Desta vez, Corporação Eventos será o provedor de serviços de Teletransporte  para Calabouços.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer15000:
-	announce "Many thanks to all of you who have voted and shown your support.",bc_all,"0x70dbdb";
+	announce "Muito obrigado a todos vocês que votaram e mostraram seu apoio.",bc_all,"0x70dbdb";
 	stopnpctimer;
 	end;
 }
@@ -1158,178 +1131,178 @@ OnEnable:
 	end;
 
 OnTimer1000:
-	announce "All the votes for the Dungeon Teleport Service Provider Election have been received and counted.",bc_all,"0x70dbdb";
+	announce "Todos os votos para a Eleição do Provedor de Serviço de Teletransporte  para Calabouços foram recebidos e contados.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer5000:
-	announce "The results are now in...",bc_all,"0x70dbdb";
+	announce "Os resultados estão agora em...",bc_all,"0x70dbdb";
 	end;
 
 OnTimer10000:
-	announce "This time, Kafra Corporation will be the Dungeon Teleport Service Provider.",bc_all,"0x70dbdb";
+	announce "Desta vez, a Corporação Kafra será a fornecedora de serviços de Teletransporte  para Calabouços.",bc_all,"0x70dbdb";
 	end;
 
 OnTimer15000:
-	announce "Many thanks to all of you who have voted and shown your support.",bc_all,"0x70dbdb";
+	announce "Muito obrigado a todos vocês que votaram e mostraram seu apoio.",bc_all,"0x70dbdb";
 	stopnpctimer;
 	end;
 }
 
 /*
-// GM only NPC used for modifying values related to the DTS system.
-// Disabled in official script.
+// GM apenas NPC usado para modificar valores relacionados ao sistema DTS.
+// Desativado no script oficial.
 sec_in02,17,160,4	script	Vote Globalvar Girl#yuno	864,{
 	callfunc "F_GM_NPC";
-	mes "[Christy's Maid]";
-	mes "Lady Christy!";
+	mes "[Empregada doméstica de Christy]";
+	mes "Senhora Christy!";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) == 1) {
-		mes "[Christy's Maid]";
-		mes "I am Lady Christy's Maid.";
+		mes "[Empregada doméstica de Christy]";
+		mes "Eu sou a empregada doméstica de Senhora Christy.";
 		next;
-		switch(select("Globalvar Check:Setitem Zero:Change Glbalvar")) {
+		switch(select("Verificação Globalvar:Definir item zero:Mudar Glbalvar")) {
 		case 1:
-			mes "Current GlobalVar are";
+			mes "GlobalVar atual é";
 			next;
-			mes "[Christy's Maid]";
-			mes "Global 1 - Voting Time check : "+$DTS_Time+"";
-			mes "Global 2 - Cool Event Corp. Vote Numbers : "+$DTS_JondaVotes+"";
-			mes "Global 3 - Kafra Vote Numbers : "+$DTS_KafraVotes+"";
-			mes "Global 4 - Winner : "+$DTS_Result+"";
-			mes "Global 5 - Teleport Service Period Check: "+$DTS_PeriodCheck+"";
-			mes "Global 6 - Kafra Points : "+$DTS_KafraWins+"";
-			mes "Global 7 - Cool Event Corp. Points : "+$DTS_JondaWins+"";
-			mes "Global 8 - Setitem Check : "+$DTS_VoteCount+"";
+			mes "[Empregada doméstica de Christy]";
+			mes "Global 1 - Verificação do tempo de votação: "+$DTS_Time+"";
+			mes "Global 2 - Números de votos da Corporação Eventos: "+$DTS_JondaVotes+"";
+			mes "Global 3 - Números de voto da Corporação Kafra: "+$DTS_KafraVotes+"";
+			mes "Global 4 - Vencedor: "+$DTS_Result+"";
+			mes "Global 5 - Verificação do período de serviço de teletransporte: "+$DTS_PeriodCheck+"";
+			mes "Global 6 - Pontos Corporação Kafra: "+$DTS_KafraWins+"";
+			mes "Global 7 - Pontos Corporação Eventos: "+$DTS_JondaWins+"";
+			mes "Global 8 - Definir item Verificar: "+$DTS_VoteCount+"";
 			next;
-			mes "[Christy's Maid]";
-			mes "Current Setitem value is "+lhz_vote+".";
+			mes "[Empregada doméstica de Christy]";
+			mes "O valor do Setitem atual é "+lhz_vote+".";
 			close;
 		case 2:
 			set lhz_vote,0;
 			close;
 		case 3:
-			mes "[Christy's Maid]";
-			mes "Which Globalvar value would you like to change?";
+			mes "[Empregada doméstica de Christy]";
+			mes "Qual valor Globalvar você gostaria de alterar?";
 			next;
-			switch(select("1 - Voting Time:2 - Cool Event Corp. Vote Numbers:3 - Kafra Vote Numbers:4 - Winner:5 - Teleport Service Period:6 - Kafra Warp Number:7 - Cool Event Corp. Warp Number:8 - Setitem Value")) {
+			switch(select("1 - Hora da votação:2 - Números de votação da Corp. Eventos:3 - Números de votação Corp. Kafra:4 - Vencedor:5 - Período de serviço de teletransporte:6 - Número Kafra Warp:7 - Número l Cop Eventos Warp:8 - Valor de Setitem")) {
 			case 1:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 1000.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 1000.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 1000)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_Time,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 2:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 1000.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 1000.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 1000)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_JondaVotes,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 3:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 1000.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 1000.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 1000)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_KafraVotes,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 4:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 3.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 3.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 3)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_Result,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 5:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 1000.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 1000";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 1000)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_PeriodCheck,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 6:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 2.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 2.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 2)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_KafraWins,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 7:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 2.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 2.";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 2)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_JondaWins,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			case 8:
-				mes "[Christy's Maid]";
-				mes "Please enter a number among 0 and 10000.";
+				mes "[Empregada doméstica de Christy]";
+				mes "Insira um número entre 0 e 1000";
 				next;
 				input .@input;
 				if ((.@input < 0) || (.@input > 10000)) {
-					mes "[Christy's Maid]";
-					mes "The value is incorrect.";
+					mes "[Empregada doméstica de Christy]";
+					mes "O valor está incorreto.";
 					close;
 				}
 				set $DTS_VoteCount,.@input;
-				mes "[Christy's Maid]";
-				mes "The value has been modified.";
+				mes "[Empregada doméstica de Christy]";
+				mes "O valor foi modificado.";
 				close;
 			}
 		}
 	}
 	else {
-		mes "[Christy's Maid]";
-		mes "Lady Christy...";
+		mes "[Empregada doméstica de Christy]";
+		mes "Senhora Christy...";
 		close;
 	}
 }
