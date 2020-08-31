@@ -19,10 +19,10 @@
 //==================================================
 // ayo_fild01 - Ayothaya Field
 //==================================================
-ayo_fild01,0,0	monster	Smokie	1056,40,5000
-ayo_fild01,0,0	monster	Coco	1104,40,5000
+ayo_fild01,0,0	monster	Fumacento	1056,40,5000
+ayo_fild01,0,0	monster	Koko	1104,40,5000
 ayo_fild01,0,0	monster	Yoyo	1057,40,5000
-ayo_fild01,0,0	monster	Green Plant	1080,10,10000
+ayo_fild01,0,0	monster	Planta Verde	1080,10,10000
 
 //==================================================
 // ayo_fild02 - Ayothaya Field
@@ -30,4 +30,4 @@ ayo_fild01,0,0	monster	Green Plant	1080,10,10000
 ayo_fild02,0,0	monster	Yoyo	1057,82,5000
 ayo_fild02,0,0	monster	Leaf Cat	1586,63,5000
 ayo_fild02,0,0	monster	Kraben	1587,9,5000
-ayo_fild02,0,0	monster	Yellow Plant	1081,10,10000
+ayo_fild02,0,0	monster	Planta Amarela	1081,10,10000

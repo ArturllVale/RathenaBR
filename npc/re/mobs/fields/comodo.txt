@@ -18,12 +18,12 @@
 //==================================================
 cmd_fild01,0,0	monster	Grove	1687,202,5000
 cmd_fild01,0,0	monster	Flora	1118,67,5000
-cmd_fild01,313,213,10,10	monster	Shining Plant	1083,1,1800000,900000
-cmd_fild01,313,213,10,10	monster	Blue Plant	1079,1,1800000,900000
-cmd_fild01,171,339,10,10	monster	Blue Plant	1079,2,1800000,900000
-cmd_fild01,72,78,10,10	monster	Blue Plant	1079,2,1800000,900000
-cmd_fild01,194,176,20,20	monster	Blue Plant	1079,1,1800000,900000
-cmd_fild01,0,0	monster	Green Plant	1080,5,1800000,900000
+cmd_fild01,313,213,10,10	monster	Planta Brilhante	1083,1,1800000,900000
+cmd_fild01,313,213,10,10	monster	Planta Azul	1079,1,1800000,900000
+cmd_fild01,171,339,10,10	monster	Planta Azul	1079,2,1800000,900000
+cmd_fild01,72,78,10,10	monster	Planta Azul	1079,2,1800000,900000
+cmd_fild01,194,176,20,20	monster	Planta Azul	1079,1,1800000,900000
+cmd_fild01,0,0	monster	Planta Verde	1080,5,1800000,900000
 
 //==================================================
 // cmd_fild02 - Kokomo beach
@@ -42,9 +42,9 @@ cmd_fild03,0,0	monster	Alligator	1271,194,5000
 cmd_fild03,0,0	monster	Flora	1118,64,5000
 cmd_fild03,0,0	monster	Mutant Dragonoid	1262,5,5000
 cmd_fild03,0,0	monster	Toad	1089,1,3600000,1800000
-cmd_fild03,356,232,3,3	monster	Shining Plant	1083,1,1800000,900000
-cmd_fild03,262,289,3,3	monster	Shining Plant	1083,1,1800000,900000
-cmd_fild03,145,191,3,3	monster	Shining Plant	1083,1,1800000,900000
+cmd_fild03,356,232,3,3	monster	Planta Brilhante	1083,1,1800000,900000
+cmd_fild03,262,289,3,3	monster	Planta Brilhante	1083,1,1800000,900000
+cmd_fild03,145,191,3,3	monster	Planta Brilhante	1083,1,1800000,900000
 
 //==================================================
 // cmd_fild04 - Kokomo beach
@@ -64,8 +64,8 @@ cmd_fild04,0,0	monster	Aster	1266,12,5000
 //==================================================
 cmd_fild06,0,0	monster	Golem	1040,165,5000
 cmd_fild06,0,0	monster	Metaller	1058,55,5000
-cmd_fild06,293,235,5,5	monster	Yellow Plant	1081,2,1800000,900000
-cmd_fild06,84,375,10,10	monster	Yellow Plant	1081,3,1800000,900000
+cmd_fild06,293,235,5,5	monster	Planta Amarela	1081,2,1800000,900000
+cmd_fild06,84,375,10,10	monster	Planta Amarela	1081,3,1800000,900000
 
 //==================================================
 // cmd_fild07 - Beacon Island, Pharos 
@@ -83,8 +83,8 @@ cmd_fild08,0,0	monster	Piere	1160,62,5000
 cmd_fild08,0,0	monster	Andre	1095,62,5000
 cmd_fild08,0,0	monster	Ant Egg	1097,37,5000
 cmd_fild08,0,0	monster	Golem	1040,2,5000
-cmd_fild08,60,143,10,10	monster	Yellow Plant	1081,4,1800000,900000
-cmd_fild08,130,201,10,10	monster	Yellow Plant	1081,4,1800000,900000
+cmd_fild08,60,143,10,10	monster	Planta Amarela	1081,4,1800000,900000
+cmd_fild08,130,201,10,10	monster	Planta Amarela	1081,4,1800000,900000
 
 //==================================================
 // cmd_fild09 - Fortress Saint Darmain (South)

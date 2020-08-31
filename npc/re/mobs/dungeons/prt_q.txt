@@ -1,19 +1,21 @@
-//===== rAthena Script =======================================
-//= Episode 16.1 Monsters Spawn Script
-//===== Description: =========================================
-//= Spawns monsters in prt_q.
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Episódio 16.1 Monsters Spawn Script
+// ===== Descrição: ===============================================
+// = Gera monstros em prt_q.
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
-// Prontera Invasion
-prt_q,0,0	monster	Zombie Guard	3452,60
-prt_q,0,0	monster	Ghoul	1036,10
-prt_q,0,0	monster	Immortal Corps	3451,30
-prt_q,0,0	monster	Hunter Fly	1035,10
-prt_q,0,0	monster	Immortal Commander	3490,1
+// Invasão de Prontera
+prt_q,0,0	monster	Zumbi da Guarda	3452,60
+prt_q,0,0	monster	Carniçal	1036,10
+prt_q,0,0	monster	Legião Imortal	3451,30
+prt_q,0,0	monster	Mosca Caçadora	1035,10
+prt_q,0,0	monster	Comandante Imortal	3490,1

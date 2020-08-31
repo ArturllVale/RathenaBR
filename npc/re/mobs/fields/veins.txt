@@ -28,10 +28,10 @@ ve_fild01,0,0	monster	Stapo	1784,34,5000
 ve_fild01,0,0	monster	Drosera	1781,34,5000
 ve_fild01,0,0	monster	Muscipular	1780,34,5000
 ve_fild01,0,0,0,0	boss_monster	Atroce	1785,1,10800000,600000,0
-ve_fild01,0,0	monster	Red Plant	1078,10,5000
-ve_fild01,0,0	monster	Yellow Plant	1081,10,5000
-ve_fild01,270,80,20,7	monster	Blue Plant	1079,4,840000
-ve_fild01,270,80,20,7	monster	Shining Plant	1083,1,960000
+ve_fild01,0,0	monster	Planta Vermelha	1078,10,5000
+ve_fild01,0,0	monster	Planta Amarela	1081,10,5000
+ve_fild01,270,80,20,7	monster	Planta Azul	1079,4,840000
+ve_fild01,270,80,20,7	monster	Planta Brilhante	1083,1,960000
 
 //==================================================
 // ve_fild02 - Veins Field
@@ -40,8 +40,8 @@ ve_fild02,0,0	monster	Drosera	1781,177,5000
 ve_fild02,0,0	monster	Muscipular	1780,27,5000
 ve_fild02,0,0	monster	Galion	1783,13,5000
 ve_fild02,120,55,50,50	boss_monster	Atroce	1785,1,21600000,600000,0
-ve_fild02,0,0	monster	Red Plant	1078,10,10000
-ve_fild02,0,0	monster	Yellow Plant	1081,10,10000
+ve_fild02,0,0	monster	Planta Vermelha	1078,10,10000
+ve_fild02,0,0	monster	Planta Amarela	1081,10,10000
 
 //==================================================
 // ve_fild03 - Veins Field
@@ -49,8 +49,8 @@ ve_fild02,0,0	monster	Yellow Plant	1081,10,10000
 ve_fild03,0,0	monster	Magmaring	1836,141,5000
 ve_fild03,0,0	monster	Muscipular	1780,38,5000
 ve_fild03,0,0	monster	Drosera	1781,38,5000
-ve_fild03,200,212,114,60	monster	Red Plant	1078,10,10000
-ve_fild03,0,0	monster	Yellow Plant	1081,10,10000
+ve_fild03,200,212,114,60	monster	Planta Vermelha	1078,10,10000
+ve_fild03,0,0	monster	Planta Amarela	1081,10,10000
 
 //==================================================
 // ve_fild04 - Veins Field 
@@ -58,8 +58,8 @@ ve_fild03,0,0	monster	Yellow Plant	1081,10,10000
 ve_fild04,0,0	monster	Muscipular	1780,110,5000
 ve_fild04,0,0	monster	Drosera	1781,55,5000
 ve_fild04,0,0	monster	Galion	1783,22,5000
-ve_fild04,0,0	monster	Yellow Plant	1081,10,10000
-ve_fild04,288,273,4,4	monster	Blue Plant	1079,3,660000
+ve_fild04,0,0	monster	Planta Amarela	1081,10,10000
+ve_fild04,288,273,4,4	monster	Planta Azul	1079,3,660000
 
 //==================================================
 // ve_fild05 - Disabled on Renewal
@@ -68,7 +68,7 @@ ve_fild04,288,273,4,4	monster	Blue Plant	1079,3,660000
 //==================================================
 // ve_fild06 - Veins Field - No spawns on Renewal
 //==================================================
-//ve_fild06,0,0	monster	Shining Plant	1083,1,5000
+//ve_fild06,0,0	monster	Planta Brilhante	1083,1,5000
 
 //==================================================
 // ve_fild07 - Veins Field
@@ -76,4 +76,4 @@ ve_fild04,288,273,4,4	monster	Blue Plant	1079,3,660000
 ve_fild07,0,0	monster	Stapo	1784,128,5000
 ve_fild07,0,0	monster	Drosera	1781,64,5000
 ve_fild07,0,0	monster	Muscipular	1780,38,5000
-ve_fild07,0,0	monster	White Plant	1082,10,600000
+ve_fild07,0,0	monster	Planta Branca	1082,10,600000

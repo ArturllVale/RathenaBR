@@ -27,11 +27,11 @@ verus03,0,0,0,0	monster	Explorer Robot	3156,50,0,0,0
 verus03,0,0,0,0	monster	Repair Robot	3155,50,0,0,0
 verus03,0,0,0,0	monster	Ruin Grace Believer	3158,10,0,0,0
 // un_bunker
-un_bunker,0,0,0,0	monster	Thief Bug	1051,6,0,0,0
-un_bunker,0,0,0,0	monster	Smelly Ghoul	3255,68,0,0,0
-un_bunker,0,0,0,0	monster	Smelly Zombie	3256,80,0,0,0
+un_bunker,0,0,0,0	monster	Besouro-Ladrão	1051,6,0,0,0
+un_bunker,0,0,0,0	monster	Smelly Carniçal	3255,68,0,0,0
+un_bunker,0,0,0,0	monster	Smelly Zumbi	3256,80,0,0,0
 un_bunker,0,0,0,0	monster	Machine Component	3250,28,0,0,0
 un_bunker,0,0,0,0	monster	DR815	3252,14,0,0,0
 un_bunker,0,0,0,0	monster	GC109	3251,10,0,0,0
-un_bunker,0,0,0,0	monster	Black Mushroom	1084,1,0,0,0
+un_bunker,0,0,0,0	monster	Cogumelo Negro	1084,1,0,0,0
 un_bunker,0,0,0,0	monster	Chonchon	1011,2,0,0,0

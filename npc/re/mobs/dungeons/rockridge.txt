@@ -1,16 +1,18 @@
-//===== rAthena Script =======================================
-//= Rock Ridge Monsters Spawn Script
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Rock Ridge Monsters Spawn Script
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Traduzido por: =========================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 // Rock Ridge Mine
-rockmi1,0,0	monster	Thief Bug	1051,10
+rockmi1,0,0	monster	Besouro-Ladrão	1051,10
 rockmi1,0,0	monster	Gaster	3740,40
 rockmi1,0,0	monster	Elite Buffalo Bandit	3747,10
 rockmi1,0,0	monster	Elite Buffalo Bandit	3748,20
@@ -24,6 +26,6 @@ rockmi2,100,36,20,20	monster	Purple Ore	3742,31
 harboro2,0,0	monster	Swamp Arclouze	3787,30
 harboro2,0,0	monster	Brown Rat	3788,30
 harboro2,0,0	monster	Anopheles	1627,10
-harboro2,0,0	monster	Black Mushroom	1084,20
-harboro2,0,0	monster	Thief Bug	1051,10
+harboro2,0,0	monster	Cogumelo Negro	1084,20
+harboro2,0,0	monster	Besouro-Ladrão	1051,10
 harboro2,50,259,10,6	monster	Sea Anemone	3743,20

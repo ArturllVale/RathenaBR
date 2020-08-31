@@ -1,20 +1,22 @@
-//===== rAthena Script =======================================
-//= Flame Basin Monster Spawn Script
-//===== Description: =========================================
-//= Spawns monsters on Flame Basin.
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
+// ===== Script rAthena ===========================================
+// = Script de Spawn de Monstro de Flame Basin
+// ===== Descrição: ===============================================
+// = Gera monstros em Flame Basin.
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
 //============================================================
 
-moro_vol	monster	Angry Mimic	3061,5
-moro_vol	monster	Fire Pit	3026,10
+moro_vol	monster	Angry Mímico	3061,5
+moro_vol	monster	Fosso de Fogo	3026,10
 moro_vol	monster	Sonia	3028,30
-moro_vol	monster	Incarnation of Morocc	1918,15
-moro_vol	monster	Incarnation of Morocc	1919,15
-moro_vol	monster	Incarnation of Morocc	1920,15
-moro_vol	monster	Incarnation of Morocc	1921,15
-moro_vol	monster	Fire Condor	3020,30
-moro_vol	monster	Fire Sandman	3021,30
-moro_vol	monster	Fire Frilldora	3022,30
-moro_vol	monster	Fire Golem	3023,30
-moro_vol	monster	Fire Bug	3027,10
+moro_vol	monster	Sombra da Inveja	1918,15
+moro_vol	monster	Sombra da Gula	1919,15
+moro_vol	monster	Sombra da Vaidade	1920,15
+moro_vol	monster	Sombra da Ira	1921,15
+moro_vol	monster	Condor de Fogo	3020,30
+moro_vol	monster	Arenoso de Fogo	3021,30
+moro_vol	monster	Frilldora de Fogo	3022,30
+moro_vol	monster	Golem de Fogo	3023,30
+moro_vol	monster	Besouro Rola Brasa	3027,10

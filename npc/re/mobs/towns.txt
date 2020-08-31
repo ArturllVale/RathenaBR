@@ -15,10 +15,10 @@
 //==================================================
 // Brasilis, Strange Hydras
 //==================================================
-brasilis,283,88,6,6	monster	Strange Hydra	2081,5,5000
-brasilis,284,104,6,6	monster	Strange Hydra	2081,4,5000
-brasilis,215,80,6,6	monster	Strange Hydra	2081,4,5000
-brasilis,96,50,8,8	monster	Strange Hydra	2081,5,5000
+brasilis,283,88,6,6	monster	Strange Hidra	2081,5,5000
+brasilis,284,104,6,6	monster	Strange Hidra	2081,4,5000
+brasilis,215,80,6,6	monster	Strange Hidra	2081,4,5000
+brasilis,96,50,8,8	monster	Strange Hidra	2081,5,5000
 
 //==================================================
 // Alberta Ship, Swapping the Deck
