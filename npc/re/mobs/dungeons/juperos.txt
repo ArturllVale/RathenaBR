@@ -1,24 +1,26 @@
-//===== rAthena Script =======================================
-//= Juperos Dungeon Monster Spawn Script
-//===== By: ==================================================
+// ===== Script rAthena ===========================================
+// = Juperos Dungeon Monster Spawn Script
+// ===== Por: =============================================== =========
 // The Prometheus Project, rAthena Dev Team
-//===== Current Version: =====================================
-//= 1.4
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 0.1 Added 1st version. [Muad_Dib]
-//= 0.2 Updated the spawns according to current info [MasterOfMuppets]
-//= 0.3 Updated the spawns according to own info from iRO [MasterOfMuppets]
-//= 1.0 More exact numbers thanks to Tharis [Playtester]
-//= 1.1 Official X.3 spawns [Playtester]
-//= 1.2 Some 11.1 spawn changes [Playtester]
-//= 1.3 More accurate spawns [Playtester]
-//= 1.4 Corrected MVP spawn variance. [L0ne_W0lf]
+// ===== Traduzido Por: =============================================== =========
+// Guru
+// ===== Versão Atual: ===========================================
+// = 1,4
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 0,1 Adicionado 1ª versão. [Muad_Dib]
+// = 0,2 Atualizado os spawns de acordo com as informações atuais [MasterOfMuppets]
+// = 0.3 Atualizado os spawns de acordo com as próprias informações do iRO [MasterOfMuppets]
+// = 1.0 Mais números exatos graças a Tharis [Playtester]
+// = 1.1 Oficiais X.3 spawns [Playtester]
+// = 1.2 Algumas alterações de spawn 11.1 [Playtester]
+// = 1.3 spawns mais precisos [Playtester]
+// = 1.4 Variância de spawn de MVP corrigida. [L0ne_W0lf]
 //============================================================
 
 //==================================================
-// juperos_01 - Ruins of Juperos
+// juperos_01 - Ruínas de Juperos
 //==================================================
 juperos_01,0,0	monster	Venatu	1676,70,5000
 juperos_01,0,0	monster	Venatu	1677,70,5000
@@ -30,7 +32,7 @@ juperos_01,0,0	monster	Dimik	1672,5,5000
 juperos_01,0,0	monster	Dimik	1673,5,5000
 
 //==================================================
-// juperos_02 - Ruins of Juperos
+// juperos_02 - Ruínas de Juperos
 //==================================================
 juperos_02,0,0	monster	Apocalypse	1365,70,5000
 juperos_02,0,0	monster	Venatu	1676,65,5000

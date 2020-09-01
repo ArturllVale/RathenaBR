@@ -72,7 +72,7 @@ mjolnir_02,188,192,10,10	monster	Planta Azul	1079,2,360000,180000
 //==================================================
 mjolnir_03,0,0	monster	Sorrateiro	1037,140,5000
 mjolnir_03,0,0	monster	Driller	1380,37,5000
-mjolnir_03,0,0	monster	Mantis	1139,37,5000
+mjolnir_03,0,0	monster	Louva-a-Deus	1139,37,5000
 mjolnir_03,211,216,10,10	monster	Planta Brilhante	1083,1,1800000,900000
 mjolnir_03,280,252,10,10	monster	Planta Brilhante	1083,1,1800000,900000
 mjolnir_03,135,94	monster	Planta Verde	1080,1,180000,90000
@@ -93,7 +93,7 @@ mjolnir_03,91,161	monster	Planta Verde	1080,1,180000,90000
 // mjolnir_04 - Mt.Mjolnir
 //==================================================
 mjolnir_04,0,0	monster	Driller	1380,162,5000
-mjolnir_04,0,0	monster	Mantis	1139,43,5000
+mjolnir_04,0,0	monster	Louva-a-Deus	1139,43,5000
 mjolnir_04,0,0	monster	Sorrateiro	1037,43,5000
 mjolnir_04,0,0,0,0	boss_monster	Mistress	1059,1,7200000,600000,1
 mjolnir_04,200,200,30,30	monster	Planta Brilhante	1083,3,1800000,900000
@@ -119,7 +119,7 @@ mjolnir_04,205,33	monster	Planta Verde	1080,1,180000,90000
 // mjolnir_05 - Mt.Mjolnir
 //==================================================
 mjolnir_05,0,0	monster	Argiope	1099,166,5000
-mjolnir_05,0,0	monster	Mantis	1139,44,5000
+mjolnir_05,0,0	monster	Louva-a-Deus	1139,44,5000
 mjolnir_05,0,0	monster	Driller	1380,44,5000
 mjolnir_05,200,240,40,40	monster	Planta Azul	1079,3,360000,180000
 mjolnir_05,200,240,40,40	monster	Planta Brilhante	1083,1,1800000,900000
@@ -227,4 +227,4 @@ mjolnir_11,295,271	monster	Planta Verde	1080,1,180000,90000
 //==================================================
 mjolnir_12,0,0	monster	Poeira	1114,162,5000
 mjolnir_12,0,0	monster	Mosca Caçadora	1035,43,5000
-mjolnir_12,0,0	monster	Mantis	1139,43,5000
+mjolnir_12,0,0	monster	Louva-a-Deus	1139,43,5000

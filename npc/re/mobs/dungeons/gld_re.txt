@@ -37,13 +37,13 @@ gld_dun02,0,0	monster	Ancient Worm	1305,25,5000
 gld_dun02,0,0	monster	Giant Spider	1304,15,5000
 gld_dun02,0,0,0,0	boss_monster	Mistress	1059,1,28800000,600000,1
 
-gld_dun02_2,0,0	monster	Killer Mantis	1294,30,5000
-gld_dun02_2,0,0	monster	Angra Mantis	2133,40,5000
+gld_dun02_2,0,0	monster	Killer Louva-a-Deus	1294,30,5000
+gld_dun02_2,0,0	monster	Louva-a-Deus Angra	2133,40,5000
 gld_dun02_2,0,0	monster	Maya Purple	1289,3,1200000,600000
 gld_dun02_2,0,0,0,0	boss_monster	Maya	1147,1,28800000,600000,1
 
-gld2_ald,0,0	monster	Killer Mantis	1294,60,5000
-gld2_ald,0,0	monster	Angra Mantis	2133,70,5000
+gld2_ald,0,0	monster	Killer Louva-a-Deus	1294,60,5000
+gld2_ald,0,0	monster	Louva-a-Deus Angra	2133,70,5000
 gld2_ald,0,0	monster	Maya Purple	1289,3,1200000
 gld2_ald,0,0,0,0	boss_monster	Gioia	2251,1,28800000,600000,1
 gld2_ald,0,0	monster	Elvira	2252,1,1800000,600000
@@ -55,17 +55,17 @@ gld_dun03,0,0	monster	Caterpillar	1300,35,5000
 gld_dun03,0,0	monster	Creamy Fear	1293,35,5000
 gld_dun03,0,0,0,0	boss_monster	Bafomé	1039,1,28800000,600000,1
 
-gld_dun03_2,0,0	monster	Dark Axe Kobold	2284,13,5000
-gld_dun03_2,0,0	monster	Dark Hammer Kobold	2285,23,5000
-gld_dun03_2,0,0	monster	Dark Mace Kobold	2286,23,5000
-gld_dun03_2,0,0	monster	Dark Kobold Archer	2287,23,5000
-gld_dun03_2,0,0	monster	Kobold Leader	1296,1,14400000,7200000
+gld_dun03_2,0,0	monster	Dark Axe Cobold	2284,13,5000
+gld_dun03_2,0,0	monster	Dark Hammer Cobold	2285,23,5000
+gld_dun03_2,0,0	monster	Dark Mace Cobold	2286,23,5000
+gld_dun03_2,0,0	monster	Dark Cobold Arqueiro	2287,23,5000
+gld_dun03_2,0,0	monster	Líder Cobold	1296,1,14400000,7200000
 gld_dun03_2,0,0,0,0	boss_monster	Atroce	1785,1,28800000,600000,1
 
-gld2_prt,0,0	monster	Dark Axe Kobold	2284,25,5000
-gld2_prt,0,0	monster	Dark Hammer Kobold	2285,35,5000
-gld2_prt,0,0	monster	Dark Mace Kobold	2286,35,5000
-gld2_prt,0,0	monster	Dark Kobold Archer	2287,35,5000
+gld2_prt,0,0	monster	Dark Axe Cobold	2284,25,5000
+gld2_prt,0,0	monster	Dark Hammer Cobold	2285,35,5000
+gld2_prt,0,0	monster	Dark Mace Cobold	2286,35,5000
+gld2_prt,0,0	monster	Dark Cobold Arqueiro	2287,35,5000
 gld2_prt,0,0,0,0	boss_monster	Angry Student Pyuriel	2249,1,28800000,600000,1
 gld2_prt,0,0	monster	Warrior Laura	2250,1,1800000,600000
 
@@ -74,20 +74,20 @@ gld2_prt,0,0	monster	Warrior Laura	2250,1,1800000,600000
 //==================================================
 gld_dun04,0,0	monster	Mini Demon	1292,10,5000
 gld_dun04,0,0	monster	Zumbi Master	1298,55,5000
-gld_dun04,0,0	monster	Wraith Dead	1291,25,5000
+gld_dun04,0,0	monster	Aparição	1291,25,5000
 gld_dun04,0,0	monster	Ghostring	1120,1,14400000,7200000
 gld_dun04,0,0,0,0	boss_monster	Doppelganger	1046,1,28800000,600000,1
 
-gld_dun04_2,0,0	monster	Dark Frame	2282,15,5000
-gld_dun04_2,0,0	monster	Dark Priest	2283,15,5000
+gld_dun04_2,0,0	monster	Moldura Maldita	2282,15,5000
+gld_dun04_2,0,0	monster	Sacerdote Maldito	2283,15,5000
 gld_dun04_2,0,0	monster	Dark Shadow	2281,45,5000
-gld_dun04_2,0,0	monster	Dark Illusion	1302,1,1200000
-gld_dun04_2,0,0,0,0	boss_monster	Dark Lord	1272,1,28800000,600000,1
+gld_dun04_2,0,0	monster	Ilusão das Trevas	1302,1,1200000
+gld_dun04_2,0,0,0,0	boss_monster	Senhor das Trevas	1272,1,28800000,600000,1
 
-gld2_gef,0,0	monster	Dark Frame	2282,20,5000
-gld2_gef,0,0	monster	Dark Priest	2283,20,5000
+gld2_gef,0,0	monster	Moldura Maldita	2282,20,5000
+gld2_gef,0,0	monster	Sacerdote Maldito	2283,20,5000
 gld2_gef,0,0	monster	Dark Shadow	2281,80,5000
-gld2_gef,0,0	monster	Dark Illusion	1302,1,1200000
+gld2_gef,0,0	monster	Ilusão das Trevas	1302,1,1200000
 gld2_gef,0,0,0,0	boss_monster	Dark Guardian Kades	2255,1,28800000,600000,1
 gld2_gef,0,0	monster	Rudo	2256,1,1800000,600000
 

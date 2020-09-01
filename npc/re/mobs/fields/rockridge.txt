@@ -1,13 +1,15 @@
-//===== rAthena Script =======================================
-//= Rock Ridge Monsters Spawn Script
-//===== Current Version: =====================================
-//= 1.7
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Rock Ridge Monsters Spawn Script
+// ===== Versão Atual: ===========================================
+// = 1,7
+// ===== Traduzido por: ===========================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
-// Kiwawa Desert
+// Deserto Kiwawa
 rockrdg1,0,0	monster	Buffalo Bandit Sharpsho	3736,20
 rockrdg1,0,0	monster	Buffalo Bandit Duelist	3737,10
 rockrdg1,0,0	monster	Coyote	3739,40
@@ -16,7 +18,7 @@ rockrdg1,0,0	monster	Planta Verde	1080,8
 rockrdg1,0,0	monster	Planta Amarela	1081,4
 rockrdg1,0,0	monster	Cogumelo Negro	1084,8
 
-// Kiwawa Desert
+// Deserto Kiwawa
 rockrdg2,0,0	monster	Buffalo Bandit Duelist	3737,20
 rockrdg2,0,0	monster	Bowie Buffalo Bandit	3738,60
 rockrdg2,0,0	monster	Coyote	3739,10

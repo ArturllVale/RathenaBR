@@ -1,14 +1,16 @@
-//===== rAthena Script =======================================
-//= Coal Mine(Dead pit) Dungeon Monster Spawn Script
-//===== By: ==================================================
-//= Athena (1.0)
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.1 Official kRO 10.1 spawns [Playtester]
-//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Mina de carvão (poço morto) Script de criação de monstros da masmorra
+// ===== Por: =============================================== =========
+// = Atenas (1.0)
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.1 KRO oficial 10.1 spawns [Playtester]
+// = 1.2 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
@@ -24,13 +26,13 @@ mjo_dun01,0,0	monster	Martin	1145,21,5000
 mjo_dun02,0,0	monster	Martin	1145,71,5000
 mjo_dun02,0,0	monster	Giearth	1121,41,5000
 mjo_dun02,0,0	monster	Drainliar	1111,23,5000
-mjo_dun02,0,0	monster	Esqueleto Worker	1169,23,5000
+mjo_dun02,0,0	monster	Esqueleto Operário	1169,23,5000
 
 //==================================================
 // mjo_dun03 - Mjolnir Dead Pit
 //==================================================
-mjo_dun03,0,0	monster	Esqueleto Worker	1169,78,5000
-mjo_dun03,0,0	monster	Myst	1151,39,5000
+mjo_dun03,0,0	monster	Esqueleto Operário	1169,78,5000
+mjo_dun03,0,0	monster	Névoa	1151,39,5000
 mjo_dun03,0,0	monster	Giearth	1121,5,5000
 mjo_dun03,0,0	monster	Martin	1145,5,5000
 mjo_dun03,0,0	monster	Cãibra	1209,3,5000

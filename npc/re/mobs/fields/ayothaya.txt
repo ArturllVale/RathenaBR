@@ -1,23 +1,25 @@
-//===== rAthena Script =======================================
-//= Ayothaya Fields Monster Spawn Script
-//===== By: ==================================================
-//= Athena (1.0)
-//===== Current Version: =====================================
-//= 1.7
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.1 Using EuRO data [Ishizu]
-//= 1.2 According the guide book, added a Choco [Lupus&VP]
-//= 1.3 Removed Choco [Lupus]
-//= 1.4 Official kRO 10.1 spawns [Playtester]
-//= 1.5 Updated to Renewal Spawns [Kisuka]
-//= 1.6 Renewal spawn update.
-//= 1.7 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de Spawn de Monstros de Ayothaya Fields
+// ===== Por: =============================================== =========
+// = Atenas (1.0)
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,7
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.1 Usando dados EuRO [Ishizu]
+// = 1,2 De acordo com o guia, adicionado um Choco [Lupus & VP]
+// = 1.3 Removido Choco [Lúpus]
+// = 1.4 KRO oficial 10.1 spawns [Playtester]
+// = 1.5 Atualizado para Spawns de renovação [Kisuka]
+// = 1.6 Renovação de atualização de spawn.
+// = 1.7 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
-// ayo_fild01 - Ayothaya Field
+// ayo_fild01 - Campo Ayothaya
 //==================================================
 ayo_fild01,0,0	monster	Fumacento	1056,40,5000
 ayo_fild01,0,0	monster	Koko	1104,40,5000
@@ -25,9 +27,9 @@ ayo_fild01,0,0	monster	Yoyo	1057,40,5000
 ayo_fild01,0,0	monster	Planta Verde	1080,10,10000
 
 //==================================================
-// ayo_fild02 - Ayothaya Field
+// ayo_fild02 - Campo Ayothaya
 //==================================================
 ayo_fild02,0,0	monster	Yoyo	1057,82,5000
-ayo_fild02,0,0	monster	Leaf Cat	1586,63,5000
+ayo_fild02,0,0	monster	Gato de Folha	1586,63,5000
 ayo_fild02,0,0	monster	Kraben	1587,9,5000
 ayo_fild02,0,0	monster	Planta Amarela	1081,10,10000

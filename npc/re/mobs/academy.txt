@@ -1,41 +1,43 @@
-//===== rAthena Script =======================================
-//= Cryptura Academy Monster Spawn Script
-//===== By: ==================================================
-//= Euphy
-//===== Current Version: =====================================
-//= 1.0
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.0 First version.
+// ===== Script rAthena ===========================================
+// = Script de criação de monstros da Cryptura Academy
+// ===== Por: =============================================== =========
+// = Euphy
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão
 //============================================================
 
 //==================================================
-// prt_fild08 - Prontera Field 
+// prt_fild08 - Campo de Prontera 
 //==================================================
 prt_fild08,0,0	monster	Poring	1002,110,5000
 prt_fild08,0,0	monster	Lunático	1063,100,5000
 prt_fild08,0,0	monster	Fabre	1007,100,5000
-prt_fild08,0,0	monster	Little Poring	2398,30,50000
+prt_fild08,0,0	monster	Bebê Poring	2398,30,50000
 prt_fild08a,0,0	monster	Poring	1002,110,5000
 prt_fild08a,0,0	monster	Lunático	1063,100,5000
 prt_fild08a,0,0	monster	Fabre	1007,100,5000
-prt_fild08a,0,0	monster	Little Poring	2398,30,50000
+prt_fild08a,0,0	monster	Bebê Poring	2398,30,50000
 prt_fild08b,0,0	monster	Poring	1002,110,5000
 prt_fild08b,0,0	monster	Lunático	1063,100,5000
 prt_fild08b,0,0	monster	Fabre	1007,100,5000
-prt_fild08b,0,0	monster	Little Poring	2398,30,50000
+prt_fild08b,0,0	monster	Bebê Poring	2398,30,50000
 prt_fild08c,0,0	monster	Poring	1002,110,5000
 prt_fild08c,0,0	monster	Lunático	1063,100,5000
 prt_fild08c,0,0	monster	Fabre	1007,100,5000
-prt_fild08c,0,0	monster	Little Poring	2398,30,50000
+prt_fild08c,0,0	monster	Bebê Poring	2398,30,50000
 prt_fild08d,0,0	monster	Poring	1002,110,5000
 prt_fild08d,0,0	monster	Lunático	1063,100,5000
 prt_fild08d,0,0	monster	Fabre	1007,100,5000
-prt_fild08d,0,0	monster	Little Poring	2398,30,50000
+prt_fild08d,0,0	monster	Bebê Poring	2398,30,50000
 
 //==================================================
-// treasure_n1 - Izlude Sunken Ship 1F
+// treasure_n1 - Izlude Navio afundado 1F
 //==================================================
 treasure_n1,0,0	monster	Cogumelo Vermelho	1085,10,50000
 treasure_n1,0,0	monster	Cogumelo Negro	1084,10,50000
@@ -65,7 +67,7 @@ treasure_n1,163,155,13,13	monster	Esqueleto	2405,5,8000
 treasure_n1,163,155,13,13	monster	Zumbi	1015,1,8000
 
 //==================================================
-// treasure_n2 - Izlude Sunken Ship 2F
+// treasure_n2 - Izlude Navio afundado 2F
 //==================================================
 treasure_n2,0,0	monster	Cogumelo Vermelho	1085,10,50000
 treasure_n2,0,0	monster	Cogumelo Negro	1084,10,50000
@@ -96,6 +98,6 @@ treasure_n2,100,160,13,13	monster	Esqueleto	2405,7,200000
 treasure_n2,100,160,13,13	monster	Plâncton Zumbi	2404,4,60000
 
 //==================================================
-// new_1-3 - Novice Training Grounds
+// new_1-3 - Campos de treinamento para iniciantes
 //==================================================
-new_1-3,0,0	monster	Little Poring	2398,30,50000
+new_1-3,0,0	monster	Bebê Poring	2398,30,50000

@@ -1,36 +1,38 @@
-//===== rAthena Script =======================================
-//= Town Monster Spawn Script
-//===== By: ==================================================
-//= Euphy
-//===== Current Version: =====================================
-//= 1.0
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= Spawns monsters in towns.
-//===== Additional Comments: =================================
-//= 1.0 First version, Renewal spawns.
+// ===== Script rAthena ===========================================
+// = Script de Spawn do Monstro da Cidade
+// ===== Por: =============================================== =========
+// = Euphy
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Gera monstros nas cidades.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão, renovação surge.
 //============================================================
 
 //==================================================
-// Brasilis, Strange Hydras
+// Brasilis, Hidras estranhas
 //==================================================
-brasilis,283,88,6,6	monster	Strange Hidra	2081,5,5000
-brasilis,284,104,6,6	monster	Strange Hidra	2081,4,5000
-brasilis,215,80,6,6	monster	Strange Hidra	2081,4,5000
-brasilis,96,50,8,8	monster	Strange Hidra	2081,5,5000
+brasilis,283,88,6,6	monster	Hidras estranhas	2081,5,5000
+brasilis,284,104,6,6	monster	Hidras estranhas	2081,4,5000
+brasilis,215,80,6,6	monster	Hidras estranhas	2081,4,5000
+brasilis,96,50,8,8	monster	Hidras estranhas	2081,5,5000
 
 //==================================================
-// Alberta Ship, Swapping the Deck
+// Navio Alberta, trocando o convés
 //==================================================
-alb_ship,0,0	monster	Strange Mouse	2057,25
+alb_ship,0,0	monster	Rato Estranho	2057,25
 
 //==================================================
-// Prontera, Training Dummy Area
+// Prontera, Área fictícia de treinamento
 //==================================================
-prontera,251,77	monster	Dummy Lv50	2409,1,5000
-prontera,259,77	monster	Dummy Lv50	2409,1,5000
-prontera,251,66	monster	Dummy Lv100	2410,1,5000
-prontera,259,66	monster	Dummy Lv100	2410,1,5000
-prontera,251,55	monster	Dummy Lv150	2411,1,5000
-prontera,259,55	monster	Dummy Lv150	2411,1,5000
+prontera,251,77	monster	Manequim Lv50	2409,1,5000
+prontera,259,77	monster	Manequim Lv50	2409,1,5000
+prontera,251,66	monster	Manequim Lv100	2410,1,5000
+prontera,259,66	monster	Manequim Lv100	2410,1,5000
+prontera,251,55	monster	Manequim Lv150	2411,1,5000
+prontera,259,55	monster	Manequim Lv150	2411,1,5000

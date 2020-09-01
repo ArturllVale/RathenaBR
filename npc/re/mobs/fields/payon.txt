@@ -57,7 +57,7 @@ pay_fild04,346,335,5,5	monster	Planta Brilhante	1083,1,1800000,900000
 pay_fild04,254,193,10,10	monster	Planta Verde	1080,5,360000,180000
 
 //==================================================
-// pay_fild05 - Disabled on Renewal
+// pay_fild05 - Desativado na renovação
 //==================================================
 
 //==================================================
@@ -112,5 +112,5 @@ pay_fild10,281,307,10,10	monster	Planta Azul	1079,1,360000,180000
 pay_fild10,66,332,10,10	monster	Planta Azul	1079,1,360000,180000
 
 //==================================================
-// pay_fild11 - Disabled on Renewal
+// pay_fild11 - Desativado na renovação
 //==================================================

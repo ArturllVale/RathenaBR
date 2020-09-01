@@ -99,7 +99,7 @@ moc_fild07,162,333,12,12	monster	Planta Amarela	1081,5,360000,180000
 //==================================================
 // moc_fild11 - Sograt Desert
 //==================================================
-moc_fild11,0,0	monster	Baby Desert Lobo	1107,137,5000
+moc_fild11,0,0	monster	Filhote de Lobo	1107,137,5000
 moc_fild11,0,0	monster	Condor	1009,137,5000
 moc_fild11,0,0	monster	Scorpion	1001,41,5000
 
@@ -179,7 +179,7 @@ moc_fild17,359,258	monster	Planta Amarela	1081,1,180000,90000
 //==================================================
 moc_fild18,0,0	monster	Scorpion	1001,160,5000
 moc_fild18,0,0	monster	Condor	1009,34,5000
-moc_fild18,0,0	monster	Baby Desert Lobo	1107,34,5000
+moc_fild18,0,0	monster	Filhote de Lobo	1107,34,5000
 moc_fild18,0,0	monster	Dragon Fly	1091,1,3600000,1800000
 moc_fild18,143,352	monster	Planta Amarela	1081,1,180000,90000
 moc_fild18,72,333	monster	Planta Amarela	1081,1,180000,90000

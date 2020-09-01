@@ -1,29 +1,31 @@
-//===== rAthena Script =======================================
-//= Morocc Pyramid Dungeon Monster Spawn Script
-//===== By: ==================================================
-//= Athena (1.0)
-//===== Current Version: =====================================
-//= 1.5
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.1 Official kRO 10.1 spawns [Playtester]
-//= 1.2 More accurate spawns [Playtester]
-//= 1.3 Corrected MVP spawn variance. [L0ne_W0lf]
-//= 1.4 Added Nightmare spawns. [Euphy]
-//= 1.5 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de criação de monstros da masmorra marroquina da pirâmide
+// ===== Por: =============================================== =========
+// = Atenas (1.0)
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,5
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.1 KRO oficial 10.1 spawns [Playtester]
+// = 1.2 spawns mais precisos [Playtester]
+// = 1.3 Variância de spawn de MVP corrigida. [L0ne_W0lf]
+// = 1.4 Adicionados spawns do Nightmare. [Euphy]
+// = 1.5 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
-// moc_pryd01 - Inside Pyramid F1
+// moc_pryd01 - Pirâmide Interna F1
 //==================================================
 moc_pryd01,0,0	monster	Familiar	1005,72,5000
 moc_pryd01,0,0	monster	Poporing	1031,28,5000
 
 //==================================================
-// moc_pryd02 - Inside Pyramid F2
+// moc_pryd02 - Pirâmide Interna F2
 //==================================================
-moc_pryd02,0,0	monster	Mummy	1041,31,5000
+moc_pryd02,0,0	monster	Múmia	1041,31,5000
 moc_pryd02,0,0	monster	Esqueleto Soldado	1028,31,5000
 moc_pryd02,0,0	monster	Esqueleto Arqueiro	1016,31,5000
 moc_pryd02,0,0	monster	Drainliar	1111,20,5000
@@ -31,52 +33,52 @@ moc_pryd02,0,0	monster	Poporing	1031,20,5000
 moc_pryd02,0,0	monster	Isis	1029,5,5000
 
 //==================================================
-// moc_pryd03 - Inside Pyramid F3
+// moc_pryd03 - Pirâmide Interna F3
 //==================================================
-moc_pryd03,0,0	monster	Mummy	1041,70,5000
+moc_pryd03,0,0	monster	Múmia	1041,70,5000
 moc_pryd03,0,0	monster	Verit	1032,20,5000
 moc_pryd03,0,0	monster	Matyr	1146,10,5000
 moc_pryd03,0,0	monster	Drainliar	1111,5,5000
 moc_pryd03,0,0	monster	Mímico	1191,5,5000
 
 //==================================================
-// moc_pryd04 - Inside Pyramid F4
+// moc_pryd04 - Pirâmide Interna F4
 //==================================================
 moc_pryd04,0,0	monster	Isis	1029,62,5000
-moc_pryd04,0,0	monster	Mummy	1041,31,5000
+moc_pryd04,0,0	monster	Múmia	1041,31,5000
 moc_pryd04,0,0	monster	Matyr	1146,24,5000
 moc_pryd04,0,0	monster	Mímico	1191,18,5000
-moc_pryd04,0,0	monster	Ancient Mummy	1297,3,5000
-moc_pryd04,0,0,0,0	boss_monster	Osiris	1038,1,3600000,600000,0
+moc_pryd04,0,0	monster	Múmia Anciã	1297,3,5000
+moc_pryd04,0,0,0,0	boss_monster	Osíris	1038,1,3600000,600000,0
 
 //==================================================
-// moc_pryd05 - Inside Pyramid B1
+// moc_pryd05 - Pirâmide Interna B1
 //==================================================
 moc_pryd05,0,0	monster	Minorous	1149,78,5000
 moc_pryd05,0,0	monster	Verit	1032,65,5000
-moc_pryd05,0,0	monster	Mummy	1041,13,5000
+moc_pryd05,0,0	monster	Múmia	1041,13,5000
 
 //==================================================
-// moc_pryd06 - Inside Pyramid B2
+// moc_pryd06 - Pirâmide Interna B2
 //==================================================
 moc_pryd06,0,0	monster	Mímico	1191,35,5000
 moc_pryd06,0,0	monster	Verit	1032,35,5000
-moc_pryd06,0,0	monster	Arclouze	1194,23,5000
-moc_pryd06,0,0	monster	Ancient Mummy	1297,23,5000
-moc_pryd06,102,85,1,1	boss_monster	Amon Ra	1511,1,3600000,600000,0
+moc_pryd06,0,0	monster	Arclouse	1194,23,5000
+moc_pryd06,0,0	monster	Múmia Anciã	1297,23,5000
+moc_pryd06,102,85,1,1	boss_monster	Amon-Ra	1511,1,3600000,600000,0
 
 //==================================================
-// moc_prydn1 - Nightmare Mode B1
+// moc_prydn1 - Modo Pesadelo B1
 //==================================================
-moc_prydn1,0,0	monster	Nightmare Minorous	2353,78,5000
-moc_prydn1,0,0	monster	Nightmare Mummy	2354,13,5000
-moc_prydn1,0,0	monster	Nightmare Verit	2355,65,5000
+moc_prydn1,0,0	monster	Minorous do Pesadelo	2353,78,5000
+moc_prydn1,0,0	monster	Múmia do Pesadelo	2354,13,5000
+moc_prydn1,0,0	monster	Verit do Pesadelo	2355,65,5000
 
 //==================================================
-// moc_prydn2 - Nightmare Mode B2
+// moc_prydn2 - Modo Pesadelo B2
 //==================================================
-moc_prydn2,0,0	monster	Nightmare Mímico	2356,35,5000
-moc_prydn2,0,0	monster	Nightmare Verit	2355,35,5000
-moc_prydn2,0,0	monster	Nightmare Arclouze	2358,23,5000
-moc_prydn2,0,0	monster	Nightmare Ancient Mummy	2360,23,5000
-moc_prydn2,102,85,1,1	boss_monster	Nightmare Amon Ra	2362,1,3600000,600000,1
+moc_prydn2,0,0	monster	Mímico do Pesadelo	2356,35,5000
+moc_prydn2,0,0	monster	Verit do Pesadelo	2355,35,5000
+moc_prydn2,0,0	monster	Arclouse do Pesadelo	2358,23,5000
+moc_prydn2,0,0	monster	Múmia Anciã do Pesadelo	2360,23,5000
+moc_prydn2,102,85,1,1	boss_monster	Amon Ra do Pesadelo	2362,1,3600000,600000,1

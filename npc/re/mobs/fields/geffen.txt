@@ -31,7 +31,7 @@ gef_fild00,54,186,5,5	monster	Planta Verde	1080,3,360000,180000
 //==================================================
 gef_fild01,0,0	monster	Sapo de Rodda	1012,112,5000
 gef_fild01,0,0	monster	Ambernite	1094,28,5000
-gef_fild01,0,0	monster	Toad	1089,1,3600000,1800000
+gef_fild01,0,0	monster	Sapo-Cururu	1089,1,3600000,1800000
 gef_fild01,215,225,10,10	monster	Planta Verde	1080,5,360000,180000
 
 //==================================================
@@ -115,7 +115,7 @@ gef_fild05,130,293	monster	Planta Vermelha	1078,1,180000,90000
 // gef_fild06 - Geffen Field
 //==================================================
 gef_fild06,0,0	monster	Petite	1155,158,5000
-gef_fild06,0,0	monster	Mantis	1139,36,5000
+gef_fild06,0,0	monster	Louva-a-Deus	1139,36,5000
 gef_fild06,0,0	monster	Sorrateiro	1037,36,5000
 gef_fild06,0,0	monster	Planta Brilhante	1083,4,1800000,900000
 
@@ -135,7 +135,7 @@ gef_fild07,269,289,3,3	monster	Planta Verde	1080,3,360000,180000
 // gef_fild08 - Geffen Field
 //==================================================
 gef_fild08,0,0	monster	Petite	1156,163,5000
-gef_fild08,0,0	monster	Mantis	1139,37,5000
+gef_fild08,0,0	monster	Louva-a-Deus	1139,37,5000
 gef_fild08,0,0	monster	Flora	1118,37,5000
 gef_fild08,65,341	monster	Planta Azul	1079,1,900000,450000
 gef_fild08,111,319	monster	Planta Azul	1079,1,900000,450000
@@ -184,7 +184,7 @@ gef_fild11,0,0	monster	Goblin	1125,58,5000
 gef_fild11,0,0	monster	Goblin Leader	1299,1,1800000,1200000
 
 //==================================================
-// gef_fild12 - Disabled on Renewal
+// gef_fild12 - Desativado na renovação
 //==================================================
 
 //==================================================
@@ -192,5 +192,5 @@ gef_fild11,0,0	monster	Goblin Leader	1299,1,1800000,1200000
 //==================================================
 
 //==================================================
-// gef_fild14 - Disabled on Renewal
+// gef_fild14 - Desativado na renovação
 //==================================================

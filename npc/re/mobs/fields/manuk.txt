@@ -1,37 +1,39 @@
-//===== rAthena Script =======================================
-//= Manuk Fields Monster Spawn Script
-//===== By: ==================================================
-//= alexx, MaC
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.0 Official spawn ammounts from Aegis script [alexx]
-//= 1.1 Added 13.2 mob spawn update [scriptor]
-//= 1.1a Corrected fild2 mobs spawning on fild1. (bugreport:4248)
-//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Manuk Fields Monster Spawn Script
+// ===== Por: =============================================== =========
+// = alexx, MaC
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.0 Quantidades oficiais de desova do script Aegis [alexx]
+// = 1.1 Adicionado atualização de geração de mob 13.2 [scriptor]
+// = 1.1a Corrigido fild2 mobs spawning em fild1. (relatório de bug: 4248)
+// = 1.2 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
-// man_fild01 - Manuk Field
+// man_fild01 - Campo de Manuk
 //==================================================
 man_fild01,0,0	monster	Nepenthes	1988,148,5000
-man_fild01,0,0	monster	Centipede Larva	1999,42,5000
-man_fild01,0,0	monster	Hillslion	1989,14,5000
-man_fild01,0,0	monster	Centipede	1987,2,5000
+man_fild01,0,0	monster	Larva de Centopéia	1999,42,5000
+man_fild01,0,0	monster	Leão da Montanha	1989,14,5000
+man_fild01,0,0	monster	Centopéia	1987,2,5000
 
 //==================================================
-// man_fild02 - Manuk Field
+// man_fild02 - Campo de Manuk
 //==================================================
-man_fild02,0,0	monster	Bradium Golem	2024,75,5000
-man_fild02,0,0	monster	Centipede	1987,52,5000
+man_fild02,0,0	monster	Golem de Bradium	2024,75,5000
+man_fild02,0,0	monster	Centopéia	1987,52,5000
 man_fild02,0,0	monster	Tatacho	1986,37,5000
 
 //==================================================
-// man_fild03 - Manuk Field
+// man_fild03 - Campo de Manuk
 //==================================================
-man_fild03,0,0	monster	Hillslion	1989,33,5000
+man_fild03,0,0	monster	Leão da Montanha	1989,33,5000
 man_fild03,0,0	monster	Tatacho	1986,33,5000
-man_fild03,0,0	monster	Centipede	1987,33,5000
-man_fild03,0,0	monster	Hardrock Mammoth	1990,1,14400000
+man_fild03,0,0	monster	Centopéia	1987,33,5000
+man_fild03,0,0	monster	Mamute Rochoso	1990,1,14400000

@@ -1,11 +1,13 @@
-//===== rAthena Script =======================================
-//= Beginner Area Monster Spawn Script
-//===== Current Version: =====================================
-//= 1.2
-//===== Changelogs: ==========================================
-//= 1.0 First version. [Ridley]
-//= 1.1 Export from Hercules to rAthena. [Jenkijo]
-//= 1.2 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de Spawn de Monstros da Área de Iniciantes
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Traduzido por: ===========================================
+// = Guru
+// ===== Changelogs: =============================================== =
+// = 1.0 Primeira versão. [Ridley]
+// = 1.1 Exportar do Hercules para rAthena. [Jenkijo]
+// = 1.2 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 int_land,0,0	monster	Poring	2401,40,5000

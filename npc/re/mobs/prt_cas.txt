@@ -1,9 +1,11 @@
-//===== rAthena Script =======================================
-//= Episode 16.1 Monsters Spawn Script
-//===== Description: =========================================
-//= Spawns monsters in prt_cas.
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
+// ===== Script rAthena ===========================================
+// = Episódio 16.1 Monsters Spawn Script
+// ===== Descrição: ===============================================
+// = Gera monstros em prt_cas.
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
 //============================================================
 
 // Prontera Castle

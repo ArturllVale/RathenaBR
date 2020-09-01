@@ -1,16 +1,18 @@
-//===== rAthena Script =======================================
-//= Eclage Field Monster Spawn Script
-//===== By: ==================================================
-//= refis
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= jRO monster spawns, taken from Auriga.
-//===== Additional Comments: =================================
-//= 1.0 First version. [Euphy]
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de Spawn do Eclage Field Monster
+// ===== Por: =============================================== =========
+// = refis
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = o monstro jRO aparece, retirado do Auriga.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Euphy]
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================

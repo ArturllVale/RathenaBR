@@ -1,36 +1,38 @@
-//===== rAthena Script =======================================
-//= Verus Monster Spawn Script
-//===== Current Version: =====================================
-//= 1.1
-//===== Description: =========================================
-//= Spawns monsters around Verus.
-//===== Additional Comments: =================================
-//= 1.0 First version. [Capuche]
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Verus Monster Spawn Script
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Descrição: ===============================================
+// = Gera monstros ao redor de Verus.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. [Capuche]
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 // ver_eju
-ver_eju,0,0,0,0	monster	Recon Robot	3154,50,0,0,0
-ver_eju,0,0,0,0	monster	Excavator Robot	3153,10,0,0,0
+ver_eju,0,0,0,0	monster	Robô de Reconhecimento	3154,50,0,0,0
+ver_eju,0,0,0,0	monster	Robô Escavador	3153,10,0,0,0
 // ver_tunn
-ver_tunn,0,0,0,0	monster	Recon Robot	3154,5,0,0,0
+ver_tunn,0,0,0,0	monster	Robô de Reconhecimento	3154,5,0,0,0
 // verus01
-verus01,0,0,0,0	monster	Green Cenere	3247,50,0,0,0
-verus01,0,0,0,0	monster	Explorer Robot Turbo	3249,25,0,0,0
-verus01,0,0,0,0	monster	Repair Robot Turbo	3248,25,0,0,0
+verus01,0,0,0,0	monster	Fumaça Verde	3247,50,0,0,0
+verus01,0,0,0,0	monster	Robô Explorador Turbo	3249,25,0,0,0
+verus01,0,0,0,0	monster	Robô Reparador Turbo	3248,25,0,0,0
 // verus02
-verus02,0,0,0,0	monster	Repair Robot Turbo	3248,50,0,0,0
-verus02,0,0,0,0	monster	Explorer Robot Turbo	3249,50,0,0,0
+verus02,0,0,0,0	monster	Robô Reparador Turbo	3248,50,0,0,0
+verus02,0,0,0,0	monster	Robô Explorador Turbo	3249,50,0,0,0
 // verus03
-verus03,0,0,0,0	monster	Illegal Promotion	3159,40,0,0,0
-verus03,0,0,0,0	monster	Explorer Robot	3156,50,0,0,0
-verus03,0,0,0,0	monster	Repair Robot	3155,50,0,0,0
-verus03,0,0,0,0	monster	Ruin Grace Believer	3158,10,0,0,0
+verus03,0,0,0,0	monster	Propaganda Ilegal	3159,40,0,0,0
+verus03,0,0,0,0	monster	Robô Explorador	3156,50,0,0,0
+verus03,0,0,0,0	monster	Robô Reparador	3155,50,0,0,0
+verus03,0,0,0,0	monster	Adorador do Infortúnio	3158,10,0,0,0
 // un_bunker
 un_bunker,0,0,0,0	monster	Besouro-Ladrão	1051,6,0,0,0
-un_bunker,0,0,0,0	monster	Smelly Carniçal	3255,68,0,0,0
-un_bunker,0,0,0,0	monster	Smelly Zumbi	3256,80,0,0,0
-un_bunker,0,0,0,0	monster	Machine Component	3250,28,0,0,0
+un_bunker,0,0,0,0	monster	Carniçal Fedorento	3255,68,0,0,0
+un_bunker,0,0,0,0	monster	Zumbi Fedorento	3256,80,0,0,0
+un_bunker,0,0,0,0	monster	Robô de Sucata	3250,28,0,0,0
 un_bunker,0,0,0,0	monster	DR815	3252,14,0,0,0
 un_bunker,0,0,0,0	monster	GC109	3251,10,0,0,0
 un_bunker,0,0,0,0	monster	Cogumelo Negro	1084,1,0,0,0
