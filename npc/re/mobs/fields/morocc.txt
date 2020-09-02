@@ -1,38 +1,40 @@
-//===== rAthena Script =======================================
-//= Morocc Fields Monster Spawn Script
-//===== By: ==================================================
-//= Athena (1.0)
-//===== Current Version: =====================================
-//= 1.8
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.1 Official kRO 10.1 spawns [Playtester]
-//= 1.2 More accurate spawns [Playtester]
-//= 1.3 Added Morocc field 20, 21, and 22 spawns, as [L0ne_W0lf]
-//= 1.4 Updated spawns to reflect episode 12.1. [L0ne_W0lf]
-//= 1.5 Fixed Pheeroni spawn location. [Kisuka]
-//= 1.6 Added Satan Morocc static spawn. [L0ne_W0lf]
-//=     Added 30s spawn time for all Morocc Shadows.
-//= 1.7 Corrected MVP spawn variance. [L0ne_W0lf]
-//= 1.8 Updated to renewal spawns. [L0ne_W0lf]
-//= 1.9 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de Spawn de Monstros de Morocc Fields
+// ===== Por: =============================================== =========
+// = Atenas (1.0)
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.8
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.1 KRO oficial 10.1 spawns [Playtester]
+// = 1.2 spawns mais precisos [Playtester]
+// = 1.3 Adicionado o campo Morocc 20, 21 e 22 spawns, como [L0ne_W0lf]
+// = 1.4 Atualizado spawns para refletir o episódio 12.1. [L0ne_W0lf]
+// = 1.5 Local de desova de Pheeroni corrigido. [Kisuka]
+// = 1.6 Adicionado spawn estático de Satan Morocc. [L0ne_W0lf]
+// = Tempo de spawn de 30 segundos adicionado para todas as sombras Morocc.
+// = 1.7 Variância de spawn de MVP corrigida. [L0ne_W0lf]
+// = 1.8 Atualizado para spawns de renovação. [L0ne_W0lf]
+// = 1.9 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
-// moc_fild01 - Sograt Desert 
+// moc_fild01 - Deserto Sograt
 //==================================================
 moc_fild01,0,0	monster	Peco Peco	1019,93,5000
 moc_fild01,0,0	monster	Muka	1055,202,5000
-moc_fild01,0,0	monster	Peco Peco Egg	1047,31,5000
+moc_fild01,0,0	monster	Ovo de PecoPeco	1047,31,5000
 moc_fild01,194,51,10,10	monster	Planta Amarela	1081,10,900000,450000
 
 //==================================================
-// moc_fild02 - Sograt Desert 
+// moc_fild02 - Deserto Sograt
 //==================================================
 moc_fild02,0,0	monster	Muka	1055,58,5000
 moc_fild02,0,0	monster	Peco Peco	1019,153,5000
-moc_fild02,0,0	monster	Peco Peco Egg	1047,11,5000
+moc_fild02,0,0	monster	Ovo de PecoPeco	1047,11,5000
 moc_fild02,89,315	monster	Planta Amarela	1081,1,180000,90000
 moc_fild02,99,261	monster	Planta Amarela	1081,1,180000,90000
 moc_fild02,94,195	monster	Planta Amarela	1081,1,180000,90000
@@ -49,7 +51,7 @@ moc_fild02,353,103	monster	Planta Verde	1080,1,180000,90000
 moc_fild02,337,35	monster	Planta Verde	1080,1,180000,90000
 
 //==================================================
-// moc_fild03 - Sograt Desert 
+// moc_fild03 - Deserto Sograt
 //==================================================
 moc_fild03,0,0	monster	Lobo	1013,164,5000
 moc_fild03,0,0	monster	Argos	1100,23,5000
@@ -63,15 +65,15 @@ moc_fild03,213,201,5,5	monster	Planta Verde	1080,2,180000,90000
 moc_fild03,200,263,5,5	monster	Planta Verde	1080,2,180000,90000
 
 //==================================================
-// moc_fild04 - Disabled on Episode 12.1
+// moc_fild04 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild05 - Disabled on Episode 12.1
+// moc_fild05 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild06 - Disabled on Episode 12.1
+// moc_fild06 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
@@ -79,21 +81,21 @@ moc_fild03,200,263,5,5	monster	Planta Verde	1080,2,180000,90000
 //==================================================
 moc_fild07,0,0	monster	Drops	1113,214,5000
 moc_fild07,0,0	monster	Chonchon	1011,46,5000
-moc_fild07,0,0	monster	Picky	1050,23,5000
-moc_fild07,0,0	monster	Peco Peco Egg	1047,15,5000
+moc_fild07,0,0	monster	Picky com casca	1050,23,5000
+moc_fild07,0,0	monster	Ovo de PecoPeco	1047,15,5000
 moc_fild07,0,0	monster	Picky	1049,15,5000
 moc_fild07,162,333,12,12	monster	Planta Amarela	1081,5,360000,180000
 
 //==================================================
-// moc_fild08 - Disabled on Episode 12.1
+// moc_fild08 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild09  - Disabled on Episode 12.1
+// moc_fild09  - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild10  - Disabled on Episode 12.1
+// moc_fild10  - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
@@ -101,14 +103,14 @@ moc_fild07,162,333,12,12	monster	Planta Amarela	1081,5,360000,180000
 //==================================================
 moc_fild11,0,0	monster	Filhote de Lobo	1107,137,5000
 moc_fild11,0,0	monster	Condor	1009,137,5000
-moc_fild11,0,0	monster	Scorpion	1001,41,5000
+moc_fild11,0,0	monster	Escorpião	1001,41,5000
 
 //==================================================
 // moc_fild12 - Sograt Desert 
 //==================================================
 moc_fild12,0,0	monster	Picky	1049,65,5000
-moc_fild12,0,0	monster	Picky	1050,65,5000
-moc_fild12,0,0	monster	Peco Peco Egg	1047,45,5000
+moc_fild12,0,0	monster	Picky com casca	1050,65,5000
+moc_fild12,0,0	monster	Ovo de PecoPeco	1047,45,5000
 moc_fild12,0,0	monster	Drops	1113,39,5000
 moc_fild12,0,0	monster	Condor	1009,39,5000
 moc_fild12,181,336,40,20	monster	Planta Amarela	1081,10,180000,90000
@@ -145,27 +147,27 @@ moc_fild13,106,258,5,5	monster	Planta Amarela	1081,3,180000,90000
 moc_fild13,161,273,5,5	monster	Planta Amarela	1081,3,180000,90000
 
 //==================================================
-// moc_fild14 - Disabled on Episode 12.1
+// moc_fild14 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild15 - Disabled on Episode 12.1
+// moc_fild15 - Desativado no episódio 12.1
 //==================================================
 
 //==================================================
-// moc_fild16 - Sograt Desert
+// moc_fild16 - Deserto Sograt
 //==================================================
-moc_fild16,0,0	monster	Sandman	1165,130,5000
+moc_fild16,0,0	monster	Arenoso	1165,130,5000
 moc_fild16,0,0	monster	Hode	1127,30,5000
 moc_fild16,0,0	monster	Frilldora	1119,10,5000
 
 //==================================================
-// moc_fild17 - Sograt Desert 
+// moc_fild17 - Deserto Sograt
 //==================================================
 moc_fild17,0,0	monster	Hode	1127,170,5000
-moc_fild17,0,0	monster	Sandman	1165,39,5000
+moc_fild17,0,0	monster	Arenoso	1165,39,5000
 moc_fild17,0,0	monster	Frilldora	1119,13,5000
-moc_fild17,0,0,0,0	boss_monster	Phreeoni	1159,1,7200000,600000,1
+moc_fild17,0,0,0,0	boss_monster	Freeoni	1159,1,7200000,600000,1
 moc_fild17,40,258	monster	Planta Amarela	1081,1,180000,90000
 moc_fild17,144,151	monster	Planta Amarela	1081,1,180000,90000
 moc_fild17,243,138	monster	Planta Amarela	1081,1,180000,90000
@@ -177,10 +179,10 @@ moc_fild17,359,258	monster	Planta Amarela	1081,1,180000,90000
 //==================================================
 // moc_fild18 - Sograt Desert
 //==================================================
-moc_fild18,0,0	monster	Scorpion	1001,160,5000
+moc_fild18,0,0	monster	Escorpião	1001,160,5000
 moc_fild18,0,0	monster	Condor	1009,34,5000
 moc_fild18,0,0	monster	Filhote de Lobo	1107,34,5000
-moc_fild18,0,0	monster	Dragon Fly	1091,1,3600000,1800000
+moc_fild18,0,0	monster	Libélula	1091,1,3600000,1800000
 moc_fild18,143,352	monster	Planta Amarela	1081,1,180000,90000
 moc_fild18,72,333	monster	Planta Amarela	1081,1,180000,90000
 moc_fild18,119,285	monster	Planta Amarela	1081,1,180000,90000
@@ -191,30 +193,30 @@ moc_fild18,325,207	monster	Planta Amarela	1081,1,180000,90000
 moc_fild18,325,272	monster	Planta Amarela	1081,1,180000,90000
 
 //==================================================
-// moc_fild19 - Quest Map
+// moc_fild19 - Mapa de Quest
 //==================================================
 
 //==================================================
-// moc_fild20 - Sograt Desert - Continental Guard Quarantine 
+// moc_fild20 - Deserto de Sograt - Quarentena da Guarda Continental
 //==================================================
-moc_fild20,0,0	monster	Incarnation of Morocc	1918,1,30000
-moc_fild20,0,0	monster	Incarnation of Morocc	1919,1,30000
-moc_fild20,0,0	monster	Incarnation of Morocc	1920,1,30000
-moc_fild20,0,0	monster	Incarnation of Morocc	1921,1,30000
+moc_fild20,0,0	monster	Sombra da Inveja	1918,1,30000
+moc_fild20,0,0	monster	Sombra da Gula	1919,1,30000
+moc_fild20,0,0	monster	Sombra da Vaidade	1920,1,30000
+moc_fild20,0,0	monster	Sombra da Ira	1921,1,30000
 
 //==================================================
-// moc_fild21 - Dimensional Gorge 
+// moc_fild21 - Desfiladeiro Dimensional
 //==================================================
-moc_fild21,0,0	monster	Incarnation of Morocc	1918,79,30000
-moc_fild21,0,0	monster	Incarnation of Morocc	1919,79,30000
-moc_fild21,0,0	monster	Incarnation of Morocc	1920,79,30000
-moc_fild21,0,0	monster	Incarnation of Morocc	1921,58,30000
+moc_fild21,0,0	monster	Sombra da Inveja	1918,79,30000
+moc_fild21,0,0	monster	Sombra da Gula	1919,79,30000
+moc_fild21,0,0	monster	Sombra da Vaidade	1920,79,30000
+moc_fild21,0,0	monster	Sombra da Ira	1921,58,30000
 
 //==================================================
-// moc_fild22 - Dimensional Gorge 
+// moc_fild22 - Desfiladeiro Dimensional
 //==================================================
-moc_fild22,0,0	monster	Incarnation of Morocc	1918,73,30000
-moc_fild22,0,0	monster	Incarnation of Morocc	1919,73,30000
-moc_fild22,0,0	monster	Incarnation of Morocc	1920,73,30000
-moc_fild22,0,0	monster	Incarnation of Morocc	1921,50,10000
-moc_fild22,0,0,0,0	boss_monster	Wounded Morocc	1917,1,43200000,600000,0
+moc_fild22,0,0	monster	Sombra da Inveja	1918,73,30000
+moc_fild22,0,0	monster	Sombra da Gula	1919,73,30000
+moc_fild22,0,0	monster	Sombra da Vaidade	1920,73,30000
+moc_fild22,0,0	monster	Sombra da Ira	1921,50,10000
+moc_fild22,0,0,0,0	boss_monster	Morroc Ferido	1917,1,43200000,600000,0

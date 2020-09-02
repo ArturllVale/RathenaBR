@@ -1,38 +1,40 @@
-//===== rAthena Script =======================================
-//= Champion Monster Spawn Script
-//===== By: ==================================================
-//= nanakiwurtz
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.0 First version
-//= 1.1 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Script de Spawn de Monstro Campeão
+// ===== Por: =============================================== =========
+// = nanakiwurtz
+// ===== Traduzido Por: ===============================================
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão
+// = 1.1 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 abbey02,0,0	monster	Swift Massacre	2603,3,300000
 gl_prison,0,0	monster	Solid Zumbi Prisioneiro	2604,1,300000
-gld_dun04,0,0	monster	Zumbi Master Ringleader	2605,2,300000
+gld_dun04,0,0	monster	Zumbi Mestre Ringleader	2605,2,300000
 pay_dun00,0,0	monster	Furious Zumbi	2606,2,300000
 schg_dun01,0,0	monster	Elusive Zakudam	2607,2,300000
 prt_fild03,0,0	monster	Swift Yoyo	2608,2,300000
 ayo_fild02,0,0	monster	Solid Yoyo	2609,1,300000
-pay_fild06,0,0	monster	Wormtail Ringleader	2610,3,300000
+pay_fild06,0,0	monster	Rabo de Verme Ringleader	2610,3,300000
 um_fild02,0,0	monster	Furious Guerreiro Wootan	2611,1,300000
 mosk_dun01,0,0	monster	Elusive Leshij	2612,2,300000
 moc_fild03,0,0	monster	Swift Lobo	2613,2,300000
 gl_step,0,0	monster	Solid Xamã do Vento	2614,2,300000
 gef_dun03,0,0	monster	Solid Xamã do Vento	2614,1,300000
-pay_fild01,0,0	monster	Willow Ringleader	2615,2,300000
+pay_fild01,0,0	monster	Salgueiro Ringleader	2615,2,300000
 um_fild04,0,0	monster	Furious Rosa Selvagem	2616,1,300000
 gon_dun03,0,0	monster	Elusive Ninfa Perversa	2617,2,300000
 gl_sew01,0,0	monster	Solid Sussurro	2618,1,300000
 treasure_n2,0,0	monster	Esqueleto Ringleader	2619,2,300000
 gl_cas02,0,0	monster	Furious Andarilho	2620,2,300000
-gefenia04,0,0	monster	Elusive Violy	2621,2,300000
-gefenia03,0,0	monster	Swift Violy	2622,2,300000
-gefenia02,0,0	monster	Solid Violy	2623,2,300000
+gefenia04,0,0	monster	Elusive Violi	2621,2,300000
+gefenia03,0,0	monster	Swift Violi	2622,2,300000
+gefenia02,0,0	monster	Solid Violi	2623,2,300000
 ein_fild04,0,0	monster	Nuvem Venenosa Ringleader	2624,2,300000
 juperos_01,0,0	monster	Furious Venatu	2625,3,300000
 mosk_dun03,0,0	monster	Elusive Vavayaga	2626,2,300000
@@ -64,8 +66,8 @@ pay_dun03,0,0	monster	Swift Sohee	2651,2,300000
 ice_dun02,0,0	monster	Solid Yeti	2652,2,300000
 pay_fild02,0,0	monster	Jibóia Ringleader	2653,3,300000
 ayo_fild01,0,0	monster	Furious Fumacento	2654,2,300000
-yuno_fild06,0,0	monster	Elusive Sleeper	2655,1,300000
-yuno_fild02,0,0	monster	Swift Sleeper	2656,2,300000
+yuno_fild06,0,0	monster	Elusive Rochoso	2655,1,300000
+yuno_fild02,0,0	monster	Swift Rochoso	2656,2,300000
 odin_tem02,0,0	monster	Solid Skogul	2657,1,300000
 gld2_pay,0,0	monster	Esqueleto General Ringleader	2658,2,300000
 gld_dun01_2,0,0	monster	Furious Esqueleto General	2659,2,300000
@@ -79,11 +81,11 @@ hu_fild06,0,0	monster	Swift Molusco	2666,1,300000
 lhz_dun03,0,0	monster	Solid Cecil Damon	2667,3,300000
 cmd_fild04,0,0	monster	Lontra Ringleader	2668,2,300000
 iz_dun05,0,0	monster	Furious Lamp Rey	2669,2,300000
-moc_fild18,0,0	monster	Elusive Scorpion	2670,3,300000
-mjolnir_09,0,0	monster	Swift Selvagem Babe	2671,2,300000
+moc_fild18,0,0	monster	Elusive Escorpião	2670,3,300000
+mjolnir_09,0,0	monster	Swift Bebe Selvagem	2671,2,300000
 prt_maze01,0,0	monster	Solid Selvagem	2672,2,300000
 mjolnir_07,0,0	monster	Selvagem Ringleader	2673,3,300000
-moc_fild16,0,0	monster	Furious Sandman	2674,2,300000
+moc_fild16,0,0	monster	Furious Arenoso	2674,2,300000
 thor_v03,0,0	monster	Elusive Salamandra	2675,2,300000
 treasure02,0,0	monster	Swift Sailor Esqueleto	2676,1,300000
 ra_fild12,0,0	monster	Solid Roween	2677,2,300000
@@ -125,7 +127,7 @@ bra_dun01,0,0	monster	Swift Piranha	2709,2,300000
 spl_fild01,0,0	monster	Solid Pinguicula Sombria	2710,2,300000
 spl_fild02,0,0	monster	Pinguicula Ringleader	2711,2,300000
 moc_fild12,0,0	monster	Furious Picky	2712,2,300000
-iz_dun03,0,0	monster	Elusive Phen	2713,2,300000
+iz_dun03,0,0	monster	Elusive Fen	2713,2,300000
 gef_fild08,0,0	monster	Swift Petite	2714,2,300000
 gef_fild06,0,0	monster	Solid Petite	2715,2,300000
 treasure02,0,0	monster	Penomena Ringleader	2716,2,300000
@@ -135,10 +137,10 @@ in_sphinx5,0,0	monster	Swift Pasana	2719,2,300000
 um_fild03,0,0	monster	Solid Parasita	2720,1,300000
 tha_t05,0,0	monster	Duque Coruja Ringleader	2721,2,300000
 //tha_t05,0,0	monster	Duque Coruja Ringleader	2721,3,300000	//--Applied after Thanatos Revamped Patch.
-gef_fild10,0,0	monster	Furious Orc Warrior	2722,2,300000
+gef_fild10,0,0	monster	Furious Guerreiro Orc	2722,2,300000
 orcsdun01,0,0	monster	Elusive Orc Zumbi	2723,2,300000
 orcsdun02,0,0	monster	Swift Orc Esqueleto	2724,2,300000
-gef_fild03,0,0	monster	Solid Orc Lady	2725,3,300000
+gef_fild03,0,0	monster	Solid Senhora Orc	2725,3,300000
 tha_t12,0,0	monster	Dama de Guarda Ringleader	2726,2,300000	//--Remove after Thanatos Ravamped Patch
 ein_fild05,0,0	monster	Furious Nuvem Tóxicas	2727,2,300000
 hu_fild05,0,0	monster	Elusive Novus	2728,2,300000
@@ -200,7 +202,7 @@ ayo_dun01,0,0	monster	Gato de Folha Ringleader	2781,2,300000
 ra_fild06,0,0	monster	Swift Cobold Arqueiro	2784,3,300000
 ra_fild05,0,0	monster	Solid Cobold	2785,3,300000
 thor_v02,0,0	monster	Golpeador Ringleader	2786,1,300000
-mjolnir_08,0,0	monster	Furious Beetle King	2787,2,300000
+mjolnir_08,0,0	monster	Furious Encouraçado	2787,2,300000
 thor_v01,0,0	monster	Elusive Kasa	2788,2,300000
 ama_fild01,0,0	monster	Swift Karakasa	2789,2,300000
 moc_pryd04,0,0	monster	Solid Isis	2790,2,300000
@@ -211,7 +213,7 @@ ice_dun03,0,0	monster	Swift Titã de Gelo	2794,2,300000
 bra_dun02,0,0	monster	Solid Iara	2795,3,300000
 lou_dun02,0,0	monster	Yao Jun Ringleader	2796,1,300000
 gef_dun00,0,0	monster	Furious Mosca Caçadora	2797,1,300000
-prt_fild05,0,0	monster	Elusive Hornet	2798,2,300000
+prt_fild05,0,0	monster	Elusive Zangão	2798,2,300000
 dic_dun01,0,0	monster	Swift Uni-horn Scaraba	2799,2,300000
 pay_fild09,0,0	monster	Solid Besouro-Chifre	2800,2,300000
 ra_san03,0,0	monster	Hodremlin Ringleader	2801,2,300000
@@ -219,8 +221,8 @@ moc_fild17,0,0	monster	Furious Hode	2802,2,300000
 ra_fild04,0,0	monster	Elusive Vento da Colina	2803,3,300000
 ra_fild03,0,0	monster	Swift Vento da Colina	2804,3,300000
 alde_dun02,0,0	monster	Solid Grand Orc	2805,2,300000
-yuno_fild04,0,0	monster	Harpy Ringleader	2806,3,300000
-yuno_fild03,0,0	monster	Furious Harpy	2807,3,300000
+yuno_fild04,0,0	monster	Harpia Ringleader	2806,3,300000
+yuno_fild03,0,0	monster	Furious Harpia	2807,3,300000
 cmd_fild01,0,0	monster	Elusive Grove	2808,2,300000
 pay_fild10,0,0	monster	Swift Guardião da Floresta	2809,2,300000
 yuno_fild09,0,0	monster	Solid Grand Peco	2810,2,300000
@@ -228,13 +230,13 @@ yuno_fild08,0,0	monster	Grand Peco Ringleader	2811,2,300000
 cmd_fild06,0,0	monster	Furious Golem	2812,2,300000
 prt_fild11,0,0	monster	Elusive Goblin	2813,3,300000
 gef_fild11,0,0	monster	Swift Goblin	2814,3,300000
-yuno_fild11,0,0	monster	Solid Goat	2815,2,300000
-yuno_fild07,0,0	monster	Goat Ringleader	2816,2,300000
-gld2_prt,0,0	monster	Furious Dark Hammer Cobold	2817,2,300000
-gld_dun03_2,0,0	monster	Elusive Dark Hammer Cobold	2818,2,300000
-gld2_gef,0,0	monster	Swift Dark Shadow	2819,2,300000
-gld_dun04_2,0,0	monster	Solid Dark Shadow	2820,2,300000
-gld_dun02,0,0	monster	Giant Hornet Ringleader	2821,2,300000
+yuno_fild11,0,0	monster	Solid Bode	2815,2,300000
+yuno_fild07,0,0	monster	Bode Ringleader	2816,2,300000
+gld2_prt,0,0	monster	Furious Kobold Abissal de Martelo	2817,2,300000
+gld_dun03_2,0,0	monster	Elusive Kobold Abissal de Martelo	2818,2,300000
+gld2_gef,0,0	monster	Swift Sombra Abissal	2819,2,300000
+gld_dun04_2,0,0	monster	Solid Sombra Abissal	2820,2,300000
+gld_dun02,0,0	monster	Zangão Gigante Ringleader	2821,2,300000
 nameless_n,0,0	monster	Furious Carniçal	2822,1,300000
 gef_dun01,0,0	monster	Elusive Carniçal	2823,2,300000
 yuno_fild12,0,0	monster	Swift  Planta Carnívora	2824,1,300000
@@ -247,25 +249,25 @@ tur_dun05,0,0	monster	Solid Congelador	2830,1,300000
 tur_dun03,0,0	monster	Congelador Ringleader	2831,1,300000
 abyss_01,0,0	monster	Furious Ferus	2832,2,300000
 prt_sewb1,0,0	monster	Elusive Familiar	2833,1,300000
-gefenia01,0,0	monster	Swift False Angel	2834,2,300000
+gefenia01,0,0	monster	Swift Anjo Fajuto	2834,2,300000
 prt_fild06,0,0	monster	Solid Fabre	2835,2,300000
 pay_fild03,0,0	monster	Fabre Ringleader	2836,3,300000
 mag_dun01,0,0	monster	Furious Estrondo	2837,1,300000
 gl_church,0,0	monster	Elusive Druida Malígno	2838,2,300000
-prt_fild10,0,0	monster	Swift Ancião Willow	2839,3,300000
-mjolnir_02,0,0	monster	Solid Ancião Willow	2840,3,300000
+prt_fild10,0,0	monster	Swift Salgueiro Ancião	2839,3,300000
+mjolnir_02,0,0	monster	Solid Salgueiro Ancião	2840,3,300000
 ra_san04,0,0	monster	Echio Ringleader	2841,1,300000
 mjolnir_12,0,0	monster	Furious Poeira	2842,2,300000
 um_fild01,0,0	monster	Swift Dríade	2843,2,300000
 ve_fild02,0,0	monster	Solid Drosera	2844,2,300000
 moc_fild07,0,0	monster	Drops Ringleader	2845,3,300000
-mjolnir_04,0,0	monster	Furious Driller	2846,3,300000
+mjolnir_04,0,0	monster	Furious Furador	2846,3,300000
 in_sphinx1,0,0	monster	Elusive Drainliar	2847,1,300000
 tur_dun01,0,0	monster	Swift Lavadeira	2848,1,300000
 nyd_dun01,0,0	monster	Solid Draco	2849,2,300000
 dic_fild02,0,0	monster	Dolomedes Ringleader	2850,2,300000
 pay_dun04,0,0	monster	Furious Dokebi	2851,2,300000
-nif_fild01,0,0	monster	Elusive Disguise	2852,2,300000
+nif_fild01,0,0	monster	Elusive Mascarado	2852,2,300000
 jupe_core,0,0	monster	Swift Dimik	2853,3,300000
 gef_dun02,0,0	monster	Solid Deviruchi	2854,2,300000
 ra_fild01,0,0	monster	Filhote de Lobo Ringleader	2855,2,300000
@@ -291,7 +293,7 @@ gef_fild00,0,0	monster	Elusive Chonchon	2872,2,300000
 dic_fild01,0,0	monster	Swift Centopéia	2873,2,300000
 ecl_tdun01,0,0	monster	Solid Cenere	2874,1,300000
 lhz_dun04,0,0	monster	Celia Ringleader	2875,3,300000
-gld_dun03,0,0	monster	Furious Caterpillar	2876,2,300000
+gld_dun03,0,0	monster	Furious Lagarta	2876,2,300000
 gl_cas01,0,0	monster	Elusive Carat	2877,2,300000
 mjolnir_01,0,0	monster	Swift Caramelo	2878,2,300000
 ma_fild02,0,0	monster	Solid Bungisngis	2879,2,300000

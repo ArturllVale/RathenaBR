@@ -1,21 +1,23 @@
-//===== rAthena Script =======================================
-//= Byalan Dungeon Monster Spawn Script
-//===== By: ==================================================
-//= Athena (1.0)
-//===== Current Version: =====================================
-//= 1.5
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Additional Comments: =================================
-//= 1.1 Official kRO 10.1 spawns for 1-4 [Playtester]
-//= 1.2 More accurate spawns [Playtester]
-//= 1.3 Added Izlude Dungeon F6 spawns [Chilly]
-//= 1.4 Official F6 spawns.
-//= 1.5 Correct Spawn by Navigation's mob data. [attackjom]
+// ===== Script rAthena ===========================================
+// = Byalan Dungeon Monster Spawn Script
+// ===== Por: =============================================== =========
+// = Atenas (1.0)
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,5
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Comentários adicionais: ===================================
+// = 1.1 KRO oficial 10.1 surge para 1-4 [Playtester]
+// = 1.2 spawns mais precisos [Playtester]
+// = 1.3 Adicionado Izlude Dungeon F6 spawns [Chilly]
+// = 1.4 O F6 oficial desova.
+// = 1.5 Spawn correto pelos dados de mob do Navigation. [attackjom]
 //============================================================
 
 //==================================================
-// iz_dun00 - Undersea Tunnel
+// iz_dun00 - Túnel Submarino
 //==================================================
 iz_dun00,0,0	monster	Plankton	1161,88,5000
 iz_dun00,0,0	monster	Marina	1141,61,5000
@@ -25,7 +27,7 @@ iz_dun00,0,0	monster	Hidra	1068,20,5000
 iz_dun00,0,0	monster	Cogumelo Negro	1084,6,180000,90000
 
 //==================================================
-// iz_dun01 - Undersea Tunnel
+// iz_dun01 - Túnel Submarino
 //==================================================
 iz_dun01,0,0	monster	Vadon	1066,60,5000
 iz_dun01,0,0	monster	Kukre	1070,50,5000
@@ -36,22 +38,22 @@ iz_dun01,0,0	monster	Plankton	1161,10,5000
 iz_dun01,0,0	monster	Cogumelo Negro	1084,10,180000,90000
 
 //==================================================
-// iz_dun02 - Undersea Tunnel
+// iz_dun02 - Túnel Submarino
 //==================================================
 iz_dun02,0,0	monster	Cornutus	1067,60,5000
-iz_dun02,0,0	monster	Marse	1144,40,5000
+iz_dun02,0,0	monster	Marte	1144,40,5000
 iz_dun02,0,0	monster	Obeaune	1044,40,5000
 iz_dun02,0,0	monster	Hidra	1068,40,5000
 iz_dun02,0,0	monster	Tritão	1264,1,5000
 iz_dun02,0,0	monster	Cogumelo Negro	1084,15,180000,90000
 
 //==================================================
-// iz_dun03 - Undersea Tunnel
+// iz_dun03 - Túnel Submarino
 //==================================================
-iz_dun03,0,0	monster	Phen	1158,45,5000
-iz_dun03,0,0	monster	Marc	1045,40,5000
-iz_dun03,0,0	monster	Swordfish	1069,40,5000
-iz_dun03,0,0	monster	Marine Sphere	1142,20,5000
+iz_dun03,0,0	monster	Fen	1158,45,5000
+iz_dun03,0,0	monster	Cavalo-Marinho	1045,40,5000
+iz_dun03,0,0	monster	Peixe-Espada	1069,40,5000
+iz_dun03,0,0	monster	Esfera Marinha	1142,20,5000
 iz_dun03,0,0	monster	Tritão	1264,3,5000
 iz_dun03,200,144	monster	Hidra	1068,1,282000,150000
 iz_dun03,178,253	monster	Hidra	1068,1,300000,150000
@@ -85,12 +87,12 @@ iz_dun03,203,56	monster	Hidra	1068,1,323000,150000
 iz_dun03,197,144	monster	Hidra	1068,1,2960000,150000
 
 //==================================================
-// iz_dun04 - Undersea Tunnel
+// iz_dun04 - Túnel Submarino
 //==================================================
 iz_dun04,0,0	monster	Tritão	1264,61,5000
 iz_dun04,0,0	monster	Strouf	1065,58,5000
-iz_dun04,0,0	monster	Marine Sphere	1142,11,5000
-iz_dun04,0,0	monster	Swordfish	1069,11,5000
+iz_dun04,0,0	monster	Esfera Marinha	1142,11,5000
+iz_dun04,0,0	monster	Peixe-Espada	1069,11,5000
 iz_dun04,0,0	monster	Deviace	1108,3,5000
 iz_dun04,80,246	monster	Hidra	1068,1,294000,150000
 iz_dun04,79,246	monster	Hidra	1068,1,300000,150000
@@ -112,10 +114,10 @@ iz_dun04,69,243	monster	Hidra	1068,1,321000,150000
 iz_dun04,33,115	monster	Hidra	1068,1,321000,150000
 
 //==================================================
-// iz_dun05 - Undersea Tunnel F6
+// iz_dun05 - Túnel Submarino F6
 //==================================================
 iz_dun05,0,0	monster	Sropho	2201,50,5000
 iz_dun05,0,0	monster	Sedora	2204,60,5000
-iz_dun05,0,0	monster	Pot Dofle	2203,30,5000
-iz_dun05,0,0	monster	King Dramoh	2198,25,5000
+iz_dun05,0,0	monster	Dofle	2203,30,5000
+iz_dun05,0,0	monster	Rei Dramoh	2198,25,5000
 iz_dun05,0,0,0,0	boss_monster	Kraken	2202,1,7200000,1800000,0
