@@ -1,44 +1,46 @@
-//===== rAthena Script ======================================= 
-//= Warper
-//===== Description: ========================================= 
-//= A complete - but very condensed - warper script.
-//===== Additional Comments: =================================
-//= 1.0 Initial script By [Euphy].
-//= 1.1 Added missing duplicates and fixed coordinates.
-//=     Some coordinates written by [Tekno-Kanix] and [ToastOfDoom].
-//= 1.2 Added new episodes and simplified functions.
-//= 1.3 Added Renewal checks and Instances menu.
-//=     Aligned coordinates with @go.
-//= 1.4 Added new Guild Dungeons.
-//= 1.4a Slight edits.
-//= 1.4b Added Wolfchev's Laboratory warp.
-//= 1.5 Added Lasagna ,Para Market ,WOE TE ,Instances and settings [sader1992].
-//= 1.5a Fix Bifrost Tower
+// ===== Script rAthena ===========================================
+// = Warper
+// ===== Descrição: ===============================================
+// = Um script warper completo - mas muito condensado.
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Comentários adicionais: ===================================
+// = 1.0 Script inicial por [Euphy].
+// = 1.1 Adicionadas duplicatas ausentes e coordenadas fixas.
+// = Algumas coordenadas escritas por [Tekno-Kanix] e [ToastOfDoom].
+// = 1.2 Adicionados novos episódios e funções simplificadas.
+// = 1.3 Adicionadas verificações de renovação e menu de instâncias.
+// = Coordenadas alinhadas com @go.
+// = 1.4 Adicionadas novas Masmorras da Guilda.
+// = 1.4a Pequenas edições.
+// = 1.4b Adicionada dobra de laboratório de Wolfchev.
+// = 1.5 Adicionada Lasagna, Para Market, WOE TE, Instâncias e configurações [sader1992].
+// = 1.5a Fix Bifrost Tower
 //============================================================
 
 -	script	Warper	-1,{
 function Go; function Disp; function Pick; function Restrict;
 
 // --------------------------------------------------
-//	Main Menu:
+//	Menu principal:
 // --------------------------------------------------
 
-menu	"Last Warp ^777777["+lastwarp$+"]^000000",-,
-    	" ~ Towns",Towns,
-    	" ~ Fields",Fields,
-    	" ~ Dungeons",Dungeons,
-    	" ~ Guild Castles",Castles,
-    	" ~ Guild Dungeons",Guild_Dungeons,
-    	" ~ Instances",Instances,
-    	" ~ Special Areas",Special;
+menu	"Último Warp ^777777["+lastwarp$+"]^000000",-,
+    	" ~ Cidades",Towns,
+    	" ~ Campos",Fields,
+    	" ~ Calabouços",Dungeons,
+    	" ~ Castelos da Guilda",Castles,
+    	" ~ Calabouços da Guilda",Guild_Dungeons,
+    	" ~ Instâncias",Instances,
+    	" ~ Áreas Especiais",Special;
 
 	if (lastwarp$ == "")
-		message strcharinfo(0),"You haven't warped anywhere yet.";
+		message strcharinfo(0),"Você ainda não fez warped em qualquer lugar.";
 	else
 		warp lastwarp$,lastwarpx,lastwarpy;
 	end;
 
-// ------------------- Functions -------------------
+// ------------------- Funções  -------------------
 // * Go("<map>",<x>,<y>);
 //	~ Warps directly to a map.
 //
@@ -100,7 +102,7 @@ function Pick {
 		set .@map$, getarg(0)+((.@i<10)?"0":"")+.@i;
 	}
 	if (.@warp_block & (1<<.@select)) {
-		message strcharinfo(0),"This map is not enabled in "+((checkre(0))?"":"Pre-")+"Renewal.";
+		message strcharinfo(0),"Este mapa não está habilitado em "+((checkre(0))?"":"Pre-")+"Renewal.";
 		end;
 	}
 	set .@x, @c[.@i*2];
@@ -116,7 +118,7 @@ function Restrict {
 			for (set .@i,1; .@i<getargcount(); set .@i,.@i+1)
 				set @warp_block, @warp_block | (1<<getarg(.@i));
 		} else {
-			message strcharinfo(0),"This map is not enabled in "+((checkre(0))?"":"Pre-")+"Renewal.";
+			message strcharinfo(0),"Este mapa não está habilitado em "+((checkre(0))?"":"Pre-")+"Renewal.";
 			end;
 		}
 	}
@@ -185,16 +187,16 @@ T37: Go("yuno",157,51);
 	Fields:
 // --------------------------------------------------
 @f = true;
-menu	"Amatsu Fields",F1, "Ayothaya Fields",F2, "Bifrost Fields", F3,
-    	"Brasilis Fields",F4, "Comodo Fields",F5, "Dewata Fields",F6,
-    	"Eclage Fields",F7, "Einbroch Fields",F8, "El Dicastes Fields",F9,
-    	"Geffen Fields",F10, "Kunlun Fields",F11, "Hugel Fields",F12,
-		"Lasagna Fields",F13, "Lighthalzen Fields",F14, "Luoyang Field",F15, 
-		"Lutie Field",F16, "Malaya Fields",F17, "Manuk Fields",F18, 
-		"Mjolnir Fields",F19, "Moscovia Fields",F20, "Niflheim Fields",F21, 
-		"Payon Forests",F22, "Prontera Fields",F23, "Rachel Fields",F24, 
-		"Sograt Deserts",F25, "Splendide Fields",F26, "Umbala Fields",F27, 
-		"Veins Fields",F28, "Juno Fields",F29;
+menu	"Campos de Amatsu",F1, "Campos de Ayothaya",F2, "Campos de Bifrost", F3,
+    	"Campos de Brasilis",F4, "Campos de Comodo",F5, "Campos de Dewata",F6,
+    	"Campos de Eclage",F7, "Campos de Einbroch",F8, "Campos de El Dicastes",F9,
+    	"Campos de Geffen",F10, "Campos de Kunlun",F11, "Campos de Hugel",F12,
+		"Campos de Lasagna",F13, "Campos de Lighthalzen",F14, "Campos de Luoyang",F15, 
+		"Campos de Lutie",F16, "Campos de Malaya",F17, "Campos de Manuk",F18, 
+		"Campos de Mjolnir",F19, "Campos de Moscovia",F20, "Campos de Niflheim",F21, 
+		"Payon Forests",F22, "Campos de Prontera",F23, "Campos de Rachel",F24, 
+		"Sograt Deserts",F25, "Campos de Splendide",F26, "Campos de Umbala",F27, 
+		"Campos de Veins",F28, "Campos de Juno",F29;
 
 F1: setarray @c[2],190,197;
 	Disp("Amatsu Field",1,1); Pick("ama_fild");
@@ -280,18 +282,18 @@ F29: Restrict("Pre-RE",5,10);
 	Dungeons:
 // --------------------------------------------------
 @d = true;
-menu	"Abyss Lakes",D1, "Amatsu Dungeon",D2, "Anthell",D3,
-    	"Ayothaya Dungeon",D4, "Beach Dungeon",D5, "Bifrost Tower",D42,
-    	"Bio Labs",D6, "Brasilis Dungeon",D7, "Byalan Dungeon",D8, "Clock Tower",D9,
-    	"Coal Mines",D10, "Culvert",D11, "Cursed Abbey",D12, "Dewata Dungeon",D13,
-    	"Einbroch Dungeon",D14, "Gefenia",D15, "Geffen Dungeon",D16,
-    	"Glast Heim",D17, "Kunlun Dungeon",D18, "Hidden Dungeon",D19,
-    	"Ice Dungeon",D20, "Juperos",D21, "Kiel Dungeon",D22, "Lasagna Dungeon",D23,
-		"Luoyang Dungeon",D24, "Magma Dungeon",D25, "Malangdo Dungeon",D26,
-		"Moscovia Dungeon",D27, "Nidhogg's Dungeon",D28, "Odin Temple",D29,
-		"Orc Dungeon",D30, "Payon Dungeon",D31, "Pyramids",D32, "Rachel Sanctuary",D33,
-    	"Scaraba Hole",D34, "Sphinx",D35, "Sunken Ship",D36, "Thanatos Tower",D37,
-    	"Thor Volcano",D38, "Toy Factory",D39, "Turtle Dungeon",D40, "Umbala Dungeon",D41;
+menu	"Lago do Abismo",D1, "Labirinto de Tatames",D2, "Formigueiro Infernal",D3,
+    	"Labirinto do Santuário Ancestral",D4, "Calabouços de Beach",D5, "Torre de Bifrost",D42,
+    	"Laboratório de Somatologia",D6, "Calabouços de Brasilis",D7, "Ilha Byalan",D8, "Torre do Relógio",D9,
+    	"Coal Mines",D10, "Esgoto de Prontera",D11, "Cursed Abbey",D12, "Calabouços de Dewata",D13,
+    	"Calabouços de Einbroch",D14, "Gefenia",D15, "Calabouços de Geffen",D16,
+    	"Glast Heim",D17, "Calabouços de Kunlun",D18, "Calabouços de Hidden",D19,
+    	"Calabouços de Ice",D20, "Juperos",D21, "Calabouços de Kiel",D22, "Calabouços de Lasagna",D23,
+		"Calabouços de Luoyang",D24, "Caverna de Magma",D25, "Calabouços de Malangdo",D26,
+		"Calabouços de Moscovia",D27, "Calabouços de Nidhogg's",D28, "Templo de Odin",D29,
+		"Caverna dos Orcs",D30, "Caverna de Payon",D31, "Pirâmides",D32, "Santuário de Rachel",D33,
+    	"Scaraba Hole",D34, "Esfinge",D35, "Navio Fantasma",D36, "Torre de Thanatos",D37,
+    	"Vulcão de Thor",D38, "Fábrica de brinquedos",D39, "Ilha das Tartarugas",D40, "Calabouços de Umbala",D41;
 
 D1: setarray @c[2],261,272,275,270,116,27;
 	Disp("Abyss Lakes",1,3); Pick("abyss_");
@@ -396,9 +398,9 @@ D42: Restrict("RE");
 // --------------------------------------------------
 	Castles:
 // --------------------------------------------------
-menu	"[FE] Aldebaran Castles",C1, "[FE] Geffen Castles",C2, "[FE] Payon Castles",C3,
-    	"[FE] Prontera Castles",C4, "[SE] Arunafeltz Castles",C5, "[SE] Schwarzwald Castles",C6,
-		"[TE] Aldebaran Castles",C7, "[TE] Prontera Castles",C8;
+menu	"[FE] Castelos de Aldebaran",C1, "[FE] Castelos de Geffen",C2, "[FE] Castelos de Payon",C3,
+    	"[FE] Castelos de Prontera",C4, "[SE] Castelos de Arunafeltz",C5, "[SE] Castelos de Schwarzwald",C6,
+		"[TE] Castelos de Aldebaran",C7, "[TE] Castelos de Prontera",C8;
 
 C1: setarray @c[2],48,83,95,249,142,85,239,242,264,90;
 	Disp("Neuschwanstein:Hohenschwangau:Nuenberg:Wuerzburg:Rothenburg");
@@ -527,9 +529,9 @@ S9: Restrict("RE");
 S10: Go("turbo_room",99,114);
 
 OnInit:
-	.Satan_Morocc = true;	//	false will enable moc_fild 4,5,6,8,9,10,14,15 while disable moc_fild 20,21,22 Default is true.
-	.OnlyFirstFld = false;	//	true will teleport to the first level of the Fields  Default is false.
-	.OnlyFirstDun = false;	//	true will teleport to the first level of the Dungeons  Default is false.
+	.Satan_Morocc = true;	//	false irá habilitar moc_fild 4,5,6,8,9,10,14,15 enquanto desabilitar moc_fild 20,21,22 O padrão é verdadeiro.
+	.OnlyFirstFld = false;	//	true irá se teletransportar para o primeiro nível dos Fields. O padrão é false.
+	.OnlyFirstDun = false;	//	true irá se teletransportar para o primeiro nível das Masmorras. O padrão é false.
 }
 
 // --------------------------------------------------

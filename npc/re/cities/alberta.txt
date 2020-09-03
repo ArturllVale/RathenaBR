@@ -27,7 +27,7 @@ alberta,246,62,3	duplicate(Kunlun_Envoy_gonryun)	Kunlun Envoy#gon	776
 
 // cities/louyang.txt
 //============================================================
-alberta,246,40,3	duplicate(Girl_louyang)	Girl#0lou	815
+alberta,246,40,3	duplicate(Garota)	Garota#0lou	815
 
 // cities/moscovia.txt
 //============================================================
