@@ -24,13 +24,13 @@ prontera,170,180,1	script	Estilista#custom_stylist	122,{
 		LOOK_CLOTHES_COLOR,
 		LOOK_HAIR,
 		LOOK_HAIR_COLOR;
-	set .@s, select("Cor da Roupa:Estilo do Cabelo:Cor do Cabelo");
+	set .@s, select("[^000033—^000000]^3300ccCor da Roupa^000000:[^9900ff—^000000]^cc33ccEstilo do Cabelo^000000:[^993366—^000000]^660033Cor do Cabelo^000000");
 	set .@Revert, getlook(.@Look[.@s]);
 	set .@Style,1;
 	while(1) {
 		setlook .@Look[.@s], .@Style;
-		message strcharinfo(0),"Isso é estilo #"+.@Style+".";
-		set .@menu$, "Próximo (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):Anterior (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):Digitar:Resetar (^0055FF"+.@Revert+"^000000)";
+		message strcharinfo(0),"Estilo de numero: #"+.@Style+".";
+		set .@menu$, "[^66CC00»^000000]^663300Próximo^000000 (^66CC00"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000):[^990000«^000000]^663300Anterior^000000 (^990000"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000):[^3399FF¤^000000]^663300Digitar^000000:[^66CCCCø^000000]^663300Resetar^000000 (^66CCCC"+.@Revert+"^000000)";
 		switch(select(.@menu$)) {
 		case 1:
 			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);

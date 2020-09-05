@@ -349,12 +349,12 @@ OnInvest_start:
 	donpcevent "Investment_total#fund00::OnEnable";
 	end;
 OnInvest_stop:
-	announce "We've finished the investments to connect the 'Abyss Gate'.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Terminamos os investimentos para conectar o 'Abyss Gate'.",bc_all,0xFF0000; //FW_NORMAL 10
 	donpcevent "Investment_total#fund00::OnReset";
 	donpcevent "#fund_master::OnCalculate_Election";
 	end;
 OnResult:
-	announce "We've got the results of the investments for the 'Abyss Gate'. You can check through the Investment Status Board in each WOE area.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "Temos os resultados dos investimentos para 'Abyss Gate'. Você pode verificar por meio do Investimento Status Board em cada área WOE.",bc_all,0xFF0000; //FW_NORMAL 10
 	if ($2011_agit_invest == 4) {
 		set $fund_prt01,0;
 		set $fund_prt02,0;
