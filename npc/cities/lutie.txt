@@ -918,7 +918,7 @@ xmas,208,168,4	script	Marsha#lut	703,{
 		mes "[Marsha]";
 		mes "....Bom pelo menos isso é o que o povo diz... mas mesmo assim... isto não é";
 		mes "IMPRESSIONANTE?!";
-		emotion e_hmm;
+		emotion ET_HMM;
 		close;
 	Case 9:
 		mes "[Marsha]";

@@ -1,26 +1,28 @@
-//===== rAthena Script =======================================
-//= Battleground: Emperium
-//===== Description: =========================================
-//= A simple battleground script:
-//= Destroy the opponent's Emperium to win the match.
-//===== Changelogs: ==========================================
-//= 1.0 First version, edited. [Euphy] [AnnieRuru]
-//= 1.1 Use up to date battleground script commands [AnnieRuru]
-//= 1.2 Fix player can be kill multiple times within 250ms time frame [AnnieRuru]
+// ===== Script rAthena ===========================================
+// = Campo de batalha: Emperium
+// ===== Traduzido por: ===============================================
+// = Guru
+// ===== Descrição: ===============================================
+// = Um script de campo de batalha simples:
+// = Destrua o Emperium do oponente para vencer a partida.
+// ===== Changelogs: =============================================== =
+// = 1.0 Primeira versão, editada. [Euphy] [AnnieRuru]
+// = 1.1 Use comandos de script de campo de batalha atualizados [AnnieRuru]
+// = 1.2 O jogador de correção pode ser morto várias vezes em um período de 250 ms [AnnieRuru]
 //============================================================
 
 -	script	bg_emp#control	-1,{
 OnInit:
-	.minplayer2start = 1;      // minimum players to start (ex. if 3vs3, set to 3)
-	.eventlasting    = 20*60;  // event duration before auto-reset (20 minutes * seconds)
-	setarray .rewarditem[0],   // rewards for the winning team: <item>,<amount>,...
+	.minplayer2start = 1;      // jogadores mínimos para começar (por exemplo, se 3vs3, defina como 3)
+	.eventlasting    = 20*60;  // duração do evento antes da reinicialização automática (20 minutos * segundos)
+	setarray .rewarditem[0],   // recompensas para a equipe vencedora: <item>, <quantidade>,...
 		501, 10;
 	end;
 OnStart:
 	if ( getwaitingroomstate( 0, .rednpcname$ ) < .minplayer2start || getwaitingroomstate( 0, .bluenpcname$ ) < .minplayer2start )
 		end;
 
-	// create Battleground and teams
+	// criar campo de batalha e equipes
 	.red = waitingroom2bg( "-", 0,0, strnpcinfo(0)+"::OnRedQuit", strnpcinfo(0)+"::OnRedDead", .rednpcname$ );
 	.blue = waitingroom2bg( "-", 0,0, strnpcinfo(0)+"::OnBlueQuit", strnpcinfo(0)+"::OnBlueDead", .bluenpcname$ );
 	delwaitingroom .rednpcname$;
@@ -30,9 +32,9 @@ OnStart:
 	bg_warp .red, "bat_a01", 171,346;
 	bg_warp .blue, "bat_a01", 162,50;
 
-	// delay before match begins
+	// demora antes do jogo começar
 	sleep 6000;
-	mapannounce "bat_a01", "The rules are simple. The first team to break the opponent's Emperium wins!", bc_map;
+	mapannounce "bat_a01", "As regras são simples. A primeira equipe a quebrar o Emperium do adversário vence!", bc_map;
 	sleep 3000;
 	for ( .@i = 5; .@i > 0; --.@i ) {
 		mapannounce "bat_a01", "["+ .@i +"]", bc_map;
@@ -40,25 +42,25 @@ OnStart:
 	}
 	mapannounce "bat_a01", "Start!", bc_map;
 
-	// spawn Emperiums
+	// gerar Emperiums
 	bg_monster .red,"bat_a01",171,346, "--ja--",1915, strnpcinfo(3)+"::OnRedDown";
 	bg_monster .blue,"bat_a01",162,50, "--ja--",1914, strnpcinfo(3)+"::OnBlueDown";
 	delwall "bg_emp_town_red";
 	delwall "bg_emp_town_blue";
 
-	// match duration
+	// duração da partida
 	sleep .eventlasting * 1000;
 
-	// end match, destroy Battleground, reset NPCs
+	// termine a partida, destrua o campo de batalha, reinicie os NPCs
 	killmonster "bat_a01", strnpcinfo(3)+"::OnRedDown";
 	killmonster "bat_a01", strnpcinfo(3)+"::OnBlueDown";
 	if ( .winside ) {
-		mapannounce "bat_a01", "- "+( (.winside == .red)? "Red" : "Blue" )+" Team is victorious! -", bc_map;
+		mapannounce "bat_a01", "- "+( (.winside == .red)? "Vermelha" : "Azul" )+" A equipe é vitoriosa! -", bc_map;
 		bg_get_data .winside, 1;
 		for ( .@i = 0; .@i < $@arenamemberscount; ++.@i )
 			getitem .rewarditem[0], .rewarditem[1], $@arenamembers[.@i];
 	} else
-		mapannounce "bat_a01", "- The match has ended in a draw! -", bc_map;
+		mapannounce "bat_a01", "- A partida terminou em empate! -", bc_map;
 	sleep 5000;
 	bg_warp .red, "prontera", 155,182;
 	bg_warp .blue, "prontera", 158,182;
@@ -69,11 +71,11 @@ OnStart:
 	donpcevent .bluenpcname$ +"::OnStart";
 	end;
 
-// Emperium destroyed
-OnRedDown:  callsub L_EmpDown, "Red", .blue;
-OnBlueDown: callsub L_EmpDown, "Blue", .red;
+// Emperium destruído
+OnRedDown:  callsub L_EmpDown, "Vermelha", .blue;
+OnBlueDown: callsub L_EmpDown, "Azul", .red;
 L_EmpDown:
-	mapannounce "bat_a01", strcharinfo(0) +" has destroyed "+ getarg(0) +" Team's Emperium.", bc_map;
+	mapannounce "bat_a01", strcharinfo(0) +" destruiu Emperium da equipe "+ getarg(0) +".", bc_map;
 	.winside = getarg(1);
 	awake strnpcinfo(0);
 	end;
@@ -87,32 +89,32 @@ L_Dead:
 	end;
 
 // "OnQuit" event
-OnRedQuit:  callsub L_Quit, .red, "Red";
-OnBlueQuit: callsub L_Quit, .blue, "Blue";
+OnRedQuit:  callsub L_Quit, .red, "Vermelha";
+OnBlueQuit: callsub L_Quit, .blue, "Azul";
 L_Quit:
 	percentheal 100, 100;
 	if ( !bg_get_data( getarg(0), 0 ) )
-		mapannounce "bat_a01", "All "+ getarg(1) +" team members have quit!", bc_map, 0xff3333;
+		mapannounce "bat_a01", "Todos os membros da equipe "+ getarg(1) +" desistiram!", bc_map, 0xff3333;
 	end;
 }
 
-prontera,155,182,5	script	Red Team#bg_emp	733,{
+prontera,155,182,5	script	Equipe vermelha#bg_emp	733,{
 	end;
 OnInit:
 	sleep 1;
 	set getvariableofnpc( .rednpcname$, "bg_emp#control" ), strnpcinfo(0);
 OnStart:
-	waitingroom "Red Team", getvariableofnpc( .minplayer2start, "bg_emp#control" ) +1, "bg_emp#control::OnStart", getvariableofnpc( .minplayer2start, "bg_emp#control" );
+	waitingroom "Equipe vermelha", getvariableofnpc( .minplayer2start, "bg_emp#control" ) +1, "bg_emp#control::OnStart", getvariableofnpc( .minplayer2start, "bg_emp#control" );
 	end;
 }
 
-prontera,158,182,5	script	Blue Team#bg_emp	734,{
+prontera,158,182,5	script	Equipe azul#bg_emp	734,{
 	end;
 OnInit:
 	sleep 1;
 	set getvariableofnpc( .bluenpcname$, "bg_emp#control" ), strnpcinfo(0);
 OnStart:
-	waitingroom "Blue Team", getvariableofnpc( .minplayer2start, "bg_emp#control" ) +1, "bg_emp#control::OnStart", getvariableofnpc( .minplayer2start, "bg_emp#control" );
+	waitingroom "Equipe azul", getvariableofnpc( .minplayer2start, "bg_emp#control" ) +1, "bg_emp#control::OnStart", getvariableofnpc( .minplayer2start, "bg_emp#control" );
 	end;
 }
 

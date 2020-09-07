@@ -24,9 +24,9 @@ prt_in,28,73,4	script	Velha Sábia#eAcustom	78,{
 
 	disable_items;
 	mes "[Velha Sábia]";
-	mes "Bom dia, meu jovem. Tenho o poder de remover cartas que você combinou em seu equipamento. Essa ideia te agrada?";
+	mes "Bom dia, "+(Sex ? "meu" : "minha")+" jovem. Tenho o poder de remover cartas que você combinou em seu equipamento. Essa ideia te agrada?";
 	next;
-	switch(select("Sim:Quanto você cobra?:Não, obrigad"+(Sex ? "o" : "a")+".")) {
+	switch(select("^CC6600Sim^000000:^003300Quanto você cobra?^000000:^993300Não, obrigad"+(Sex ? "o" : "a")+"^000000.")) {
 	case 1:
 		mes "[Velha Sábia]";
 		mes "Muito bem. Qual item devo examinar para você?";
@@ -85,7 +85,7 @@ prt_in,28,73,4	script	Velha Sábia#eAcustom	78,{
 			set .@failtype,2;
 		}
 		mes "[Velha Sábia]";
-		mes "Very well. I shall begin.";
+		mes "Muito bem. Eu devo começar.";
 		set Zeny, Zeny - (.zenycost+(.@cardcount * .percardcost));
 		delitem 1000,1; //Fragmento Estelar
 		delitem 715,1; //Gema Amarela
