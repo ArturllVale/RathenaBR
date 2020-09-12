@@ -1,37 +1,40 @@
-//===== rAthena Script =======================================
-//= Monster vs Monster
-//===== By: ==================================================
-//= acky
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= Players train monsters and battle other players.
-//= Experience can be earned and monsters upgraded.
-//===== Additional Comments: =================================
-//= To add monsters, add lines after the commends labled:
-//= '// #. ---Change to Add Monsters--- //'
-//= There are 6 steps to add a monster at the moment.
-//= Added Duel Room
-//= ---------------------------------------------------------
-//= Script is messy! Be careful!
-//= 1.1.2 Changed all gmcommand to atcommand as Poki#3 suggested. [Vicious]
-//= 1.1.3 Removed Duplicate Names [Silent]
-//= 1.1.4 Fixed SummonPad syntax. [KarLaeda]
-//= 1.1.5 Some cleanup & optimization [KarLaeda]
-//= 1.2 Replaced effect numerics with constants. [Samuray22]
+
+// ===== Script rAthena ===========================================
+// = Monstro vs Monstro
+// ===== Por: =============================================== =========
+// = acky
+// ===== Traduzido Por: =============================================== 
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Os jogadores treinam monstros e lutam contra outros jogadores.
+// = Experiência pode ser obtida e monstros atualizados.
+// ===== Comentários adicionais: ===================================
+// = Para adicionar monstros, adicione linhas após as recomendações marcadas:
+// = '// #. --- Mude para Adicionar Monstros --- // '
+// = Existem 6 etapas para adicionar um monstro no momento.
+// = Sala de duelo adicionada
+// = ----------------------------------------------- ----------
+// = O script está confuso! Seja cuidadoso!
+// = 1.1.2 Mudou todos os gmcommand para atcommand como Poki # 3 sugerido. [Vicioso]
+// = 1.1.3 Nomes duplicados removidos [silencioso]
+// = 1.1.4 Sintaxe SummonPad corrigida. [KarLaeda]
+// = 1.1.5 Alguma limpeza e otimização [KarLaeda]
+// = 1.2 Números de efeito substituídos por constantes. [Samuray22]
 //============================================================
 
-// Entrance //
-prontera,158,193,6	script	Monster Arena	702,{
-	mes "[Monster Arena]";
-	mes "Would you like to enter the Monster Arena?";
-	mes "Currently ^FF0000" + getmapusers("gon_test") + "^000000 players";
-	mes "^FF0000Note:^000000 Pecos, Falcons and Carts will be lost on entry.";
+// Entrada //
+prontera,158,193,6	script	Arena de Monstros	702,{
+	mes "[Arena de Monstros]";
+	mes "Gostaria de entrar na Arena de Monstros?";
+	mes "Atualmente ^FF0000" + getmapusers("gon_test") + "^000000 Jogadores";
+	mes "^FF0000Nota:^000000 Pecos, falcões e carrinhos serão perdidos na entrada.";
 L_Menu:
 	next;
-	menu "Enter",-,"Information",L_Info,"Cancel",L_Exit;
+	menu "^006600Entra^000000",-,"^003366Informações^000000",L_Info,"^666666Cancelar^000000",L_Exit;
 
 	set @marena,1;
 	savepoint "gon_test",56,99;
@@ -40,103 +43,103 @@ L_Menu:
 	close;
 
 L_Exit:
-	mes "[Monster Arena]";
-	mes "Come back any time.";
+	mes "[Arena de Monstros]";
+	mes "Volte a qualquer hora.";
 	close;
 
 L_Info:
-	mes "[Monster Arena]";
-	mes "You must purchase a pet from the Monster Tamer to start fighting.";
+	mes "[Arena de Monstros]";
+	mes "Você deve comprar um animal de estimação do Monster Tamer para começar a lutar.";
 	next;
-	mes "[Monster Arena]";
-	mes "Then talk to the Usher and tell him you would like to compete.";
+	mes "[Arena de Monstros]";
+	mes "Em seguida, converse com o Usher e diga-lhe que você gostaria de competir.";
 	next;
-	mes "[Monster Arena]";
-	mes "Talk to the referee to summon your monster.";
-	mes "Once your monster has fought, you must talk to the Usher again and choose to spectate.";
+	mes "[Arena de Monstros]";
+	mes "Fale com o árbitro para chamar o seu monstro.";
+	mes "Uma vez que seu monstro lutou, você deve falar com o Usher novamente e optar por Olhar.";
 	next;
-	mes "[Monster Arena]";
-	mes "Talk to the Monster Trainer, he will ask you to heal your pet.";
+	mes "[Arena de Monstros]";
+	mes "Fale com o Treinador de Monstro, ele vai pedir-lhe para curar o seu animal de estimação.";
 	next;
-	mes "[Monster Arena]";
-	mes "To do this, click the Nurse repeatedly until it says your pet is healed.";
+	mes "[Arena de Monstros]";
+	mes "Para fazer isso, clique na Enfermeira repetidamente até que diga que seu animal de estimação está curado.";
 	next;
-	mes "[Monster Arena]";
-	mes "The more monsters you kill, the more exp you get and the quicker you can upgrade.";
+	mes "[Arena de Monstros]";
+	mes "Quanto mais monstros você matar, mais exp você começa e mais rápido você pode atualizar.";
 	next;
-	mes "[Monster Arena]";
-	mes "The stronger your monster is, the longer it will take to summon again.";
+	mes "[Arena de Monstros]";
+	mes "Quanto mais forte for o seu monstro, mais tempo levará para convocar novamente.";
 
 	goto L_Menu;
 }
 
-// Monster Summon Function //
+// Função Monster Summon //
 function	script	monstersummon	{
-	// 1. ---Change to Add Monsters--- //
-	if (#monster == 10) summon strcharinfo(0) + "'s Poring",1002, "OnPoringKilled";
-	if (#monster == 20) summon strcharinfo(0) + "'s Fabre",1007, "OnFaberKilled";
-	if (#monster == 30) summon strcharinfo(0) + "'s Lunatic",1063, "OnLunaticKilled";
-	if (#monster == 31) summon strcharinfo(0) + "'s Drops",1113, "OnDropsKilled";
-	if (#monster == 32) summon strcharinfo(0) + "'s Picky",1049, "OnPickyKilled";
-	if (#monster == 40) summon strcharinfo(0) + "'s ChonChon",1011, "OnChonChonKilled";
-	if (#monster == 41) summon strcharinfo(0) + "'s Super Picky",1050, "OnSPickyKilled";
-	if (#monster == 42) summon strcharinfo(0) + "'s Willow",1010, "OnWillowKilled";
-	if (#monster == 50) summon strcharinfo(0) + "'s Roda Frog",1012, "OnRodaKilled";
-	if (#monster == 51) summon strcharinfo(0) + "'s Condor",1009, "OnCondorKilled";
-	if (#monster == 60) summon strcharinfo(0) + "'s Thief Bug Larva",1051, "OnThiefKilled";
-	if (#monster == 70) summon strcharinfo(0) + "'s Savage Babe",1167, "OnSavageKilled";
-	if (#monster == 80) summon strcharinfo(0) + "'s Familiar",1005, "OnFamiliarKilled";
-	if (#monster == 81) summon strcharinfo(0) + "'s Hornet",1004, "OnHornetKilled";
-	if (#monster == 90) summon strcharinfo(0) + "'s Desert Wolf Puppy",1107, "OnPuppyKilled";
-	if (#monster == 91) summon strcharinfo(0) + "'s Spore",1014, "OnSporeKilled";
-	if (#monster == 92) summon strcharinfo(0) + "'s Rocker",1052, "OnRockerKilled";
-	if (#monster == 100) summon strcharinfo(0) + "'s Skeleton",1076, "OnSkeletonKilled";
-	if (#monster == 101) summon strcharinfo(0) + "'s Plankton",1161, "OnPlanktonKilled";
-	if (#monster == 102) summon strcharinfo(0) + "'s Antonio",1247, "OnAntonioKilled";
-	if (#monster == 103) summon strcharinfo(0) + "'s Thief Bug Female",1053, "OnThiefFemaleKilled";
+	// 1. ---Mudar para adicionar monstros--- //
+	if (#monster == 10) summon strcharinfo(0) + "' Poring",1002, "OnPoringKilled";
+	if (#monster == 20) summon strcharinfo(0) + "' Fabre",1007, "OnFaberKilled";
+	if (#monster == 30) summon strcharinfo(0) + "' Lunático",1063, "OnLunaticKilled";
+	if (#monster == 31) summon strcharinfo(0) + "' Drops",1113, "OnDropsKilled";
+	if (#monster == 32) summon strcharinfo(0) + "' Picky",1049, "OnPickyKilled";
+	if (#monster == 40) summon strcharinfo(0) + "' ChonChon",1011, "OnChonChonKilled";
+	if (#monster == 41) summon strcharinfo(0) + "' Picky com casca",1050, "OnSPickyKilled";
+	if (#monster == 42) summon strcharinfo(0) + "' Salgueiro",1010, "OnWillowKilled";
+	if (#monster == 50) summon strcharinfo(0) + "' Sapo de Rodda",1012, "OnRodaKilled";
+	if (#monster == 51) summon strcharinfo(0) + "' Condor",1009, "OnCondorKilled";
+	if (#monster == 60) summon strcharinfo(0) + "' Besouro-Ladrão",1051, "OnThiefKilled";
+	if (#monster == 70) summon strcharinfo(0) + "' Bebe Selvagem",1167, "OnSavageKilled";
+	if (#monster == 80) summon strcharinfo(0) + "' Familiar",1005, "OnFamiliarKilled";
+	if (#monster == 81) summon strcharinfo(0) + "' Hornet",1004, "OnHornetKilled";
+	if (#monster == 90) summon strcharinfo(0) + "' Filhote de Lobo",1107, "OnPuppyKilled";
+	if (#monster == 91) summon strcharinfo(0) + "' Esporo",1014, "OnSporeKilled";
+	if (#monster == 92) summon strcharinfo(0) + "' Rocker",1052, "OnRockerKilled";
+	if (#monster == 100) summon strcharinfo(0) + "' Esqueleto",1076, "OnSkeletonKilled";
+	if (#monster == 101) summon strcharinfo(0) + "' Plankton",1161, "OnPlanktonKilled";
+	if (#monster == 102) summon strcharinfo(0) + "' Antonio",1247, "OnAntonioKilled";
+	if (#monster == 103) summon strcharinfo(0) + "' Besouro-Ladrão Fêmea",1053, "OnThiefFemaleKilled";
 	close;
 }
 
-// Referee //
+// Juiz //
 -	script	monsterreferee	61,{
 	if (@fighting == 1) end;
 	if (@battle == 1) goto L_Start;
 	end;
 
 L_Start:
-	mes "[Referee]";
-	mes "Your monster is:";
+	mes "[Juiz]";
+	mes "Seu monstro é:";
 
-	// 2. ---Change to Add Monsters--- //
+	// 2. ---Mudar para adicionar monstros--- //
 	if (#monster == 10) mes "Poring";
 	if (#monster == 20) mes "Faber";
-	if (#monster == 30) mes "Lunatic";
+	if (#monster == 30) mes "Lunático";
 	if (#monster == 31) mes "Drops";
 	if (#monster == 32) mes "Picky";
 	if (#monster == 40) mes "ChonChon";
-	if (#monster == 41) mes "Super Picky";
-	if (#monster == 42) mes "Willow";
-	if (#monster == 50) mes "Roda Frog";
+	if (#monster == 41) mes "Picky com casca";
+	if (#monster == 42) mes "Salgueiro";
+	if (#monster == 50) mes "Sapo de Rodda";
 	if (#monster == 51) mes "Condor";
-	if (#monster == 60) mes "Thief Bug Larva";
-	if (#monster == 70) mes "Savage Babe";
+	if (#monster == 60) mes "Besouro-Ladrão";
+	if (#monster == 70) mes "Bebe Selvagem";
 	if (#monster == 80) mes "Familiar";
 	if (#monster == 81) mes "Hornet";
-	if (#monster == 90) mes "Desert Wolf Puppy";
-	if (#monster == 91) mes "Spore";
+	if (#monster == 90) mes "Filhote de Lobo";
+	if (#monster == 91) mes "Esporo";
 	if (#monster == 92) mes "Rocker";
-	if (#monster == 100) mes "Skeleton";
+	if (#monster == 100) mes "Esqueleto";
 	if (#monster == 101) mes "Plankton";
 	if (#monster == 102) mes "Antonio";
-	if (#monster == 103) mes "Thief Bug Female";
+	if (#monster == 103) mes "Besouro-Ladrão Fêmea";
 
-	mes "Would you like to fight?";
+	mes "Você gostaria de lutar?";
 	next;
-	menu "Fight",-,"Cancel",L_Exit;
+	menu "Sim",-,"Não",L_Exit;
 
 	set @fighting,1;
 	set #heal,1;
-	set @special,rand (100); // Chance of special summon
+	set @special,rand (100); // Chance de convocação especial
 	if (@special == 1) goto Special1;
 	if (@special == 2) goto Special2;
 	if (@special == 3) goto Special3;
@@ -146,48 +149,48 @@ L_Start:
 	callfunc "monstersummon";
 	close;
 
-	// Special Summons //
+	// Convocação especial //
 Special1:
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
-	summon strcharinfo(0) + "'s Assault Team",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
+	summon strcharinfo(0) + "'Equipe de assalto",1002, "OnPoringKilled";
 	close;
 
 Special2:
-	summon strcharinfo(0) + "'s Mastering",1090, "OnSpecialKilled";
+	summon strcharinfo(0) + "' Mastering",1090, "OnSpecialKilled";
 	close;
 
 Special3:
-	summon strcharinfo(0) + "'s Eclipse",1093, "OnSpecialKilled";
+	summon strcharinfo(0) + "' Eclipse",1093, "OnSpecialKilled";
 	close;
 
 Special4:
-	summon strcharinfo(0) + "'s Dragon Fly",1091, "OnSpecialKilled";
+	summon strcharinfo(0) + "' Libélula",1091, "OnSpecialKilled";
 	close;
 
 Special5:
-	summon strcharinfo(0) + "'s Toad",1089, "OnSpecialKilled";
+	summon strcharinfo(0) + "' Sapo-Cururu",1089, "OnSpecialKilled";
 	close;
 
 L_Exit:
@@ -202,9 +205,9 @@ gon_test,56,91,6	duplicate(monsterreferee)	Referee#01	61
 gon_test,58,94,6	script	Usher	86,{
 	set @marena,1;
 	mes "[Usher]";
-	mes "What would you like to do?";
+	mes "O que você gostaria de fazer?";
 	next;
-	menu "^0000FFSpectate",L_Spec,"^FF0000Compete^000000",-,"Return to Town",L_Exit,"Cancel",L_Cancel;
+	menu "^0000FFOlhar",L_Spec,"^FF0000Competir^000000",-,"Retornar para cidade",L_Exit,"^666666Cancelar^000000",L_Cancel;
 
 	if (#monster == 0) goto L_NoMon;
 	if (#heal == 1) goto L_Heal;
@@ -214,11 +217,11 @@ gon_test,58,94,6	script	Usher	86,{
 	if (#monster > 70) goto L_High;
 
 L_Low:
-	menu "Level 1-3",L_1to3,"^FF0000All Levels",L_High;
+	menu "Níveis 1-3",L_1to3,"^FF0000Todos os níveis",L_High;
 	close;
 
 L_Med:
-	menu "Level 4-7",L_4to6,"^FF0000All Levels",L_High;
+	menu "Níveis 4-7",L_4to6,"^FF0000Todos os níveis",L_High;
 	close;
 
 L_High:
@@ -263,102 +266,102 @@ L_Spec:
 
 L_NoMon:
 	mes "[Usher]";
-	mes "You haven't got a monster, you can only spectate.";
+	mes "Você não tem um monstro, você só pode assistir.";
 	close;
 
 L_Heal:
 	mes "[Usher]";
-	mes "You have to heal your monster before you can fight again.";
+	mes "Você tem que curar seu monstro antes de lutar novamente.";
 	close;
 
 L_Cancel:
 	close;
 }
 
-// Monster Trainer //
-gon_test,52,103,6	script	Monster Trainer	87,{
-	mes "[Monster Trainer]";
+// Treinador de monstros //
+gon_test,52,103,6	script	Treinador de monstros	87,{
+	mes "[Treinador de monstros]";
 	if (#monster != 0) goto L_Mon;
 
-	mes "Welcome to the monster arena, would you like to start training?";
+	mes "Bem-vind"+(Sex?"o":"a")+" à Arena de Monstros, gostaria de começar a treinar?";
 	next;
-	menu "Yes",-,"No",L_Exit;
+	menu "Sim",-,"Não",L_Exit;
 
-	mes "[Monster Trainer]";
-	mes "New trainers may only start with Porings.";
-	mes "They cost 1000z, Would you like to buy one?";
+	mes "[Treinador de monstros]";
+	mes "Novos treinadores só podem começar com Porings.";
+	mes "Eles custam 1000z, gostaria de comprar um?";
 	next;
-	menu "Yes",-,"No",L_Exit;
+	menu "Sim",-,"Não",L_Exit;
 
 	if (Zeny < 1000) goto L_NoZeny;
 	set Zeny, Zeny-1000;
 	set #monster,10;
-	mes "[Monster Trainer]";
-	mes "Congratulations!";
-	mes "When your Poring earns enough experience, talk to me to upgrade.";
+	mes "[Treinador de monstros]";
+	mes "Parabéns!";
+	mes "Quando o seu Poring ganhar experiência suficiente, fale comigo para atualizar.";
 	close;
 
 L_Mon:
-	mes "Welcome back, " + strcharinfo(0) + ".";
-	mes "Your monster has " + #monpoints + " exp points.";
+	mes "Bem-vindo de volta, " + strcharinfo(0) + ".";
+	mes "Seu monstro tem " + #monpoints + " pontos de exp.";
 	next;
 	if (@fighting == 1) goto L_Heal;
-	menu "Upgrade Monster",L_Upgrade,"Sell Experience",L_Sell,"^FF0000Abandon Monster^000000",L_Abandon,"Cancel",L_Exit;
+	menu "Melhorar monstro",L_Upgrade,"Vender experiência",L_Sell,"^FF0000Abandonar monstro^000000",L_Abandon,"Cancelar",L_Exit;
 
 L_Abandon:
-	mes "[Monster Trainer]";
-	mes "Are you sure you want to abandon your monster?";
+	mes "[Treinador de monstros]";
+	mes "Tem certeza que quer abandonar seu monstro?";
 	next;
-	menu "Yes",-,"No",L_Exit;
+	menu "Sim",-,"Não",L_Exit;
 	set #monster,0;
 	set #monpoints,0;
-	mes "[Monster Trainer]";
-	mes "Monster released into the wild.";
+	mes "[Treinador de monstros]";
+	mes "Monstro solto na natureza.";
 	close;
 
 L_Sell:
-	mes "[Monster Trainer]";
-	mes "You can sell your monster's experience for 100z each.";
+	mes "[Treinador de monstros]";
+	mes "Você pode vender a experiência do seu monstro por 100z cada.";
 	next;
-	menu "Sell",-,"Cancel",L_Exit;
-	mes "[Monster Trainer]";
-	mes "You have: ^FF0000" + #monpoints + "^000000 experience points";
-	mes "How many would you like to sell?";
+	menu "Vender",-,"Cancelar",L_Exit;
+	mes "[Treinador de monstros]";
+	mes "Você tem: ^FF0000" + #monpoints + "^000000 Pontos de Experiência";
+	mes "Quantos você gostaria de vender?";
 	next;
 	input .@sellexp;
 	if (.@sellexp > #monpoints) goto L_NoExp;
 	set #monpoints,#monpoints-.@sellexp;
-	set .@sellearn,100*.@sellexp; // Price of exp
+	set .@sellearn,100*.@sellexp; // Preço de exp
 	set Zeny, Zeny+.@sellearn;
-	mes "[Monster Trainer]";
-	mes "You earned ^0000FF" + .@sellearn + "^000000z.";
+	mes "[Treinador de monstros]";
+	mes "Você ganhou ^0000FF" + .@sellearn + "^000000z.";
 	close;
 
 
 L_NoExp:
-	mes "[Monster Trainer]";
-	mes "You do not have enough experience.";
+	mes "[Treinador de monstros]";
+	mes "Você não tem experiência suficiente.";
 	next;
 	goto L_Exit;
 
-	// Monster Upgrades //
+	// Atualizações de monstro //
 L_Upgrade:
-	mes "[Monster Trainer]";
-	// 3. ---Change to Add Monsters - May not be required--- //
-	if (#monster > 1 && #monster < 20) mes "You need 10 exp points to upgrade your monster.";
-	if (#monster > 19 && #monster < 30) mes "You need 20 exp points to upgrade your monster.";
-	if (#monster > 29 && #monster < 40) mes "You need 40 exp points to upgrade your monster.";
-	if (#monster > 39 && #monster < 50) mes "You need 80 exp points to upgrade your monster.";
-	if (#monster > 49 && #monster < 60) mes "You need 160 exp points to upgrade your monster.";
-	if (#monster > 59 && #monster < 70) mes "You need 320 exp points to upgrade your monster.";
-	if (#monster > 69 && #monster < 80) mes "You need 640 exp points to upgrade your monster.";
-	if (#monster > 79 && #monster < 90) mes "You need 1280 exp points to upgrade your monster.";
-	if (#monster > 89 && #monster < 100) mes "You need 2560 exp points to upgrade your monster.";
+	mes "[Treinador de monstros]";
+	// 3. ---Mudar para adicionar monstros - pode não ser necessário--- //
+	if (#monster > 1 && #monster < 20) mes "Você precisa de 10 pontos exp para atualizar seu monstro.";
+	if (#monster > 19 && #monster < 30) mes "Você precisa de 20 pontos exp para atualizar seu monstro.";
+	if (#monster > 29 && #monster < 40) mes "Você precisa de 40 pontos exp para atualizar seu monstro.";
+	if (#monster > 39 && #monster < 50) mes "Você precisa de 80 pontos exp para atualizar seu monstro.";
+	if (#monster > 49 && #monster < 60) mes "Você precisa de 160 pontos exp para atualizar seu monstro.";
+	if (#monster > 59 && #monster < 70) mes "Você precisa de 320 pontos exp para atualizar seu monstro.";
+	if (#monster > 69 && #monster < 80) mes "Você precisa de 640 pontos exp para atualizar seu monstro.";
+	if (#monster > 79 && #monster < 90) mes "Você precisa de 1280 pontos exp para atualizar seu monstro.";
+	if (#monster > 89 && #monster < 100) mes "Você precisa de 2560 pontos exp para atualizar seu monstro.";
 	next;
-	menu "Continue",-,"Cancel",L_Exit;
-	mes "[Monster Trainer]";
+	menu "Continue",-,"Cancelar",L_Exit;
+	mes "[Treinador de monstros]";
 
-	// 4. ---Change to Add Monsters - May not be required--- //
+	// 4. ---Mudar para adicionar monstros - pode não ser necessário--- //
 	if (#monster > 1 && #monster < 20 && #monpoints > 9) goto L_Up1;
 	if (#monster > 19 && #monster < 30 && #monpoints > 19) goto L_Up2;
 	if (#monster > 29 && #monster < 40 && #monpoints > 39) goto L_Up3;
@@ -369,355 +372,355 @@ L_Upgrade:
 	if (#monster > 79 && #monster < 90 && #monpoints > 1279) goto L_Up8;
 	if (#monster > 89 && #monster < 100 && #monpoints > 2559) goto L_Up9;
 
-	mes "Unable to upgrade.";
+	mes "Incapaz de atualizar.";
 	close;
 
-	// 5. ---Change to Add Monsters--- //
+	// 5. ---Mudar para adicionar monstros--- //
 L_Up1:
 	set #monster,20;
 	set #monpoints,#monpoints-10;
-	mes "Upgraded to Fabre!";
+	mes "Atualizado para Fabre!";
 	close;
 
 L_Up2:
-	mes "Which monster would you like to upgrade to?";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
-	menu "Lunatic",U_Lunatic,"Drops",U_Drops,"Picky",U_Picky;
+	menu "Lunático",U_Lunatic,"Drops",U_Drops,"Picky",U_Picky;
 
 U_Drops:
 	set #monster,31;
 	set #monpoints,#monpoints-20;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Drops!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Drops!";
 	close;
 
 U_Picky:
 	set #monster,32;
 	set #monpoints,#monpoints-20;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Picky!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Picky!";
 	close;
 
 U_Lunatic:
 	set #monster,30;
 	set #monpoints,#monpoints-20;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Lunatic!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Lunático!";
 	close;
 
 L_Up3:
-	mes "Which monster would you like to upgrade to?";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
-	menu "ChonChon",U_ChonChon,"Super Picky",U_SPicky,"Willow",U_Willow;
+	menu "ChonChon",U_ChonChon,"Picky com casca",U_SPicky,"Salgueiro",U_Willow;
 
 U_ChonChon:
 	set #monster,40;
 	set #monpoints,#monpoints-40;
-	mes "[Monster Trainer]";
-	mes "Upgraded to ChonChon!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para ChonChon!";
 	close;
 
 U_SPicky:
 	set #monster,41;
 	set #monpoints,#monpoints-40;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Super Picky!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Picky com casca!";
 	close;
 
 U_Willow:
 	set #monster,42;
 	set #monpoints,#monpoints-40;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Willow!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Salgueiro!";
 	close;
 
 L_Up4:
-	mes "Which monster would you like to upgrade to?";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
-	menu "Condor",U_Condor,"Roda Frog",U_Roda;
+	menu "Condor",U_Condor,"Sapo de Rodda",U_Roda;
 
 U_Condor:
 	set #monster,51;
 	set #monpoints,#monpoints-80;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Condor!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Condor!";
 	close;
 
 U_Roda:
 	set #monster,50;
 	set #monpoints,#monpoints-80;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Roda Frog!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Sapo de Rodda!";
 	close;
 
 L_Up5:
 	set #monster,60;
 	set #monpoints,#monpoints-160;
-	mes "Upgraded to Thief Bug Larva!";
+	mes "Atualizado para Besouro-Ladrão!";
 	close;
 
 L_Up6:
 	set #monster,70;
 	set #monpoints,#monpoints-320;
-	mes "Upgraded to Savage Babe!";
+	mes "Atualizado para Bebe Selvagem!";
 	close;
 
 L_Up7:
-	mes "Which monster would you like to upgrade to?";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
 	menu "Familiar",U_Familiar,"Hornet",U_Hornet;
 
 U_Hornet:
 	set #monster,81;
 	set #monpoints,#monpoints-640;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Hornet!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Hornet!";
 	close;
 
 U_Familiar:
 	set #monster,80;
 	set #monpoints,#monpoints-640;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Familiar!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Familiar!";
 	close;
 
 L_Up8:
-	mes "[Monster Trainer]";
-	mes "Which monster would you like to upgrade to?";
+	mes "[Treinador de monstros]";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
-	menu "Desert Wolf Puppy",U_Puppy,"Spore",U_Spore,"Rocker",U_Rocker;
+	menu "Filhote de Lobo",U_Puppy,"Esporo",U_Spore,"Rocker",U_Rocker;
 
 U_Spore:
 	set #monster,91;
 	set #monpoints,#monpoints-1280;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Spore!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Spore!";
 	close;
 
 U_Rocker:
 	set #monster,92;
 	set #monpoints,#monpoints-1280;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Rocker!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Rocker!";
 	close;
 
 U_Puppy:
 	set #monster,90;
 	set #monpoints,#monpoints-1280;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Desert Wolf Puppy!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Filhote de Lobo!";
 	close;
 
 L_Up9:
-	mes "Which monster would you like to upgrade to?";
+	mes "Para qual monstro você gostaria de atualizar?";
 	next;
-	menu "Skeleton",U_Skeleton,"Antonio",U_Antonio,"Plankton",U_Plankton,"Thief Bug Female",U_ThiefFemale;
+	menu "Esqueleto",U_Skeleton,"Antonio",U_Antonio,"Plankton",U_Plankton,"Besouro-Ladrão Fêmea",U_ThiefFemale;
 
 U_Plankton:
 	set #monster,101;
 	set #monpoints,#monpoints-2560;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Plankton!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Plankton!";
 	close;
 
 U_Antonio:
 	set #monster,102;
 	set #monpoints,#monpoints-2560;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Antonio!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Antonio!";
 	close;
 
 U_ThiefFemale:
 	set #monster,103;
 	set #monpoints,#monpoints-2560;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Thief Bug Female!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Besouro-Ladrão Fêmea!";
 	close;
 
 U_Skeleton:
 	set #monster,100;
 	set #monpoints,#monpoints-2560;
-	mes "[Monster Trainer]";
-	mes "Upgraded to Skeleton!";
+	mes "[Treinador de monstros]";
+	mes "Atualizado para Esquelo!";
 	close;
 
 L_NoZeny:
-	mes "[Monster Trainer]";
-	mes "You don't have enough zeny!";
+	mes "[Treinador de monstros]";
+	mes "Você não tem zeny suficiente!";
 	close;
 
 L_Exit:
-	mes "[Monster Trainer]";
-	mes "Goodbye.";
+	mes "[Treinador de monstros]";
+	mes "Até mais.";
 	close;
 
 L_Heal:
-	mes "[Monster Trainer]";
-	mes "Your monster needs to heal.";
-	mes "It will heal faster if you click the nurse faster.";
+	mes "[Treinador de monstros]";
+	mes "Seu monstro precisa se curar.";
+	mes "Ele vai curar mais rápido se você clicar na enfermeira mais rápido.";
 	set #heal,1;
 	close;
 }
 
 // Kill Trigger //
-// 6/Final. ---Change to Add Monsters--- //
+// 6/Final. ---Mudar para adicionar monstros--- //
 gon_test,56,91,6	script	OnPoringKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+1;
-	announce "You killed a Poring - Gained 1 exp",19;
+	announce "Você matou um Poring - Ganhou 1 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnFaberKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+2;
-	announce "You killed a Faber - Gained 2 exp",19;
+	announce "Você matou um Faber - Ganhou 2 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnLunaticKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+4;
-	announce "You killed a Lunatic - Gained 4 exp",19;
+	announce "Você matou um Lunático - Ganhou 4 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnDropsKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+4;
-	announce "You killed a Drops - Gained 4 exp",19;
+	announce "Você matou um Drops - Ganhou 4 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnPickyKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+4;
-	announce "You killed a Picky - Gained 4 exp",19;
+	announce "Você matou um Picky - Ganhou 4 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnChonChonKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+8;
-	announce "You killed a ChonChon - Gained 8 exp",19;
+	announce "Você matou um ChonChon - Ganhou 8 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnSPickyKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+8;
-	announce "You killed a Super Picky - Gained 8 exp",19;
+	announce "Você matou um Picky com casca - Ganhou 8 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnWillowKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+8;
-	announce "You killed a Willow - Gained 8 exp",19;
+	announce "Você matou um Salgueiro - Ganhou 8 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnRodaKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+16;
-	announce "You killed a Roda Frog - Gained 16 exp",19;
+	announce "Você matou um Sapo de Rodda - Ganhou 16 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnCondorKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+16;
-	announce "You killed a Condor - Gained 16 exp",19;
+	announce "Você matou um Condor - Ganhou 16 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnThiefKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+32;
-	announce "You killed a Theif Bug Larva - Gained 32 exp",19;
+	announce "Você matou um Besouro-Ladrão - Ganhou 32 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnSavageKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+64;
-	announce "You killed a Savage Babe - Gained 64 exp",19;
+	announce "Você matou um Bebe Selvagem - Ganhou 64 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnFamiliarKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+128;
-	announce "You killed a Familiar - Gained 128 exp",19;
+	announce "Você matou um Familiar - Ganhou 128 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnHornetKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+128;
-	announce "You killed a Hornet - Gained 128 exp",19;
+	announce "Você matou um Hornet - Ganhou 128 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnPuppyKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+256;
-	announce "You killed a Desert Wolf Puppy - Gained 256 exp",19;
+	announce "Você matou um Filhote de Lobo - Ganhou 256 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnRockerKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+256;
-	announce "You killed a Rocker - Gained 256 exp",19;
+	announce "Você matou um Rocker - Ganhou 256 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnSporeKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+256;
-	announce "You killed a Spore - Gained 256 exp",19;
+	announce "Você matou um Esporo - Ganhou 256 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnSkeletonKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+512;
-	announce "You killed a Skeleton - Gained 512 exp",19;
+	announce "Você matou um Esqueleto - Ganhou 512 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnPlanktonKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+512;
-	announce "You killed a Plankton - Gained 512 exp",19;
+	announce "Você matou um Plankton - Ganhou 512 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnAntonioKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+512;
-	announce "You killed an Antonio - Gained 512 exp",19;
+	announce "Você matou umn Antonio - Ganhou 512 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnThiefFemaleKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+512;
-	announce "You killed a Thief Bug Female - Gained 512 exp",19;
+	announce "Você matou um Besouro-Ladrão Fêmea - Ganhou 512 exp",19;
 	callfunc "duelkill";
 }
 
 gon_test,56,91,6	script	OnSpecialKilled	-1,{
 	if (@marena == 0) callfunc "illegalkill";
 	set #monpoints,#monpoints+512;
-	announce "You killed a Special Monster - Gained 1024 exp",19;
+	announce "Você matou um Monstro Especial - Ganhou 1024 exp",19;
 	callfunc "duelkill";
 }
 
 function	script	duelkill	{
 	if (strcharinfo(0) != $@duelist1$ && strcharinfo(0) != $@duelist2$) end;
-	announce strcharinfo(0) + " won the Duel",1;
+	announce strcharinfo(0) + " venceu o duelo",1;
 	set @fighting,0;
 	set #heal,0;
 	set @healing,0;
@@ -725,7 +728,7 @@ function	script	duelkill	{
 }
 
 function	script	illegalkill	{
-	announce "Illegal Kill by " + strcharinfo(0) + " Detected",1;
+	announce "Matança ilegal por " + strcharinfo(0) + " Detectado",1;
 	percentheal -100,-100;
 	end;
 }
@@ -733,25 +736,25 @@ function	script	illegalkill	{
 // Healer //
 gon_test,55,103,6	script	Nurse	90,{
 	if (@battle == 1 || #heal == 0) goto L_NoHeal;
-	if (#heal == 1 && @healing < 100) goto L_Heal; //Total healing required
+	if (#heal == 1 && @healing < 100) goto L_Heal; // Cura total necessária
 	set @fighting,0;
 	set #heal,0;
 	set @healing,0;
 	specialeffect2 EF_VALLENTINE2;
-	announce "Your monster has healed.",19;
+	announce "Seu monstro foi curado.",19;
 	end;
 
 L_Heal:
-	set .@healrate,140 / #monster; //Rate of heal per click
+	set .@healrate,140 / #monster; //Taxa de cura por clique
 	set @healing,@healing + .@healrate;
 	end;
 
 L_NoHeal:
-	announce "Your monster does not need healing yet.",19;
+	announce "Seu monstro ainda não precisa de cura.",19;
 	end;
 }
 
-// Warps players //
+// Warps Jogadores //
 gon_test,57,86,5	script	Summon Pad 1::SummonPad	111,2,2,{
 	end;
 OnTouch:
@@ -763,23 +766,23 @@ gon_test,72,87,5	duplicate(SummonPad)	Summon Pad 3	111,2,2
 
 
 
-// Skill Disabler //
+// Desabilitador de habilidades //
 gon_test	mapflag	noskill
 
 // Duel Arena //
-gon_test,58,103,5	script	Duel Master#01	92,{
+gon_test,58,103,5	script	Mestre de duelos#01	92,{
 	if ($@duelist1$ == "" || $@monster1 == 0) set $@duel,0;
 	set @marena,1;
 	if (#monster == 0) goto L_NoMon;
-	mes "[Duel Master]";
+	mes "[Mestre de duelos]";
 	if ($@duel == 1) goto L_Waiting;
 	if ($@duel == 2) goto L_Dueling;
 
-	mes "There are currently no players dueling.";
+	mes "Atualmente não há jogadores duelando.";
 	next;
-	menu "Join",-,"Spectate",L_Spec,"Cancel",L_Exit;
+	menu "^006600Junte-se^000000",-,"^ff0000Olhar^000000",L_Spec,"^666666Cancelar^000000",L_Exit;
 
-	// Player 1 Enters Duel Area //
+	// Jogador 1 entra na área de duelo //
 	if (#heal == 1) goto L_NeedHeal;
 	if ($@duel == 1) goto L_Duel2;
 	set $@duel,1;
@@ -795,18 +798,18 @@ gon_test,58,103,5	script	Duel Master#01	92,{
 	if (#monster > 99 && #monster < 110) set $@monster1,10;
 	set $@duelist1$,strcharinfo(0);
 	set @battle,1;
-	announce strcharinfo(0) + " [Monster Level: " + $@monster1 + "] is waiting for a duel",1;
+	announce strcharinfo(0) + " [Nível Monstro: " + $@monster1 + "] está esperando por um duelo",1;
 	atcommand "@option 64 0 64";
 	warp "gon_test",49,5;
 	close;
 
 L_Waiting:
-	mes "^0000FF " + $@duelist1$ + "^000000 [Monster Level: ^FF0000" + $@monster1 + "^000000]";
-	mes "Is waiting for an opponent";
+	mes "^0000FF " + $@duelist1$ + "^000000 [Nível Monstro: ^FF0000" + $@monster1 + "^000000]";
+	mes "Está esperando por um adversário";
 	next;
-	menu "Join",-,"Spectate",L_Spec,"Cancel",L_Exit;
+	menu "006600Junte-se^000000",-,"^ff0000Olhar^000000",L_Spec,"^666666Cancelar^000000",L_Exit;
 
-	// Player 2 Enters Duel Area //
+	// Jogador 2 entra na área de duelo //
 	if (#heal == 1) goto L_NeedHeal;
 L_Duel2:
 	if ($@duel == 2) goto L_Spec;
@@ -823,17 +826,17 @@ L_Duel2:
 	if (#monster > 99 && #monster < 110) set $@monster2,10;
 	set $@duelist2$,strcharinfo(0);
 	set @battle,1;
-	announce strcharinfo(0) + " [Monster Level: " + $@monster2 + "] has joined the duel",1;
+	announce strcharinfo(0) + " [Nível de monstro: " + $@monster2 + "] juntou-se ao duelo",1;
 	atcommand "@option 64 0 64";
 	warp "gon_test",49,5;
 	close;
 
 L_Dueling:
-	mes "^0000FF" + $@duelist1$ + "^000000 [Monster Level: ^0000FF" + $@monster1 + "^000000]";
+	mes "^0000FF" + $@duelist1$ + "^000000 [Nível de monstro: ^0000FF" + $@monster1 + "^000000]";
 	mes "           VS.";
-	mes "^FF0000" + $@duelist2$ + "^000000 [Monster Level: ^FF0000" + $@monster2 + "^000000]";
+	mes "^FF0000" + $@duelist2$ + "^000000 [Nível de monstro: ^FF0000" + $@monster2 + "^000000]";
 	next;
-	menu "Spectate",L_Spec,"Cancel",L_Exit;
+	menu "Olhar",L_Spec,"^666666Cancelar^000000",L_Exit;
 
 L_Spec:
 	set @battle,0;
@@ -842,27 +845,27 @@ L_Spec:
 	close;
 
 L_Exit:
-	mes "[Duel Master]";
-	mes "Goodbye.";
+	mes "[Mestre de duelos]";
+	mes "Até logo!";
 	close;
 
 L_NoMon:
-	mes "[Duel Master]";
-	mes "You haven't got a monster, you can't participate.";
+	mes "[Mestre de duelos]";
+	mes "Você não tem um monstro, você não pode participar.";
 	close;
 
 L_NeedHeal:
-	mes "[Duel Master]";
-	mes "You need to heal before you can join.";
+	mes "[Mestre de duelos]";
+	mes "Você precisa se curar antes de entrar.";
 	close;
 }
 
-// Duel Exit //
-gon_test,42,8,5	script	Duel Master#02	92,{
-	mes "[Duel Master]";
-	mes "Would you like to return?";
-	menu "Yes",L_Leave,"No",-;
-	mes "Alright";
+// Saída dupla //
+gon_test,42,8,5	script	Mestre de duelos#02	92,{
+	mes "[Mestre de duelos]";
+	mes "Você gostaria de voltar?";
+	menu "Sim",L_Leave,"Não",-;
+	mes "Tudo bem";
 	close;
 
 L_Leave:
@@ -879,14 +882,14 @@ L_Leave1:
 	set $@duelist1$,"";
 	set $@monster1,0;
 	set $@duel,$@duel-1;
-	announce strcharinfo(0) + " stopped dueling",1;
+	announce strcharinfo(0) + " parou de duelar",1;
 	goto L_Leave3;
 
 L_Leave2:
 	set $@duelist2$,"";
 	set $@monster2,0;
 	set $@duel,$@duel-1;
-	announce strcharinfo(0) + " stopped dueling",1;
+	announce strcharinfo(0) + " parou de duelar",1;
 	goto L_Leave3;
 }
 

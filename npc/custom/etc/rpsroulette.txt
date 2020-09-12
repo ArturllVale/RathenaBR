@@ -1,30 +1,32 @@
-//===== rAthena Script =======================================
-//= Rock Scissors Roulette
-//===== By: ==================================================
-//= acky
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= Plays a hybrid Russian Roulette Rock Scissors Paper game.
-//===== Additional Comments: =================================
-//= Prizes customizable, Added emotions.
-//= 1.2 Fixes by Blackthunder and me [Poki#3]
+// ===== Script rAthena ===========================================
+// = Rock Scissors Roulette
+// ===== Por: =============================================== =========
+// = acky
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Joga um jogo híbrido de Roleta Rocha e Tesoura de Papel.
+// ===== Comentários adicionais: ===================================
+// = Prêmios personalizáveis, emoções adicionadas.
+// = 1.2 Correções por Blackthunder e eu [Poki # 3]
 //============================================================
 
-cmd_in02,182,126,2	script	Crazy Boris	85,{
+cmd_in02,182,126,2	script	Boris louco	85,{
 	set .@counter,1;
-	mes "Hey you! Up for Rock Scissors Roulette?";
+	mes "Ei você! Quer jogar a roleta Rock Scissors?";
 	next;
-	menu "Let me play.",PLAY,"Explain the rules.",RULES,"Leave",LEAVE;
+	menu "• Vamos Jogar",PLAY,"• Explique as regras",RULES,"• Sair",LEAVE;
 SAME:
-	mes "Draw! Again!";
+	mes "Desenhar! Novamente!";
 	next;
 PLAY:
-	mes "Rock... Paper...";
+	mes "Pedra... Papel...";
 	set .@opp, rand(1,3);
-	menu "^0000FFROCK!",-,"^FF0000SCISSORS!",SCISSORS,"^00FF00PAPER!^000000",PAPER;
+	menu "^0000FFPEDRA!",-,"^FF0000TESOURAS!",SCISSORS,"^00FF00PAPEL!^000000",PAPER;
 
   	if (.@lastchoice == 1) set .@opp, rand(1,3);
   	if (.@opp == 1) emotion ET_ROCK;
@@ -56,7 +58,7 @@ PAPER:
 	goto SAME;
 
 WIN:
-	mes "Damnit, You Win!";
+	mes "Droga, você venceu!";
 	emotion ET_PROFUSELY_SWEAT;
 	next;
 	set .@win, 1;
@@ -64,14 +66,14 @@ WIN:
 
 LOSE:
 	emotion ET_SMILE;
-	mes "Boorah! You Lose!";
+	mes "Boorah! Você perdeu!";
 	next;
 	set .@win, 0;
 
 YOUPULL:
 	mes .@counter +" of 6";
 	if ( .@counter == 6 )
-		mes "Say your prayers";
+		mes "Diga suas orações";
 	set .@pull, rand( 1,( 7 -.@counter ) );
 	set .@counter, .@counter +1;
 	next;
@@ -81,20 +83,20 @@ YOUPULL:
 		emotion ET_KIK;
 		percentheal -100,-100;
 		mes "*^0000FFClick^000000* *^FF0000BANG^000000*";
-		mes "You're dead!";
+		mes "Você está morto!";
 		close;
 	}
 	emotion ET_HNG;
-	mes "*^0000FFClick^000000* whew...";
+	mes "*^0000FFClick^000000* ufa...";
 	goto PLAY;
 
 RULES:
-	mes "Ok here are the rules:";
-	mes "I have with me a ^FF00006^000000 chamber pistol with ^FF00001^000000 round. First we play ^FF0000Scissors ^00FF00Paper ^0000FFRock^000000. The loser pulls the trigger. The winner is whoever comes out best.";
-	mes "Beat me to win a prize.";
+	mes "Ok, aqui estão as regras:";
+	mes "Eu tenho comigo um ^FF00006^000000 pistola de câmara com ^FF00001^000000 volta. Primeiro nós jogamos ^FF0000Tesouras ^00FF00Papel ^0000FFPedra^000000. O perdedor puxa o gatilho. O vencedor é aquele que sair melhor.";
+	mes "Vença-me para ganhar um prêmio.";
 	next;
-	menu "Let me play.",-,"No thanks.",LEAVE;
-	mes "Ok here we go...";
+	menu "• Vamos Jogar",-,"• Não, Obrigado",LEAVE;
+	mes "OK, vamos lá...";
 	next;
 	goto PLAY;
 
@@ -102,18 +104,18 @@ KILL:
 	specialeffect EF_SUI_EXPLOSION;
 	emotion ET_HUK;
 	mes "*^0000FFClick^000000* *^FF0000BANG^000000*";
-	mes "OWWW @#$%^!! THAT HURT LIKE HELL!!";
+	mes "OWWW @#$%^!! ISSO DOE MUITO INFERNO!!";
 	next;
-	mes "Congratulations! You have won...";
+	mes "Parabéns! Você venceu...";
 	switch( rand( 1,10 ) ) {
-		case 1: setarray .@reward[0], 10,984; break;
-		case 3: setarray .@reward[0],100,601; break;	// 100x Fly Wings
-		case 4: setarray .@reward[0],  8,603; break;	// 8x Old Blue Box
-		case 5: setarray .@reward[0],  4,617; break;	// 4x Old Violet Box
-		case 6: setarray .@reward[0],  1,616; break;	// 1x Old Card Album
-		case 7: setarray .@reward[0], 10,604; break;	// 10x Dead Branch
-		case 8: setarray .@reward[0],  3,969; break;	// 3x Gold
-		case 10: setarray .@reward[0],20,505; break;	// 20x Blue Potion
+		case 1: setarray .@reward[0], 10,984; break;	// Oridecon
+		case 3: setarray .@reward[0],100,601; break;	// 100x Asas de Mosca
+		case 4: setarray .@reward[0],  8,603; break;	// 8x Velha Caixa Azul
+		case 5: setarray .@reward[0],  4,617; break;	// 4x Velha Caixa Roxa
+		case 6: setarray .@reward[0],  1,616; break;	// 1x Velho Álbum de Cartas
+		case 7: setarray .@reward[0], 10,604; break;	// 10x Galho Seco
+		case 8: setarray .@reward[0],  3,969; break;	// 3x Ouro
+		case 10: setarray .@reward[0],20,505; break;	// 20x Poção Azul
 		case 2:
 		case 9:
 			setarray .@reward[0], 10,985;
@@ -123,6 +125,6 @@ KILL:
 	close;
 
 LEAVE:
-	mes "Pansy.";
+	mes "amor-perfeito.";
 	close;
 }

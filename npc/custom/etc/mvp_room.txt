@@ -1,29 +1,31 @@
-//===== rAthena Script =======================================
-//= Private MVP & Branch Room
-//===== By: ==================================================
-//= AnnieRuru
-//===== Current Version: =====================================
-//= 1.0
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= Allows players to rent an MVP room for personal use,
-//= or for a party or guild.
-//===== Additional Comments: =================================
-//= 1.0 First version, edited. [Euphy]
+// ===== Script rAthena ===========================================
+// = MVP privado e sala da filial
+// ===== Por: =============================================== =========
+// = AnnieRuru
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Permite aos jogadores alugar uma sala MVP para uso pessoal,
+// = ou para um partido ou guilda.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão, editada. [Euphy]
 //============================================================
 
-prontera,148,174,5	script	Private MVP Room	100,{
-	mes "[Private MVP Room]";
-	mes "Please select a private MVP room.";
+prontera,148,174,5	script	Sala MVP privada	100,{
+	mes "[Sala MVP privada]";
+	mes "Selecione umaa Sala MVP privada.";
 	if ( getvariableofnpc( .rentcost, "MVP Summoner" ) )
-		mes "The cost to rent a room for "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" minutes is "+ callfunc("F_InsertComma", getvariableofnpc( .rentcost, "MVP Summoner" ) ) +" zeny.";
+		mes "O custo de alugar uma sala "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" é de "+ callfunc("F_InsertComma", getvariableofnpc( .rentcost, "MVP Summoner" ) ) +" zeny por minuto";
 	else
-		mes "You can only use the room for only "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" minutes.";
+		mes "Você só pode usar a aala por apenas "+ getvariableofnpc( .timeout, "MVP Summoner" ) +" minutos.";
 	mes " ";
 	for ( .@i = 1; .@i <= 8; .@i++ )
 		if ( getvariableofnpc( .renttime[.@i], "MVP Summoner" ) )
-			mes "Room #"+ .@i +" = "+ .color$[ .type[.@i] ] + .whoinuse$[.@i] +"^000000";
+			mes "Sala #"+ .@i +" = "+ .color$[ .type[.@i] ] + .whoinuse$[.@i] +"^000000";
 	next;
 	.@room = select(
 		"MVP Room 1 ["+ getmapusers("06guild_01") +"]",
@@ -39,35 +41,35 @@ prontera,148,174,5	script	Private MVP Room	100,{
 			warp "06guild_0"+ .@room, 0,0;
 			close;
 		} else {
-			mes "[Private MVP Room]";
-			mes "This room is reserved for ";
+			mes "[Sala MVP privada]";
+			mes "Esta sala está reservado para ";
 			mes .color$[ .type[.@room] ] + .whoinuse$[.@room] +"^000000.";
-			mes "Please select another.";
+			mes "Selecione outro.";
 			close;
 		}
 	}
-	mes "[Private MVP Room]";
-	mes "Reserve this room for...";
+	mes "[Sala MVP privada]";
+	mes "Reserve esta sala para...";
 	next;
-	set .@type, select( "For my party members", "For my guild members", "For personal account use" );
+	set .@type, select( "^333366Para meu Grupo^000000", "^cc6600Para minha Guild^000000", "^990066Para uso Pessoal^000000" );
 	if ( !getcharid(.@type) ) {
-		mes "[Private MVP Room]";
-		mes "You do not own a "+( ( .@type == 1 )? "Party" : "Guild" )+".";
+		mes "[Sala MVP privada]";
+		mes "Você não possui um "+( ( .@type == 1 )? "Grupo" : "Guild" )+".";
 		close;
 	}
 	else if ( Zeny < getvariableofnpc( .rentcost, "MVP Summoner" ) ) {
-		mes "You don't have enough zeny to rent a room.";
+		mes "Você não tem zeny suficiente para alugar uma sala.";
 		close;
 	}
 	else if ( getvariableofnpc( .renttime[.@room], "MVP Summoner" ) ) {
-		mes "[Private MVP Room]";
-		mes "I'm sorry, somebody else has already registered this room faster than you.";
+		mes "[Sala MVP privada]";
+		mes "Desculpe, outra pessoa já registrou esta sala mais rápido do que você.";
 		close;
 	}
 	for ( .@i = 1; .@i <= 8; .@i++ ) {
 		if ( ( getvariableofnpc( .renttime[.@i], "MVP Summoner" ) ) && .@type == .type[.@i] && getcharid(.@type) == .inuseid[.@i] ) {
-			mes "[Private MVP Room]";
-			mes "You already rented Room#"+ .@i +". Use that room instead.";
+			mes "[Sala MVP privada]";
+			mes "Você já alugou a sala#"+ .@i +". Em vez disso, use aquela sala.";
 			close;
 		}
 	}
@@ -80,22 +82,22 @@ prontera,148,174,5	script	Private MVP Room	100,{
 	donpcevent "MVP Summoner#"+ .@room +"::OnEnterMap";
 	close;
 OnInit:
-	.color$[1] =  "^EE8800"; // party color
-	.color$[2] =  "^70CC11"; // guild color
-	.color$[3] =  "^0000FF"; // account color
+	.color$[1] =  "^EE8800"; // cor do grupo
+	.color$[2] =  "^70CC11"; // cor da guild
+	.color$[3] =  "^0000FF"; // cor particular
 	end;
 }
 
 -	script	MVP Summoner	-1,{
-	mes "[MVP Summoner]";
-	mes "Time left: " + callfunc( "Time2Str", .renttime[ atoi( strnpcinfo(2) ) ] + .timeout * 60 );
-	mes "Hi, what can I do for you?";
+	mes "[Sumonador MVP]";
+	mes "Tempo à esquerda: " + callfunc( "Time2Str", .renttime[ atoi( strnpcinfo(2) ) ] + .timeout * 60 );
+	mes "Oi, o que posso fazer por você?";
 	next;
 	switch ( select(.menu$) ) {
 	case 1:
-		mes "[MVP Summoner]";
+		mes "[Sumonador MVP]";
 		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "I cannot offer heal service when there are monsters around.";
+			mes "Eu não posso oferecer serviço de cura quando há monstros ao redor.";
 			close;
 		}
 		sc_end SC_STONE;
@@ -122,28 +124,28 @@ OnInit:
 		sc_end SC_SKA;
 		percentheal 100,100;
 		specialeffect2 EF_HEAL;
-		mes "You are completely healed.";
+		mes "Você está completamente curado.";
 		close;
 	case 2:
 		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "[MVP Summoner]";
-			mes "I cannot summon another MVP when there are monsters around.";
+			mes "[Sumonador MVP]";
+			mes "Eu não posso invocar outro MVP quando há monstros ao redor.";
 			close;
 		} else if ( .mvpcost ) {
-			mes "[MVP Summoner]";
-			mes "The cost to summon an MVP is "+ callfunc( "F_InsertComma", .mvpcost ) +" zeny.";
+			mes "[Sumonador MVP]";
+			mes "O custo para invocar um MVP é "+ callfunc( "F_InsertComma", .mvpcost ) +" zeny.";
 			next;
 			set .@menu, select(.mvpid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[Sumonador MVP]";
 			if ( Zeny < .mvpcost ) {
-				mes "You don't have enough zeny to summon an MVP.";
+				mes "Você não tem zeny suficiente para invocar um MVP.";
 				close;
 			}
 		} else {
 			set .@menu, select(.mvpid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[Sumonador MVP]";
 		}
-		mes "Please get ready.";
+		mes "Por favor, prepare-se.";
 		close2;
 		if ( Zeny < .mvpcost ) end;
 		Zeny -= .mvpcost;
@@ -151,24 +153,24 @@ OnInit:
 		end;
 	case 3:
 		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) ) {
-			mes "[MVP Summoner]";
-			mes "I cannot summon another mini-boss when there are monsters around.";
+			mes "[Sumonador MVP]";
+			mes "Eu não posso chamar outro mini-chefe quando há monstros ao redor.";
 			close;
 		} else if ( .bosscost ) {
-			mes "[MVP Summoner]";
-			mes "The cost to summon a mini-boss is "+ callfunc( "F_InsertComma", .bosscost ) +" zeny.";
+			mes "[Sumonador MVP]";
+			mes "O custo para invocar um mini-chefe é "+ callfunc( "F_InsertComma", .bosscost ) +" zeny.";
 			next;
 			set .@menu, select(.bossid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[Sumonador MVP]";
 			if ( Zeny < .bosscost ) {
-				mes "You doesn't have enough zeny to summon a mini-boss.";
+				mes "Você não tem zeny suficiente para invocar um mini-chefe.";
 				close;
 			}
 		} else {
 			set .@menu, select(.bossid_menu$) -1;
-			mes "[MVP Summoner]";
+			mes "[Sumonador MVP]";
 		}
-		mes "Please get ready.";
+		mes "Por favor, prepare-se.";
 		close2;
 		if ( Zeny < .bosscost ) end;
 		Zeny -= .bosscost;
@@ -176,31 +178,31 @@ OnInit:
 		end;
 	case 4:
 		if ( mobcount( "this", strnpcinfo(3)+"::OnMobDead" ) > 0 ) {
-			mes "[MVP Summoner]";
-			mes "I cannot offer this service when there are monsters around.";
+			mes "[Sumonador MVP]";
+			mes "Eu não posso oferecer este serviço quando há monstros ao redor.";
 			close;
 		}
 		close2;
 		callshop "MVP room#branch", 1;
 		end;
 	case 5:
-		mes "[MVP Summoner]";
-		mes "Are you sure you want to leave this room?";
+		mes "[Sumonador MVP]";
+		mes "Tem certeza que quer sair desta sala?";
 		next;
-		if ( select( "Yes:No") == 1 )
+		if ( select( "Sim:Não") == 1 )
 			warp .respawnmap$, .respawnx, .respawny;
 		close;
 	case 6:
-		mes "[MVP Summoner]";
+		mes "[Sumonador MVP]";
 		if ( getmapusers( strcharinfo(3) ) > 1 ) {
-			mes "There are still some players in this room. Make sure you are the last member in this room to use this option.";
+			mes "Ainda há alguns jogadores nesta sala. Certifique-se de que você é o último membro nesta sala a usar essa opção.";
 			close;
 		}
-		mes "Are you sure you want to give up this room?";
+		mes "Tem certeza de que deseja desistir desta sala?";
 		if ( .rentcost )
-			mes "You will need to pay again to enter this room.";
+			mes "Você precisará pagar novamente para entrar nesta sala.";
 		next;
-		if ( select( "Yes", "No" ) == 2 ) close;
+		if ( select( "Sim", "Não" ) == 2 ) close;
 		awake strnpcinfo(0);
 		end;
 	}
@@ -223,113 +225,113 @@ OnInit:
 
 //	Config ---------------------------------------------------------------------------------------
 
-	// Room rental time, in minutes.
-	// When time runs out, all players inside the room will be kicked out.
-	// Do NOT set this to zero!
+	// Tempo de aluguel do quarto, em minutos.
+	// Quando o tempo acabar, todos os jogadores dentro da sala serão expulsos.
+	// NÃO defina isso para zero!
 	set .timeout, 60;
 
-	set .rentcost, 100000;	// Zeny cost for renting a room (0 = free)
-	set .mvpcost, 100000;	// Zeny cost to summon an MVP (0 = free)
-	set .bosscost, 50000;	// Zeny cost to summon a boss monster (0 = free)
+	set .rentcost, 100000;	// Custo Zeny para alugar um quarto (0 = grátis)
+	set .mvpcost, 100000;	// Custo Zeny para invocar um MVP (0 = grátis)
+	set .bosscost, 50000;	// Custo Zeny para invocar um Mini-boss (0 = grátis)
 
-	//	Options setting inside MVP room
-	set .@menu[1], 1;	// Turn Heal option On/Off
-	set .@menu[2], 1;	// Turn MVP Summoning On/Off
-	set .@menu[3], 1;	// Turn Mini boss Summoning On/Off
-	set .@menu[4], 0;	// Sell items (branches) On/Off (see shop below, before the mapflags)
+	//	Configuração de opções dentro da sala MVP
+	set .@menu[1], 1;	// Ativar / desativar a opção Heal
+	set .@menu[2], 1;	// Ligar / desligar a invocação MVP
+	set .@menu[3], 1;	// Ligar / Desligar a Invocação de Mini Boss
+	set .@menu[4], 0;	// Vender itens (filiais) On / Off (veja a loja abaixo, antes dos mapflags)
 
-	// Respawn point when players leave the room
+	// Ponto de respawn quando os jogadores saem da sala
 	set .respawnmap$, "prontera";
 	set .respawnx, 150;
 	set .respawny, 174;
 
 	setarray .mvpid[0],
-		1511,//	Amon Ra
-		1647,// Assassin Cross Eremes
+		1511,//	Amon-Ra
+		1647,// Algoz Eremes
 		1785,//	Atroce
-		1630,//	Bacsojin
-		1039,//	Baphomet
-		1874,//	Beelzebub
-		1272,//	Dark Lord
-		1719,//	Datale
+		1630,//	Lady Branca
+		1039,//	Bafomé
+		1874,//	Belzebu
+		1272,//	Senhor das Trevas
+		1719,//	Detardeurus
 		1046,//	Doppelgangger
 		1389,//	Dracula
 		1112,//	Drake
 		1115,//	Eddga
-		1418,//	Evil Snake Lord
-		1871,//	Fallen Bishop
-		1252,//	Garm
-		1768,//	Gloom Under Night
-		1086,//	Golden Thief Bug
+		1418,//	Serpente Suprema
+		1871,//	Bispo Decadente
+		1252,//	Hatii
+		1768,//	Pesar Noturno
+		1086,//	Besouro-Ladrão Dourado
 		1885,//	Gopinich
-		1649,// High Priest Magaleta
-		1651,// High Wizard Katrinn
+		1649,// Suma-Sacerdotisa Margaretha
+		1651,// Arquimaga Kathryne
 		1832,//	Ifrit
-		1492,//	Incantation Samurai
+		1492,//	Samurai Encarnado
 		1734,//	Kiel D-01
-		1251,//	Knight of Windstorm
+		1251,//	Cavaleiro da Tempestade
 		1779,//	Ktullanux
 		1688,//	Lady Tanee
-		1646,// Lord Knight Seyren
-		1373,//	Lord of Death
+		1646,// Lorde Seyren
+		1373,//	Senhor dos Mortos
 		1147,//	Maya
-		1059,//	Mistress
-		1150,//	Moonlight Flower
-		1087,//	Orc Hero
-		1190,//	Orc Lord
-		1038,//	Osiris
-		1157,//	Pharaoh
-		1159,//	Phreeoni
+		1059,//	Abelha-Rainha
+		1150,//	Flor do Luar
+		1087,//	Orc Herói
+		1190,//	Senhor dos Orcs
+		1038,//	Osíris
+		1157,//	Faraó 
+		1159,//	Freeoni 
 		1623,//	RSX 0806
-		1650,// Sniper Shecil
+		1650,// Atiradora de Elite Cecil 
 		1583,//	Tao Gunka
 		1708,//	Thanatos
-		1312,//	Turtle General
-		1751,//	Valkyrie Randgris
+		1312,//	General Tartaruga
+		1751,//	Valquíria Randgris
 		1685,// Vesper
-		1648,// Whitesmith Harword
-		1917,// Wounded Morocc
-		1658;//	Ygnizem
+		1648,// Mestre-Ferreiro Howard
+		1917,// Morroc Ferido
+		1658;//	Egnigem Cenia
 
 	setarray .bossid[0],
 		1096,// Angeling
 		1388,// Archangeling
-		1795,// Bloody Knight
-		1830,// Bow Guardian
+		1795,// Cavaleiro Sanguinário
+		1830,// Arqueiro Guardião
 		1839,// Byorgue
-		1309,// Cat O' Nine Tail
-		1283,// Chimera
-		1302,// Dark Illusion
-		1198,// Dark Priest
+		1307,// Gato de Nove Caudas
+		1283,// Quimera 
+		1302,// Ilusão das Trevas
+		1198,// Sacerdote Maldito
 		1582,// Deviling
-		1091,// Dragon Fly
-		1093,// Eclipse
-		1205,// Executioner
+		1091,// Libélula
+		1093,// Eclipse 
+		1205,// Executor 
 		1783,// Galion
-		1592,// Gangster
+		1592,// Yakuza 
 		1120,// Ghostring
-		1259,// Gryphon
-		1720,// Hydro
+		1259,// Grifo 
+		1720,// Hydrolancer 
 		1090,// Mastering
-		1289,// Maya Purple
-		1262,// Mutant Dragon
+		1289,// Maya Macho 
+		1262,// Dragão Mutante
 		1203,// Mysteltainn
-		1870,// Necromancer
-		1295,// Owl Baron
-		1829,// Sword Guardian
-		1204,// Tirfing
-		1089,// Toad
-		1092,// Vagabond Wolf
-		1765;// Valkyrie
+		1870,// Necromante 
+		1295,// Barão Coruja
+		1829,// Espadachim Guardião
+		1204,// Tyrfing 
+		1089,// Sapo-Cururu
+		1092,// Lobo Errante
+		1765;// Valquíria 
 
-//	Config Ends ------------------------------------------------------------------------
+//	Fim Config ------------------------------------------------------------------------
 
 		if ( !.timeout ) set .timeout, 60;
-		.menu$ = ( .@menu[1] ? "Heal" : "" ) +":" ;
-		.menu$ = .menu$ + ( .@menu[2] ? "Summon MVP" : "" ) +":";
-		.menu$ = .menu$ + ( .@menu[3] ? "Summon Mini-boss" : "" ) +":";
-		.menu$ = .menu$ + ( .@menu[4] ? "Buy branches" : "" ) +":";
-		.menu$ = .menu$ + "Leave this room:Give up this room";
+		.menu$ = ( .@menu[1] ? "Curar" : "" ) +":" ;
+		.menu$ = .menu$ + ( .@menu[2] ? "Invocar MVP" : "" ) +":";
+		.menu$ = .menu$ + ( .@menu[3] ? "Invocar Mini-boss" : "" ) +":";
+		.menu$ = .menu$ + ( .@menu[4] ? "Comprar suprimentos" : "" ) +":";
+		.menu$ = .menu$ + "- Deixa esta sala:- Desista desta sala";
 		if ( .@menu[2] ) {
 			.@size = getarraysize( .mvpid );
 			for ( .@i = 0; .@i < .@size; .@i++ )
@@ -342,7 +344,7 @@ OnInit:
 		}
 	}
 	else {
-		mapannounce strnpcinfo(4), "An administrator has refreshed the server. Please re-register this room.", bc_map;
+		mapannounce strnpcinfo(4), "Um administrador atualizou o servidor. Por favor, registre novamente este quarto.", bc_map;
 		mapwarp strnpcinfo(4), .respawnmap$, .respawnx, .respawny;
 	}
 	end;

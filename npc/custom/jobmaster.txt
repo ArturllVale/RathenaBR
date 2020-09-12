@@ -93,7 +93,7 @@ function	Check_Riding	{
 // tornaria este NPC maior apenas para lidar com
 // esses casos especiais.
 	if (checkfalcon() || checkcart() || checkriding() || ismounting()) {
-		mes "Please remove your " +
+		mes "Por favor remova o seu " +
 			((checkfalcon()) ? "falcão" : "") +
 			((checkcart()) ? "Carrinho" : "") +
 			((checkriding()) ? "Peco" : "") +

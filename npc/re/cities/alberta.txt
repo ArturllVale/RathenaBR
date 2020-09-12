@@ -1,35 +1,37 @@
 //===== rAthena Script =======================================
-//= Alberta Town Renewal
-//===== By: ==================================================
-//= Euphy
-//===== Current Version: =====================================
-//= 1.0
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= [Official Conversion]
-//= Alberta town NPCs.
-//===== Additional Comments: =================================
-//= 1.0 First Version.
+// = Renovação da cidade de Alberta
+// ===== Por: =============================================== =========
+// = Euphy
+// ===== Traduzido Por: ===============================================
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1.0
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = [Conversão oficial]
+// = NPCs da cidade de Alberta.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão.
 //============================================================
 
-// cities/amatsu.txt
+// Cidades/amatsu.txt
 //============================================================
-alberta,246,74,3	duplicate(Sea_Captain_amatsu)	Sea Captain#ama1	709
+alberta,246,74,3	duplicate(Sea_Captain_amatsu)	Capitão do mar#ama1	709
 
-// cities/ayothaya.txt
+// Cidades/ayothaya.txt
 //============================================================
 alberta,246,29,3	duplicate(Aibakthing_ayothaya)	Aibakthing#ayo	843
 
-// cities/gonryun.txt
+// Cidades/gonryun.txt
 //============================================================
 alberta,246,62,3	duplicate(Kunlun_Envoy_gonryun)	Kunlun Envoy#gon	776
 
-// cities/louyang.txt
+// Cidades/louyang.txt
 //============================================================
 alberta,246,40,3	duplicate(Garota)	Garota#0lou	815
 
-// cities/moscovia.txt
+// Cidades/moscovia.txt
 //============================================================
 alberta,246,51,4	duplicate(PR_Officer_moscovia)	Moscovia P.R. Officer#1	960
 

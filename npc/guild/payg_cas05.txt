@@ -1,47 +1,43 @@
-//===== rAthena Script =======================================
-//= War of Emperium (Payon) - Bamboo Grove Hill
-//===== By: ==================================================
-//= L0ne_W0lf
-//===== Current Version: =====================================
-//= 1.3
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= NPCs that relate to Payon Guild Castle 5
-//===== Additional Comments: =================================
-//= 1.0 First Version. No longer uses functions. [L0ne_W0lf]
-//= 1.1 Corrected flag-in spawn point. [L0ne_W0lf]
-//= 1.2 Removed dialog from interior flags. [L0ne_W0lf]
-//=     Fixed position of Guild dungeon switch.
-//= 1.3 Partially rewrote Script. [Masao]
+// ===== Script rAthena ===========================================
+// = Guerra do Emperium (Payon) - Palácio da Colina
+// ===== Por: =============================================== =========
+// = L0ne_W0lf
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,3
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = NPCs que se relacionam com Payon Guild Castle 5
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. Não usa mais funções. [L0ne_W0lf]
+// = 1.1 Ponto de desova flag-in corrigido. [L0ne_W0lf]
+// = 1.2 Caixa de diálogo removida dos sinalizadores internos. [L0ne_W0lf]
+// = Posição fixa da troca de calabouço da Guilda.
+// = 1.3 Script parcialmente reescrito. [Masao]
 //============================================================
 
-// Guild Flags (Outside Castle)
+// Bandeira das Guildas (Fora do Castelo)
 //============================================================
--	script	Bamboo Grove Hill#1::OutsideFlagsPA5	722,{
+-	script	Palácio da Colina#1::OutsideFlagsPA5	722,{
 
 	set .@GID, GetCastleData("payg_cas05",1);
 
 	if (.@GID == 0) {
-		mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+		mes " [ Decreto do Reino de Midgard ]";
 		mes " ";
-		mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-		mes "We declare that";
-		mes "there is no formal master of this castle.";
+		mes "1. Conforme o pacto do Reino de Midgard e o Feudo de Luina, declaro que este Castelo não possui um Senhor.";
 		mes " ";
-		mes "2. To the one who can ";
-		mes "overcome all trials";
-		mes "and destroy the Emperium,";
-		mes "the king will endow the one with";
-		mes "ownership of this castle.";
+		mes "2. Aquele que superar terríveis desafios e destruir o Emperium, receberá a posse do castelo com o apoio do nosso rei.";
 		close;
 	}
 	if (getcharid(2) == .@GID) {
-		mes "[ Echoing Voice ]";
-		mes "Brave ones...";
-		mes "Do you wish to return to your honorable place?";
+		mes "[ Voz Ressoando ]";
+		mes "Bravo guerreiro...";
+		mes "Você deseja retornar ao seu lugar de honra?";
 		next;
-		if(select("Return to the guild castle.:Quit.") == 1) {
+		if(select("Retornar para o castelo do Clã.:Sair.") == 1) {
 			close2;
 			if (getcharid(2) == GetCastleData("payg_cas05",1)) {
 					warp "payg_cas05",243,27;
@@ -51,16 +47,14 @@
 		}
 		close;
 	}
-	mes "[ Edict of the Divine Rune-Midgarts Kingdom ]";
+	mes "[ Decreto do Reino de Midgard ]";
 	mes " ";
-	mes "1. Follow the ordinance of The Divine Rune-Midgarts Kingdom, ";
-	mes "we approve that this place is in";
-	mes "the private prossession of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild.";
+	mes "1. Seguindo o decreto do Reino de Midgard.";
+	mes "Nós declaramos que esse castelo pertence ao clã ^ff0000"+GetGuildName(.@GID)+"^000000.";
 	mes " ";
-	mes "2. The guild Master of ^ff0000"+GetGuildName(.@GID)+"^000000 Guild is";
+	mes "2. O líder do clã ^ff0000"+GetGuildName(.@GID)+"^000000 se chama";
 	mes "^ff0000"+GetGuildMaster(.@GID)+"^000000";
-	mes "If there is anyone who objects to this,";
-	mes "prove your strength and honor with a steel blade in your hand.";
+  	mes "Se alguém se opõe a esse decreto, que prove sua força e honra com uma espada em suas mãos.";
 	close;
 
 OnRecvCastlePy05:
@@ -68,14 +62,14 @@ OnRecvCastlePy05:
 	end;
 }
 
-pay_gld,208,268,4	duplicate(OutsideFlagsPA5)	Bamboo Grove Hill#1-2	722
-pay_gld,199,268,4	duplicate(OutsideFlagsPA5)	Bamboo Grove Hill#2	722
-pay_gld,190,277,3	duplicate(OutsideFlagsPA5)	Bamboo Grove Hill#3	722
-pay_gld,187,294,2	duplicate(OutsideFlagsPA5)	Bamboo Grove Hill#4	722
+pay_gld,208,268,4	duplicate(OutsideFlagsPA5)	Palácio da Colina#1-2	722
+pay_gld,199,268,4	duplicate(OutsideFlagsPA5)	Palácio da Colina#2	722
+pay_gld,190,277,3	duplicate(OutsideFlagsPA5)	Palácio da Colina#3	722
+pay_gld,187,294,2	duplicate(OutsideFlagsPA5)	Palácio da Colina#4	722
 
-// Guild Flags (Inside Castle)
+// Bandeira das Guildas (Dentro do Castelo)
 //============================================================
--	script	Bamboo Grove Hill#5::InsideFlagsPA5	722,{
+-	script	Palácio da Colina#5::InsideFlagsPA5	722,{
 	end;
 
 OnRecvCastlePy05:
@@ -83,33 +77,33 @@ OnRecvCastlePy05:
 	end;
 }
 
-payg_cas05,32,249,4	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#5-2	722
-payg_cas05,24,249,4	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#6	722
-payg_cas05,62,271,0	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#7	722
-payg_cas05,57,271,0	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#8	722
-payg_cas05,55,252,2	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#9	722
-payg_cas05,55,260,2	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#10	722
+payg_cas05,32,249,4	duplicate(InsideFlagsPA5)	Palácio da Colina#5-2	722
+payg_cas05,24,249,4	duplicate(InsideFlagsPA5)	Palácio da Colina#6	722
+payg_cas05,62,271,0	duplicate(InsideFlagsPA5)	Palácio da Colina#7	722
+payg_cas05,57,271,0	duplicate(InsideFlagsPA5)	Palácio da Colina#8	722
+payg_cas05,55,252,2	duplicate(InsideFlagsPA5)	Palácio da Colina#9	722
+payg_cas05,55,260,2	duplicate(InsideFlagsPA5)	Palácio da Colina#10	722
 
-// Guild Flag (Town)
+// Bandeira das Guildas (Cidade)
 //============================================================
-payon,123,322,4	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#11	722
-payon,166,161,3	duplicate(InsideFlagsPA5)	Bamboo Grove Hill#12	722
+payon,123,322,4	duplicate(InsideFlagsPA5)	Palácio da Colina#11	722
+payon,166,161,3	duplicate(InsideFlagsPA5)	Palácio da Colina#12	722
 
-// Kafra Employee
+// Funcionaria Kafra
 //============================================================
-payg_cas05,276,227,1	duplicate(guildkafra)	Kafra Staff#payg_cas05	117
+payg_cas05,276,227,1	duplicate(guildkafra)	Kafra#payg_cas05	117
 
-// Steward
+// Mordomo
 //============================================================
 payg_cas05,277,249,3	duplicate(cm)	Nahzarf#payg_cas05	55
 
-// Treasure Room Exit
+// Saída da Sala do Tesouro
 //============================================================
 payg_cas05,161,136,0	script	#lever_PA05	111,{
 	mes " ";
-	mes "There's a small lever. Will you pull it?";
+	mes "Há uma pequena alavanca. Você vai puxar";
 	next;
-	if(select("Pull.:Do not.") == 1) {
+	if (select("Puxar.:Não puxar.") == 1) {
 		close2;
 		warp "payg_cas05",277,250;
 		end;
@@ -117,18 +111,18 @@ payg_cas05,161,136,0	script	#lever_PA05	111,{
 	close;
 }
 
-// Guild Dungeon Switch
+// Dispositivo do Calabouço da Guilda
 //============================================================
 payg_cas05,249,15,0	duplicate(gdlever)	#payg_cas05	111
 
-// Guild Treasure Spawns
+// Gerador de Baus do Tesouro
 //============================================================
-payg_cas05,157,132,0	duplicate(Gld_Trea_Spawn)	Treasure#payg_cas05	-1
+payg_cas05,157,132,0	duplicate(Gld_Trea_Spawn)	Tesouro#payg_cas05	-1
 
-// AGIT Manager
+// Gerenciador Automático
 //============================================================
 payg_cas05,30,30,0	duplicate(Gld_Agit_Manager)	Agit#payg_cas05	-1
 
-// Guardians
+// Guardiões
 //============================================================
 payg_cas05,277,249,3	duplicate(Gld_Guard_Template)	Guardian#payg_cas05	-1

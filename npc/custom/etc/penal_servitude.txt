@@ -1,93 +1,95 @@
-//===== rAthena Script =======================================
-//= Penal Servitude 
-//===== By: ==================================================
-//= Lupus
-//===== Current Version: =====================================
-//= 1.2
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= A simple Penal Servitude Script.
-//= It could cheer up your prisoners a bit.
-//===== Additional Comments: =================================
-// This script uses CHEQUES of the 2nd KAFRA_BANK.TXT
-// var PRISON - it counts number of your imprisonments.
-// 1.1 English translation
-// 1.2 Stricted the conditions a bit
+// ===== Script rAthena ===========================================
+// = Servidão Penal
+// ===== Por: =============================================== =========
+// = Lupus
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,2
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = Um script de servidão penal simples.
+// = Isso pode animar um pouco seus prisioneiros.
+// ===== Comentários adicionais: ===================================
+// Este script usa CHECKS do 2º KAFRA_BANK.TXT
+// var PRISON - conta o número de suas prisões.
+// 1.1 tradução em inglês
+// 1.2 Estreitou um pouco as condições
 //============================================================
 
-sec_pri,36,58,1	script	Chief Warder	105,{ 
+sec_pri,36,58,1	script	Chefe dos carcereiros	105,{ 
 	mes "[Saddeus]";
 	emotion ET_QUESTION;
-	mes (Sex==SEX_MALE?"Mr.":"Ms.")+" Prisoner #"+BaseLevel+JobLevel+",";
-	mes "what's the noise over there?";
+	mes (Sex==SEX_MALE?"Mr.":"Ms.")+" Prisioneir"+(Sex?"o":"a")+" #"+BaseLevel+JobLevel+",";
+	mes "o que você quer?";
 	next;
-	menu "Let me free, I'll pay!",-, "Let me to work off my freedom!",M_Q1, "Nothing",M_NO_THANKS;
+	menu "Deixe-me livre, eu vou pagar!",-, "Deixe-me trabalhar com a minha liberdade.!",M_Q1, "Nada",M_NO_THANKS;
 
 M_PAY:
 	mes "[Saddeus]";
 	set .@MUSTPAY,(PRISON+1)*1000000;
 	if (.@MUSTPAY<1000000) set .@MUSTPAY,1000000;
 	if (.@MUSTPAY>100000000) set .@MUSTPAY,100000000;
-	if (PRISON==0) mes "I can't remember you. Is it your 1st time?";
-	if (PRISON>0) mes "You again? Somebody hasn't grown wiser from the very first visit...";
-	mes "OK, we could release you for ^FF0000"+.@MUSTPAY+"z^000000.";
+	if (PRISON==0) mes "Não me lembro de você. É a sua primeira vez?";
+	if (PRISON>0) mes "Você de novo? Alguém não ficou mais sábio desde a primeira visita...";
+	mes "Ok, nós poderíamos liberá-lo por ^FF0000"+.@MUSTPAY+"z^000000.";
 	next;
-	menu "I pay cash!",M_PAYCASH,"Do you accept cheques?",M_PAYBANK,"I've changed my mind.",-;
+	menu "Eu pago em dinheiro!",M_PAYCASH,"Você aceita cheques?",M_PAYBANK,"Mudei de ideias.",-;
 
 	mes "[Saddeus]";
-	mes "You've got some time to think about...";
+	mes "Você tem algum tempo para pensar...";
 	close;
 
 M_PAYCASH:
 	if (.@MUSTPAY>Zeny) goto L_NOCASH;
 	set Zeny,Zeny-.@MUSTPAY;
 	mes "[Saddeus]";
-	mes "OK, sing here and there.";
+	mes "Ok, canta aqui e ali.";
 	goto L_RELEASE;
 
 L_NOCASH:
 	mes "[Saddeus]";
-	mes "What's this? It's not enough!";
+	mes "O que é isto? Não é suficiente!";
 	close;
 
 M_PAYBANK:
 	if (.@MUSTPAY>#kafrabank) goto L_NOBANK;
 	set #kafrabank,#kafrabank-.@MUSTPAY;
 	mes "[Saddeus]";
-	mes "OK, sign your cheque. And put down your name in my book.";
+	mes "Ok, assine seu cheque. E coloque seu nome no meu livro.";
 	goto L_RELEASE;
 
 L_NOBANK:
 	mes "[Saddeus]";
-	if (#kafrabank==0) mes "Your case says nothing about your bank accounts.";
-	if (#kafrabank!=0) mes "Alas, there's your bank account info... ^FF0000"+#kafrabank+"z^000000... in the case. It's not enough.";
-	mes "Stop your silly games now!";
+	if (#kafrabank==0) mes "Seu caso não diz nada sobre suas contas bancárias.";
+	if (#kafrabank!=0) mes "Infelizmente, há uma informação de sua conta bancária ... ^FF0000"+#kafrabank+"z^000000... no caso. Não é suficiente..";
+	mes "Parem seus jogos bobos agora!";
 	close;
 
 L_RELEASE:
 	set PRISON,PRISON+1;
 	next;
 	mes "[Saddeus]";
-	mes "You are free now!";
+	mes "Você está livre agora.!";
 	next;
-	savepoint "izlude",105,112;
-	warp "izlude",105,112;
+	savepoint "izlude",113,161;
+	warp "izlude",113,161;
 	close;
 
 M_Q1:
 	mes "[Saddeus]";
-	mes "Our stocks are short of toadstools.  Remember your morning's skilly?  What about some work at our sponsored mushroom farm?";
+	mes "Nossos estoques estão com falta de cogumelos.  Lembra-se da sua desminada da manhã?  E quanto a algum trabalho na nossa fazenda de cogumelos patrocinado?";
 	next;
-	menu "OK, I'll work off!",-, "I love this prison!",M_NO_THANKS;
+	menu "Ok, eu vou trabalhar fora!",-, "Eu amo esta prisão!",M_NO_THANKS;
 
 	mes "[Saddeus]";
 	if(checkcart() || checkfalcon() || checkriding()){
 		emotion ET_SCRATCH;
-		mes "I'm sorry, you should release your Cart, PecoPeco or Falcon!";
+		mes "Desculpe, você deve liberar seu carrinho, PecoPeco ou Falcon!";
 		close;
 	}
-	mes "Talk to our overseer, Oliver.";
+	mes "Fale com o nosso supervisor, Oliver.";
 	next;
 
 	nude;
@@ -119,8 +121,8 @@ L_W4:
 
 M_NO_THANKS:
 	mes "[Saddeus]";  
-	if (rand(2)) mes "Is today X-Mas time, huh?";
-	mes "Now shut up and back off!";
+	if (rand(2)) mes "É hoje o tempo X-Mas, hein?";
+	mes "Agora cale a boca e se afaste!";
 	if (rand(2)) emotion ET_HUK;
 	close;  
 }
@@ -128,24 +130,23 @@ M_NO_THANKS:
 sec_in02,137,57,1	script	Overseer	708,{ 
 	mes "[Oliver]";
 
-	delitem 4002,countitem(4002);//Items: Fabre_Card,
-	delitem 4009,countitem(4009);//Items: Chonchon_Card,
-	delitem 4022,countitem(4022);//Items: Spore_Card,
-	delitem 4048,countitem(4048);//Items: Poison_Spore_Card,
-	
+	delitem 4002,countitem(4002);//Items: Carta Fabre,
+	delitem 4009,countitem(4009);//Items: Carta Chonchon,
+	delitem 4022,countitem(4022);//Items: Carta Esporo,
+	delitem 4048,countitem(4048);//Items: Carta Esporo Venenoso
 	if (PRISON_Q <= 0 ) goto L_GET_Q;
 
-	mes "I want you to gather ^FF0000"+PRISON_Q+" Orange Net Mushroom^000000.";
-	if ( countitem(1069)<PRISON_Q ) close;//Items: Orange_Net_Mushroom,
-	mes "OK... hand me all the shrooms...";
-	mes "Let me see... "+countitem(1069)+" of almost edible ones...";//Items: Orange_Net_Mushroom,
-	mes "And "+countitem(1070)+" useless deadly ones.";//Items: Orange_Gooey_Mushroom_,
+	mes "Eu quero que você se reúna ^FF0000"+PRISON_Q+" Cogumelo líquido alaranjado^000000.";
+	if ( countitem(1069)<PRISON_Q ) close;//Items: Gogumelo Venenoso,
+	mes "Okey... entregar-me todos os cogumelos...";
+	mes "Deixe-me ver... "+countitem(1069)+" de quase comestíveis...";//Items: Gogumelo Venenoso,
+	mes "E "+countitem(1070)+" inmortais.";//Items: Gogumelo borrachento,
 	next;
 	mes "[Oliver]";
-	mes "Thank you. You are free!";
+	mes "Obrigado. Você é livre.!";
 	set PRISON_Q,0;
-	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
-	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
+	delitem 1069,countitem(1069);//Items: Gogumelo Venenoso,
+	delitem 1070,countitem(1070);//Items: Gogumelo borrachento,
 	next;
 	savepoint "izlude",105,112;
 	warp "izlude",105,112;
@@ -153,18 +154,18 @@ sec_in02,137,57,1	script	Overseer	708,{
 
 L_GET_Q:
 	set PRISON,PRISON+1;
-	if (PRISON > 1) mes "Hmm... You've been here already... Well-well...";
+	if (PRISON > 1) mes "Hmm... Você já esteve aqui... Bem-bem...";
 
-	if ( countitem(1069) || countitem(1070) ) mes "Drop these mushrooms!! They are poisonous!";//Items: Orange_Net_Mushroom, Orange_Gooey_Mushroom_,
-	delitem 1069,countitem(1069);//Items: Orange_Net_Mushroom,
-	delitem 1070,countitem(1070);//Items: Orange_Gooey_Mushroom_,
+	if ( countitem(1069) || countitem(1070) ) mes "Largue esses cogumelos!! Eles são venenosos.!";//Items: Gogumelo borrachento, Gogumelo Venenoso,
+	delitem 1069,countitem(1069);//Items: Gogumelo Venenoso,
+	delitem 1070,countitem(1070);//Items: Gogumelo borrachento,
 
 	set PRISON_Q, PRISON*3 + BaseLevel/3;
 	set PRISON_Q, PRISON_Q * (readparam(bAspd)/55 + 1);
 	set PRISON_Q, PRISON_Q+rand(50,60);
-	mes "OK, you must bring me ^FF0000"+PRISON_Q+"^000000 edible ^FF0000Orange Net Mushroom^000000 toadstoo.. shrooms.";
-	if(readparam(bAspd)>=100) mes "You're a fast fella! You'll have to get more shrooms, then.";
-	if (rand(10)<4) mes "And you may eat the deadly ones for breakfast.";
+	mes "Ok, você deve me trazer ^FF0000"+PRISON_Q+"^000000 Comestíveis ^FF0000Cogumelo líquido alaranjado^000000 toadstoo. Cogumelos.";
+	if(readparam(bAspd)>=100) mes "Você é um cara rápido! Você vai ter que ter mais cogumelos, então.";
+	if (rand(10)<4) mes "E você pode comer os restos no café da manhã.";
 	close;
 }
 
@@ -183,8 +184,8 @@ sec_in02	mapflag	noskill
 sec_in02	mapflag	pvp_nightmaredrop	random,all,300
 sec_in02	mapflag	hidemobhpbar
 
-sec_in02,138,55,100,100	monster	Toadstool	1182,30,10000,10000
+sec_in02,138,55,100,100	monster	Gogumelo	1182,30,10000,10000
 sec_in02,138,55,100,100	monster	Fabre	1184,10,20000,20000
 sec_in02,138,55,100,100	monster	Chonchon	1183,11,20000,20000
-sec_in02,138,55,100,100	monster	Spore	1014,12,20000,20000
-sec_in02,138,55,100,100	monster	Poison Spore	1077,3,20000,20000
+sec_in02,138,55,100,100	monster	Esporo	1014,12,20000,20000
+sec_in02,138,55,100,100	monster	Esporo Venenoso	1077,3,20000,20000

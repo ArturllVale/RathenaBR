@@ -1,78 +1,80 @@
-//===== rAthena Script ============================================
-//= Quest Warper Script
-//===== By: =======================================================
-//= DZeroX, Darkchild, Neouni
-//===== Current Version: ==========================================
-//= 2.3
-//===== Compatible With: ==========================================
-//= rAthena Project
-//===== Description: ==============================================
-//= Warper that works only after locations are unlocked.
-//===== Additional Comments: ======================================
-//= 1.0 - NPCs created
-//= 1.1 - Add Dungeons by sturm
-//= 1.2 - Add All char in account unlocked by ace_killer
-//= 1.3 - Add new 7 towns and 7 dungeons by escoteiro
-// - Correct bug jawaii town by escoteiro
-// - Remove some excessive warpras by escoteiro
-//= 1.4 - Rewrite of the Warpa system [Neouni]
-// - Corrected some bugs caused by autoconverting the old script
-//= 1.4a - Rewrite of menu to be custom for each player [Neouni]
-// - Dungeon listing rewrite
-// - Town listing rewrite
-// - GameMaster can Customise Main menu
-//= 1.4b - Pricing round [Neouni]
-// - GM menu added for pricing
-// - Town Warp pricing tags added
-// - Dungeon Warp pricing tags added
-//= 1.5 - storage functions pricing [Neouni]
-// - storage pricing added
-// - kafra points setting added
-// - kafra storage code security added
-// - Healing scripts pricing added
-// - Heal Part script added
-//= 1.6 - Dungeon warp [Neouni] (beta only)
-// - added option to add a extra fee for going down deeper into dungeon
-// partly by rebuilding the dungeon warping into variable menu's
-//= 1.6a - alot of fixes for beta release [Neouni] (public release)
-// - fixed syntax problems
-// - fixed missing pyramid gats in @DGat$ array
-// - removed the culver level 5 that didn't exist
-//= 1.7 - Readability of Dungeon menu building increased [Neouni]
-// - Thanatos Tower & Luoyang Dungeon added
-//= 1.8 - changed around unlock variables [Neouni]
-// - Moved warp variables to mark what you have unlocked to an binary array in login based permanent variable
-// (warp variables are saved in login database, so all charservers have these unlocked)
-// - Town Warp unlock array max 21/(unknown max) items used instead of max account #variables 32 !
-// - Dungeon Warp unlock array 28/(unknown max) items used instead of max account #variables 32 !
-// - (max login ##variables = 16, i used 3)
-// - old variables are cleared on next save
-// - Extra Variable clear added for every character, just in case (request by Terces)
-//= 1.8a - Show amount of users on map [Neouni]
-//= 1.8b - Small typo fixed in stampcard script [Neouni]
-//= 1.9 - Making it more edit friendly [Neouni]
-// - Made Dungeon warp arrays more readable & editable (QWS_Darray)
-// - Made town warp arrays more readable & editable (QWS_Tarray)
-//= 2.0 - Special Warp menu added [Neouni]
-// - when all towns and dungeons are collected a new option on the main menu will show
-// - it will only show when you setup the mapname of the warp !
-//= 2.0a - Dungeon Level Limit & Split dungeon fees
-// - Limits dungeon based on Depth, access special setup menu thru GM-Menu
-// - Dungeon fees split up based on  Basic , Advanced & Overseas
-// - Old Dungeon fee system removed, all dungeon fees now set to 0
-//= 2.0b - Special warpname menu option name bug fixed
-//= 2.1 - Updated names to fall within retrictions. [L0ne_W0lf]
-//= 2.2 - #kafra_code is now stored as is. [brianluau]
-//= 2.3 - Added new town maps, cleanup, and removed pre-1.8 backwards fix. [Euphy]
+// ===== rAthena Script ============================================= ===
+// = Script Warper Quest
+// ===== Por: =============================================== ==============
+// = DZeroX, Darkchild, Neouni
+// ===== Traduzido Por: =============================================== ==============
+// = Guru
+// ===== Versão Atual: ============================================ ==
+// = 2,3
+// ===== Compatível com: ============================================ ==
+// = Projeto rAthena
+// ===== Descrição: =============================================== =====
+// = Warper que funciona somente depois que os locais são desbloqueados.
+// ===== Comentários adicionais: ==========================================
+// = 1.0 - NPCs criados
+// = 1.1 - Adicionar masmorras por sturm
+// = 1.2 - Adicionar todos os personagens na conta desbloqueada por ace_killer
+// = 1.3 - Adicionar novas 7 cidades e 7 masmorras por escoteiro
+// - Corrigir bug jawaii town por escoteiro
+// - Remova alguns warpras excessivos pelo escoteiro
+// = 1.4 - Reescrita do sistema Warpa [Neouni]
+// - Corrigidos alguns bugs causados ​​pela conversão automática do script antigo
+// = 1.4a - Reescrita do menu para ser personalizado para cada jogador [Neouni]
+// - Reescrita da lista do calabouço
+// - Reescrita da lista de cidades
+// - GameMaster pode personalizar o menu principal
+// = 1.4b - Rodada de preços [Neouni]
+// - Menu GM adicionado para preços
+// - Tags de preços Town Warp adicionadas
+// - Tags de preços Dungeon Warp adicionadas
+// = 1,5 - preços de funções de armazenamento [Neouni]
+// - preço de armazenamento adicionado
+// - configuração de pontos kafra adicionada
+// - segurança do código de armazenamento kafra adicionada
+// - Preço de scripts de cura adicionado
+// - Script Heal Part adicionado
+// = 1.6 - Dungeon warp [Neouni] (beta apenas)
+// - opção adicionada para adicionar uma taxa extra para ir mais fundo na masmorra
+// em parte reconstruindo a masmorra, transformando-se em menu variável
+// = 1.6a - muitas correções para o lançamento beta [Neouni] (lançamento público)
+// - corrigiu problemas de sintaxe
+// - corrigidos os gats da pirâmide ausentes no array @ DGat $
+// - removeu o bueiro nível 5 que não existia
+// = 1.7 - A legibilidade da construção do menu do Calabouço aumentou [Neouni]
+// - Torre de Thanatos e Calabouço de Luoyang adicionados
+// = 1.8 - alterado em torno das variáveis ​​de desbloqueio [Neouni]
+// - Variáveis ​​warp movidas para marcar o que você desbloqueou em uma matriz binária na variável permanente baseada em login
+// (variáveis ​​warp são salvas no banco de dados de login, então todos os charservers têm esses desbloqueados)
+// - Town Warp desbloquear array no máximo 21 / (máximo desconhecido) itens usados ​​em vez da conta máxima #variables 32!
+// - Dungeon Warp desbloqueia array 28 / (máximo desconhecido) itens usados ​​ao invés da conta máxima #variables 32!
+// - (login máximo ## variáveis ​​= 16, usei 3)
+// - as variáveis ​​antigas são apagadas no próximo salvamento
+// - Limpar variável extra adicionada para cada caractere, apenas no caso (solicitação por Terces)
+// = 1.8a - Mostrar quantidade de usuários no mapa [Neouni]
+// = 1.8b - Pequeno erro de digitação corrigido no script de cartão de carimbo [Neouni]
+// = 1.9 - Tornando-o mais amigável para edição [Neouni]
+// - Matrizes de warp de masmorras mais legíveis e editáveis ​​(QWS_Darray)
+// - Tornou as matrizes de warp da cidade mais legíveis e editáveis ​​(QWS_Tarray)
+// = 2.0 - Menu especial Warp adicionado [Neouni]
+// - quando todas as cidades e masmorras forem coletadas, uma nova opção no menu principal será exibida
+// - só aparecerá quando você configurar o nome do mapa do warp!
+// = 2.0a - Limite de nível de masmorra e taxas de masmorra de divisão
+// - Limita a masmorra com base na profundidade, acesse o menu de configuração especial através do Menu GM
+// - Taxas de masmorras divididas com base em Básico, Avançado e Internacional
+// - Sistema de taxas da masmorra antigo removido, todas as taxas da masmorra agora definidas para 0
+// = 2.0b - Bug de nome de opção de menu especial warpname corrigido
+// = 2.1 - Nomes atualizados para cair dentro de retrições. [L0ne_W0lf]
+// = 2.2 - #kafra_code agora é armazenado como está. [brianluau]
+// = 2.3 - Adicionados novos mapas da cidade, limpeza e remoção da correção anterior anterior ao 1.8. [Euphy]
 //=================================================================
 
-//========================Function=&=Script========================
+//========================Função=&=Script========================
 
 function	script	Q_Warpra	{
 	mes "[Warpra]";
-	mes "Hello,";
-	mes "I can warp you to any town or dungeon, but you need to unlock them first by visiting us.";
-	mes "What do you need?";
+	mes "Olá,";
+	mes "Posso teletransportá-l"+(Sex?"o":"a")+" para qualquer cidade ou calabouço, mas primeiro você precisa desbloqueá-los visitando-nos.";
+	mes "O que você precisa?";
 	
 	if(getarg(0) == 0) callfunc "QWS_MMarray",0;
 	if(getarg(0) == 1) callfunc "QWS_MMarray",1;
@@ -84,7 +86,7 @@ function	script	Q_Warpra	{
 	case 2:
 		warp $QW_SP_WarpMap$, $QW_SP_WarpX, $QW_SP_WarpY;
 		close2;
-		debugmes "Please check your special warp menu settings on the Warpra.";
+		debugmes "Por favor, verifique as suas configurações especiais de menu de warp.";
 		end;
 	case 3: goto L_town;
 	case 4: goto L_dungeon;
@@ -99,25 +101,25 @@ function	script	Q_Warpra	{
 		goto L_end;
 	}
 
-//=====================GM-Menu=Functions===========================
+//=====================GM-Menu=Funções===========================
 
 GM_Menu:
 	next;
-	mes "Town warping = "+(($QW_TW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
-	mes "Dungeon warping = "+(($QW_DW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
-	mes "Dungeon Depth limit is "+(($QW_DL)?"^00FF00 On":"^FF0000 Off")+"^000000";
-	mes "If on Dungeon Depth limit is set to ^0000FF"+$QW_DDL+"^000000";
-	mes "Show Map Users = "+(($QW_MapUserShow)?"^00FF00 On":"^FF0000 Off")+"^000000";
+	mes "Ir para Cidade = "+(($QW_TW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
+	mes "Ir para Calabouço = "+(($QW_DW_OFF)?"^FF0000 Off":"^00FF00 On")+"^000000";
+	mes "O limite de profundidade do calabouço é "+(($QW_DL)?"^00FF00 On":"^FF0000 Off")+"^000000";
+	mes "Se no Calabouço, o limite de profundidade é definido como ^0000FF"+$QW_DDL+"^000000";
+	mes "Mostrar usuários do mapa = "+(($QW_MapUserShow)?"^00FF00 On":"^FF0000 Off")+"^000000";
 
-	if ($QW_HF) mes "Healing full = ^00FF00 On ^000000";
-	if ($QW_HP) mes "Healing partly = ^00FF00 On ^000000";
-	if (!$QW_HF && !$QW_HP) mes "Healing = ^FF0000 Off ^000000";
+	if ($QW_HF) mes "Cura completa = ^00FF00 On ^000000";
+	if ($QW_HP) mes "Cura Parcial = ^00FF00 On ^000000";
+	if (!$QW_HF && !$QW_HP) mes "Cura = ^FF0000 Off ^000000";
 
-	mes "Storage = "+(($QW_Stor)?"^00FF00 On":"^FF0000 Off")+"^000000";
-	mes "Guild Storage = "+(($QW_GStor)?"^00FF00 On":"^FF0000 Off")+"^000000";
-	mes "Kafra points collect = "+(($QW_KPoint)?"^00FF00 On":"^FF0000 Off")+"^000000";
+	mes "Armazem = "+(($QW_Stor)?"^00FF00 On":"^FF0000 Off")+"^000000";
+	mes "Armazem da Guild = "+(($QW_GStor)?"^00FF00 On":"^FF0000 Off")+"^000000";
+	mes "Coletar Pontos de Kafra = "+(($QW_KPoint)?"^00FF00 On":"^FF0000 Off")+"^000000";
 
-	switch(select("Town Warping","Dungeon Warping","Dungeon Level Limit","Show Map Users","Healing full","Healing partly","Storage","Guild Storage","Kafra points collect","Set Prices","Special Warp","Exit")) {
+	switch(select("Ir para Cidades","Ir para Calabouço","Limite de nível do Calabouço","Mostrar usuários do mapa","Cura completa","Cura parcial","Armazem","Armazem da Guild","Coletar pontos de kafra","Configurar preços","Mapas Especiais","^666666Sair^000000")) {
 	case 1: set $QW_TW_OFF,($QW_TW_OFF)?0:1; goto GM_Menu;
 	case 2: set $QW_DW_OFF,($QW_DW_OFF)?0:1; goto GM_Menu;
 	case 3: goto DungeonLevelLimit;
@@ -146,20 +148,20 @@ GM_Menu:
 		end;
 	}
 
-//======================GM-Menu=Pricing============================
+//======================GM-Menu=Preços============================
 
 Setprice:
 	if ($QW_DW_FEE != 0) set $QW_DW_FEE,0;
 	next;
-	mes "Scroll through the list to see all the options.";
+	mes "Percorra a lista para ver todas as opções.";
 
-	mes "Basic - Warps are = "+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^FF0000Free")+"^000000";
-	mes "Advanced - Warps are = "+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^FF0000Free")+"^000000";
-	mes "Overseas - Warps are = "+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^FF0000Free")+"^000000";
+	mes "Básico - Warps são = "+(($QW_BW_PRICE)?"^00FF00"+$QW_BW_PRICE:"^FF0000Free")+"^000000";
+	mes "Avançado - Warps são = "+(($QW_AW_PRICE)?"^00FF00"+$QW_AW_PRICE:"^FF0000Free")+"^000000";
+	mes "No exterior - Warps são = "+(($QW_OW_PRICE)?"^00FF00"+$QW_OW_PRICE:"^FF0000Free")+"^000000";
 
-	mes "Basic Dungeon level warp fee = "+(($QW_BW_FEE)?"^00FF00"+$QW_BW_FEE:"^FF0000NO")+"^000000 zeny per level";
-	mes "Advanced Dungeon level warp fee = "+(($QW_AW_FEE)?"^00FF00"+$QW_AW_FEE:"^FF0000NO")+"^000000 zeny per level";
-	mes "Overseas Dungeon level warp fee = "+(($QW_OW_FEE)?"^00FF00"+$QW_OW_FEE:"^FF0000NO")+"^000000 zeny per level";
+	mes "Basic Dungeon level warp fee = "+(($QW_BW_FEE)?"^00FF00"+$QW_BW_FEE:"^FF0000NO")+"^000000 zeny por nível";
+	mes "Advanced Dungeon level warp fee = "+(($QW_AW_FEE)?"^00FF00"+$QW_AW_FEE:"^FF0000NO")+"^000000 zeny por nível";
+	mes "Overseas Dungeon level warp fee = "+(($QW_OW_FEE)?"^00FF00"+$QW_OW_FEE:"^FF0000NO")+"^000000 zeny por nível";
 
 	mes "Full Healing = "+(($QW_HF_PRICE)?"^00FF00"+$QW_HF_PRICE:"^FF0000Free")+"^000000";
 	mes "^FF0000HP ^000000Part Healing = "+(($QW_HP_H_PRICE)?"^00FF00"+$QW_HP_H_PRICE+"^000000 a point":"^FF0000Free^000000");

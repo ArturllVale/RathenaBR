@@ -1,85 +1,87 @@
-//===== rAthena Script =======================================
-//= Hall of Abyss - Core Scripts
-//===== By: ==================================================
-//= Euphy
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= [Official Conversion]
-//= Expansion for War of Emperium FE.
-//= Invest in each realm to unlock new maps:
-//= - Guild Dungeon F2, total 20,000,000z.
-//= - Hall of Abyss, total 70,000,000z.
-//===== Additional Comments: =================================
-//= 1.0 First version. Missing official times. [Euphy]
-//= 1.1 Added GM management function. [Euphy]
+// ===== Script rAthena ===========================================
+// = Hall of Abyss - Core Scripts
+// ===== Por: =============================================== =========
+// = Euphy
+// ===== Traduzido Por: =============================================== =========
+// = Guru
+// ===== Versão Atual: ===========================================
+// = 1,1
+// ===== Compatível com: =========================================
+// = Projeto rAthena
+// ===== Descrição: ===============================================
+// = [Conversão oficial]
+// = Expansão para War of Emperium FE.
+// = Invista em cada reino para desbloquear novos mapas:
+// = - Calabouço da Guilda F2, total 20.000.000z.
+// = - Salão do Abismo, total 70.000.000z.
+// ===== Comentários adicionais: ===================================
+// = 1.0 Primeira versão. Horários oficiais ausentes. [Euphy]
+// = 1.1 Adicionada função de gerenciamento GM. [Euphy]
 //============================================================
 
-// Global Variables
+// Variáveis ​​globais
 //============================================================
-// Note: an asterisk (*) represents any realm (prt, pay, gef, alde).
-/*
-$2011_agit_invest
--- 0: Inactive.
--- 1: Investment in progress.
--- 2: Investment results calculating.
--- 4: Investment calculations complete (only when at least one $*_invest_result is 3).
--- 11-21: Tie, revote required.
+// Nota: um asterisco (*) representa qualquer domínio (prt, pay, gef, alde).
+/ *
+$ 2011_agit_invest
+- 0: Inativo.
+- 1: Investimento em andamento.
+- 2: Cálculo dos resultados do investimento.
+- 4: Cálculos de investimento concluídos (somente quando pelo menos um $ * _ invest_result for 3).
+- 11-21: Empate, revote obrigatório.
 
-$agit_result_notice
--- 0: Inactive.
--- 1-12: Interim statements (displaying $@vfund_*x) available.
+$ agit_result_notice
+- 0: Inativo.
+- 1-12: Declarações provisórias (exibindo $ @ vfund_ * x) disponíveis.
 
-$agit_result_timer
--- 0: Inactive.
--- 0-59: Time elapsed during investment (in hours).
+$ agit_result_timer
+- 0: Inativo.
+- 0-59: Tempo decorrido durante o investimento (em horas).
 
-$agit_revoting_timer
--- 0: Inactive.
--- 0-29: Time elapsed during revote (in minutes).
--- 30: Revote closed.
--- 31: Revote results calculating.
+$ agit_revoting_timer
+- 0: Inativo.
+- 0-29: Tempo decorrido durante a revotação (em minutos).
+- 30: Revote fechado.
+- 31: Revote o cálculo dos resultados.
 
-$*_invest_result
--- 0: No data.
--- 1: Realm not connected.
--- 2: Guild Dungeon F2 open.
--- 3: Abyss Gate (Hall of Abyss and Gulid Dungeon F2) open.
+$ * _ invest_result
+- 0: Sem dados.
+- 1: Reino não conectado.
+- 2: Calabouço da Guilda F2 aberto.
+- 3: Abyss Gate (Hall of Abyss e Gulid Dungeon F2) aberto.
 
-$fund_*[01-05]
--- Investment units per guild castle.
-$fund_*_extra
--- Investment units per realm.
+$ fund _ * [01-05]
+- Unidades de investimento por castelo da guilda.
+$ fund _ * _ extra
+- Unidades de investimento por reino.
 
-$@vfund_*[01-05]
-$@vfund_*_extra
--- Investment units, used in interim statements only.
+$ @ vfund _ * [01-05]
+$ @ vfund _ * _ extra
+- Unidades de investimento, usadas apenas nas declarações intermediárias.
 */
 
-// Investment Functions & Controller
-//============================================================
-// Note: The times in this section are almost entirely custom.
+// Funções e controlador de investimento
+// ====================================================== ============
+// Observação: os tempos nesta seção são quase inteiramente personalizados.
 
 -	script	#invest_timer	-1,{
-OnClock0000:	// Open investments on Wednesday (1 hour after WoE)
+OnClock0000:	// Investimentos abertos na quarta-feira (1 hora após a WoE)
 	if (gettime(DT_DAYOFWEEK) == WEDNESDAY && !agitcheck()) {
 		set $2011_agit_invest,1;
 		donpcevent "#fund_master::OnInvest_start";
 	}
 	end;
-OnClock1200:	// Close investments on Friday (60 hours after investments open)
+OnClock1200:	// Feche os investimentos na sexta-feira (60 horas após a abertura dos investimentos)
 	if (gettime(DT_DAYOFWEEK) == FRIDAY && !agitcheck()) {
 		set $2011_agit_invest,2;
 		donpcevent "#fund_master::OnInvest_stop";
 	}
 	end;
-OnClock1235:	// Open dungeons on Friday (at least 31 minutes after investments close)
+OnClock1235:	// Masmorras abertas na sexta-feira (pelo menos 31 minutos após o fechamento dos investimentos)
 	if (gettime(DT_DAYOFWEEK) == FRIDAY && !agitcheck())
 		donpcevent "#fund_master::OnResult";
 	end;
-OnClock2000:	// Close dungeons on Tuesday (1 hour before WoE)
+OnClock2000:	// Fechar masmorras na terça-feira (1 hora antes da WoE)
 	if (gettime(DT_DAYOFWEEK) == TUESDAY)
 		donpcevent "#fund_master::OnReset";
 	end;
@@ -90,19 +92,19 @@ function	script	F_Invest_Status	{
 	set .@hour, gettime(DT_HOUR);
 	set .@minute, gettime(DT_MINUTE);
 
-	// Inactive.
+	// Inativo.
 	if (agitcheck())
 		return 0;
 
-	// Open for investments.
+	// Aberto para investimentos.
 	if (.@day >= WEDNESDAY && (.@day < FRIDAY || (.@day == FRIDAY && .@hour <= 12)))
 		return 1;
 
-	// Investments closed, calculating results.
+	// Investimentos fechados, calculando resultados.
 	if (.@day == FRIDAY && .@hour == 12 && .@minute < 35)
 		return 2;
 
-	// Calculations complete, dungeons open.
+	// Cálculos concluídos, masmorras abertas.
 	if ((.@day == FRIDAY && (.@hour > 12 || (.@hour == 12 && .@minute >= 35))) || .@day > FRIDAY ||
 	    .@day < TUESDAY || (.@day == TUESDAY && .@hour < 20))
 		return 3;
@@ -111,20 +113,20 @@ function	script	F_Invest_Status	{
 	return 0;
 }
 
-//callfunc "F_Invest_Abyss","<variable>","<NPC name>"{,"<addon message>"};
+//callfunc "F_Invest_Abyss","<variable>","<Nome NPC>"{,"<addon message>"};
 function	script	F_Invest_Abyss	{
 	.@npc_name$ = getarg(1);
-	mes "There are 2 ways to invest, by Zeny or the Investment Certificate given out by the Cat Paw Merchant Guild.";
-	mes "Which way would you like to make your investment?";
+	mes "Existem 2 maneiras de investir, por Zeny ou o Certificado de Investimento fornecido pela Cat Paw Merchant Guild.";
+	mes "De que forma você gostaria de fazer seu investimento?";
 	next;
-	switch(select("Invest with Zeny.:Invest with Investment Certificates.:Cancel")) {
+	switch(select("Com Zeny.:Com certificados de investimento.:Cancelar")) {
 	case 1:
 		mes .@npc_name$;
-		mes "So you've decided to invest in Zeny.";
-		mes "Minimum investment unit is ^4d4dff10,000 Zeny^000000.";
-		mes "You can invest a maximum of 50 units which is ^4d4dff500,000 Zeny^000000.";
+		mes "Então você decidiu investir com Zeny.";
+		mes "Unidade de investimento mínimo é ^4d4dff10,000 Zeny's^000000.";
+		mes "Você pode investir no máximo 50 unidades, o que é ^4d4dff500,000 Zeny's^000000.";
 		next;
-		switch(select("1 unit 10,000 Zeny:10 units 100,000 Zeny:50 units 500,000 Zeny:Another amount:Cancel")) {
+		switch(select("1 unidade 10.000z:10 unidades 100.000z:50 unidades 500.000z:Outra quantia:Cancelar")) {
 		case 1:
 			set .@units,1;
 			break;
@@ -136,46 +138,46 @@ function	script	F_Invest_Abyss	{
 			break;
 		case 4:
 			mes .@npc_name$;
-			mes "Please enter the amount you want to invest.";
-			mes "Please choose between 1 to 200.";
-			mes "Please enter 0 to cancel.";
+			mes "Por favor, insira o valor que deseja investir.";
+			mes "Escolha entre 1 a 200.";
+			mes "Insira 0 para cancelar.";
 			next;
 			input .@units;
 			if (.@units < 0 || .@units > 200) {
 				mes .@npc_name$;
-				mes "You've exceeded the amount per investment.";
-				mes "Please try again.";
+				mes "Você excedeu o valor por investimento.";
+				mes "Por favor, tente novamente.";
 				close;
 			} else if (.@units == 0) {
 				mes .@npc_name$;
-				mes "Canceled.";
+				mes "Cancelado.";
 				close;
 			} else
 				break;
 		case 5:
 			mes .@npc_name$;
-			mes "Canceled.";
+			mes "Cancelado.";
 			close;
 		}
 		set .@zeny, .@units * 10000;
 		if (Zeny < .@zeny) {
 			mes .@npc_name$;
-			mes "You do not have enough money.";
+			mes "Você não tem zeny suficiente.";
 			close;
 		}
 		mes .@npc_name$;
-		mes "You've invested "+callfunc("F_InsertPlural",.@units,"unit")+" "+callfunc("F_InsertComma",.@zeny)+" Zeny"+getarg(2,"")+".";
-		mes "Not much but this is a small gift. You can exchange it with items in Malangdo.";
+		mes "Você investiu "+callfunc("F_InsertPlural",.@units,"unit")+" "+callfunc("F_InsertComma",.@zeny)+" Zeny"+getarg(2,"")+".";
+		mes "Não muito, mas este é um pequeno presente. Você pode trocá-lo com itens em Malangdo.";
 		set Zeny, Zeny-.@zeny;
 		setd getarg(0), getd(getarg(0)) + .@units;
-		getitem 6488,.@units; //Thanks_Invest_Ticket
+		getitem 6488,.@units; //Bilhete de Agredecimento por Investimento
 		close;
 	case 2:
 		mes .@npc_name$;
-		mes "Wow, you've brought Investment Certificates.";
-		mes "How many certificates will you submit?";
+		mes "Uau, você trouxe certificados de investimento.";
+		mes "Quantos certificados você enviará?";
 		next;
-		switch(select("1 Investment Certificate:5 Investment Certificates:Another amount:Cancel")) {
+		switch(select("1 Certificado:5 certificados:Outra quantia:Cancelar")) {
 		case 1:
 			set .@tickets,1;
 			break;
@@ -184,39 +186,39 @@ function	script	F_Invest_Abyss	{
 			break;
 		case 3:
 			mes .@npc_name$;
-			mes "Please enter the number of Investment Certificates you want to submit.";
-			mes "Please choose between 1 to 20.";
-			mes "Please enter 0 to cancel.";
+			mes "Insira o número de certificados de investimento que deseja enviar.";
+			mes "Escolha entre 1 a 20.";
+			mes "Insira 0 para cancelar.";
 			next;
 			input .@tickets;
 			if (.@tickets < 0 || .@tickets > 20) {
 				mes .@npc_name$;
-				mes "You've exceeded the amount per investment.";
-				mes "Please try again.";
+				mes "Você excedeu o valor por investimento.";
+				mes "Por favor, tente novamente.";
 				close;
 			} else if (.@tickets == 0) {
 				mes .@npc_name$;
-				mes "Canceled.";
+				mes "Canceledo.";
 				close;
 			} else
 				break;
 		case 4:
 			mes .@npc_name$;
-			mes "Canceled.";
+			mes "Canceledo.";
 			close;
 		}
 		if (countitem(6489) < .@tickets) {
 			mes .@npc_name$;
-			mes "Looks like you have fewer Investment Certificates than you want to submit.";
+			mes "Parece que você tem menos certificados de investimento do que deseja enviar.";
 			close;
 		}
 		set .@units, .@tickets * 10;
 		mes .@npc_name$;
-		mes .@tickets+" Investment Certificate"+((.@tickets == 1)?" is":"s are")+" the same as an investment of "+.@units+" units ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0,000z)"+getarg(2,"")+".";
-		mes "Not much but this is a small gift. You can exchange it with items in Malangdo.";
-		delitem 6489,.@tickets; //Cats_Invest_Certif
+		mes .@tickets+" Certificado de Investimento"+((.@tickets == 1)?" é":"são")+" o mesmo que um investimento de "+.@units+" unidades ("+((.@units < 100)?.@units:insertchar(""+.@units,",",1))+"0,000z)"+getarg(2,"")+".";
+		mes "Não muito, mas este é um pequeno presente. Você pode trocá-lo com itens em Malangdo.";
+		delitem 6489,.@tickets; //Certificado de Investimento dos gatos
 		setd getarg(0), getd(getarg(0)) + .@units;
-		getitem 6488,.@units; //Thanks_Invest_Ticket
+		getitem 6488,.@units; //Bilhete de Agradecimento por Investimento
 		close;
 	case 3:
 		mes .@npc_name$;
@@ -246,32 +248,32 @@ OnCalculate_Election:
 OnCalculate:
 	setarray .@cas$[0],"prt","pay","gef","alde";
 	for(set .@i,0; .@i<4; set .@i,.@i+1) {
-		// All funds per realm are summed.
+		// Todos os fundos dor reino são somados.
 		set .@funds[.@i], getd("$fund_"+.@cas$[.@i]+"01")+getd("$fund_"+.@cas$[.@i]+"02")+getd("$fund_"+.@cas$[.@i]+"03")+getd("$fund_"+.@cas$[.@i]+"04")+getd("$fund_"+.@cas$[.@i]+"05")+getd("$fund_"+.@cas$[.@i]+"_extra");
 
-		// 70,000,000z opens Hall of Abyss and F2.
+		// 70.000.000z abre Hall of Abyss e F2.
 		if (.@funds[.@i] >= 7000) {
 			setd "$"+.@cas$[.@i]+"_invest_result",3;
 			set .@total_7000,1;
 		}
-		// 20,000,000z opens F2 and a chance for Hall of Abyss.
+		// 20.000.000z abre F2 e uma chance para Hall of Abyss.
 		else if (.@funds[.@i] >= 2000) {
 			setd "$"+.@cas$[.@i]+"_invest_result",2;
 			set .@total_2000,1;
 		}
-		// Anything below that opens nothing.
+		// Qualquer coisa abaixo que não abre nada.
 		else
 			setd "$"+.@cas$[.@i]+"_invest_result",1;
 	}
-	// No further actions if 20,000,000z isn't reached.
+	// Nenhuma ação adicional se 20.000.000z não for alcançado.
 	if (!.@total_2000)
 		end;
-	// No further actions if any realm hits 70,000,000z.
+	// Nenhuma ação adicional se qualquer reino atingir 70.000.000z.
 	if (.@total_7000) {
 		set $2011_agit_invest,4;
 		end;
 	}
-	// Otherwise, highest investment above 20,000,000z opens Hall of Abyss.
+	// Caso contrário, o maior investimento acima de 20.000.000 z abre o Hall of Abyss.
 	set .@max, .@funds[0];
 	for(set .@i,1; .@i<4; set .@i,.@i+1) {
 		if (.@funds[.@i] > .@max) {
@@ -288,7 +290,7 @@ OnCalculate:
 		end;
 	if (getarraysize(.@rand$)) {
 
-		// Tie: declare a random winner.
+		// Empate: declara um vencedor aleatório.
 		if (!.@force_vote) {
 			set .@i, rand(getarraysize(.@rand$));
 			setd "$"+.@rand$[.@i]+"_invest_result",3;
@@ -296,7 +298,7 @@ OnCalculate:
 			end;
 		}
 
-		// Tie: initiate a 30-minute election.
+		// Empate: iniciar uma eleição de 30 minutos.
 		set .@str$, implode(.@rand$,"|");
 		for(set .@i,0; .@i<4; set .@i,.@i+1) {
 			if (compare(.@str$,.@cas$[.@i]))
@@ -325,7 +327,7 @@ OnCalculate:
 	}
 	end;
 OnInvest_start:
-	announce "From now on, we are going to start the investments to connect the 'Abyss Gate' in the WOE areas: Valkyrie Realm, Greenwood Lake, Luina, Britoniah.",bc_all,0xFF0000; //FW_NORMAL 10
+	announce "A partir de agora, vamos iniciar os investimentos para conectar o 'Abyss Gate' nas áreas WOE: Valkyrie Realm, Greenwood Lake, Luina, Britoniah.",bc_all,0xFF0000; //FW_NORMAL 10
 	set $fund_prt01,0;
 	set $fund_prt02,0;
 	set $fund_prt03,0;
@@ -391,22 +393,22 @@ OnReset:
 
 prt_gld,2,2,0	script	Investment_total#fund00	844,{
 	callfunc "F_GM_NPC";
-	mes "Is this not working properly?";
+	mes "Isso não está funcionando corretamente?";
 	next;
 	if (callfunc("F_GM_NPC",1854,0) == 1) {
-		mes "If you think the investment timer is dead, please adjust the timer.";
+		mes "Se você acha que o cronômetro de investimento está morto, ajuste-o.";
 		next;
-		switch(select("Turn on the timer:Cancel")) {
+		switch(select("Ligue o cronômetro:Cancelar")) {
 		case 1:
 			donpcevent "Investment_total#fund00::OnTimerReset";
-			mes "You've turned on the timer.";
+			mes "Você ativou o cronômetro.";
 			close;
 		case 2:
-			mes "Canceled.";
+			mes "Canceledo.";
 			close;
 		}
 	} else {
-		mes "I don't need to adjust anything now.";
+		mes "Não preciso ajustar nada agora.";
 		close;
 	}
 
@@ -448,11 +450,11 @@ OnTimer3600000:
 		if ($agit_result_timer < 59) {
 			set $agit_result_timer, $agit_result_timer+1;
 
-			// Trigger on multiples of 5 up to 55, and 58.
+			// Acione em múltiplos de 5 a 55 e 58.
 			if ($agit_result_timer % 10 == 5 || $agit_result_timer % 10 == 0 || $agit_result_timer == 58) {
 				set $agit_result_notice, $agit_result_notice+1;
 				donpcevent "Investment_total#fund00::OnVarInit";
-				announce "No. "+$agit_result_notice+" Interim statement is now available. You can check through the Investment Status Board in each WOE area.",bc_all,0xFF0000; //FW_NORMAL 10
+				announce "No. "+$agit_result_notice+" O extrato provisório já está disponível. Você pode verificar por meio do Quadro de status de investimentoem cada área WOE.",bc_all,0xFF0000; //FW_NORMAL 10
 			}
 
 			donpcevent "Investment_total#fund00::OnTimerReset";
