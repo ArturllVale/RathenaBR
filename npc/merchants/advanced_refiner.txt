@@ -21,10 +21,10 @@
 payon,157,146,6	script	Suhnbi#cash	85,{
 	disable_items;
 	mes "[Suhnbi]";
-	mes "I am the Armsmith";
-	mes "I can refine all kinds of weapons,";
-	mes "armor and equipment, so let me";
-	mes "know what you want to refine.";
+	mes "Eu sou o Armsmith";
+	mes "Eu posso refinar todos os tipos de armas,";
+	mes "armadura e equipamento, então deixe-me";
+	mes "saiber o que você deseja refinar.";
 	next;
 
 	setarray .@indices[1], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R, EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_HEAD_MID, EQI_HEAD_LOW;
@@ -37,7 +37,7 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 	}
 	if (.@equipped == 0) {
 		mes "[Suhnbi]";
-		mes "I don't think I can refine any items you have...";
+		mes "Eu não acho que posso refinar os itens que você possui ...";
 		close;
 	}
 	set .@part, .@indices[ select(.@menu$) ];
@@ -46,12 +46,12 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		close;
 	if (!getequipisenableref(.@part)) {
 		mes "[Suhnbi]";
-		mes "Go find another Blacksmith. You can't refine this thing.";
+		mes "Vá encontrar outro ferreiro. Você não pode refinar isso.";
 		close;
 	}
 	if (getequiprefinerycnt(.@part) >= 10) {
 		mes "[Suhnbi]";
-		mes "Hmm... someone perfected this already. I don't think I can work on it further.";
+		mes "Hmm ... alguém já aperfeiçoou isso. Eu não acho que posso trabalhar mais nisso.";
 		close;
 	}
 
@@ -71,21 +71,21 @@ payon,157,146,6	script	Suhnbi#cash	85,{
 		next;
 		emotion ET_BEST;
 		mes "[Suhnbi]";
-		mes "There you go! It's done.";
-		mes "It's been a while since I've made such a fine "+((getequipweaponlv(.@part))?"weapon":"armor")+". You must be happy because it has become stronger!";
+		mes "Ai está! Pronto.";
+		mes "Já faz um tempo que não fiz uma"+((getequiparmalv(.@part))?"arma":"armadura")+". Você deve estar feliz porque ficou mais forte!";
 		close;
 	}
 	failedrefitem .@part;
 	next;
 	emotion (!rand(5))?ET_MONEY:ET_HUK;
 	mes "[Suhnbi]";
-	mes "Uuuuuuuuuummmmmph!!!";
+	mes "Uuuuuuuuuummmmmph !!!";
 	next;
 	mes "[Suhnbi]";
 	mes "...";
 	mes ".....";
-	mes ".......Huhuhuhuhu~";
-	mes "........It was your choice and my ability, no regret.";
+	mes "....... Huhuhuhuhu ~";
+	mes "........ Foi sua escolha e minha habilidade, sem arrependimento.";
 	close;
 
 S_RefineValidate:
@@ -108,47 +108,47 @@ S_RefineValidate:
 
 	mes "[Suhnbi]";
 	if (.@weapon_lvl)
-		mes "You want to refine a level "+ .@weapon_lvl +" weapon?";
-	mes "To refine that, you'll need to have one ^ff9999"+ getitemname(.@item_req) +"^000000 and "+ .@price +" zeny.";
-	mes "Would you like to continue?";
+		mes "Você quer refinar um nível de sua"+ .@weapon_lvl +" arma?";
+	mes "Para refinar isso, você precisará ter um ^ff9999"+ getitemname(.@item_req) +"^000000 e"+ .@price +" zeny.";
+	mes "Você gostaria de continuar?";
 	next;
-	if(select("Yes:No") == 1) {
+	if(select("Sim Não") == 1) {
 		if (getequippercentrefinery(.@part) < 100) {
 			if (.@weapon_lvl) {
 				mes "[Suhnbi]";
-				mes "Wow!!";
-				mes "This weapon probably";
-				mes "looks like it's been refined...";
-				mes "many times...";
-				mes "It may break if";
-				mes "you refine it again.";
+				mes "Uau !!";
+				mes "Esta arma provavelmente";
+				mes "parece que foi refinado ...";
+				mes "muitas vezes ...";
+				mes "Pode quebrar se";
+				mes "você o refinar novamente.";
 				next;
-				mes "And if it breaks,";
-				mes "you can't use it anymore!";
-				mes "All the cards in it and the properties ^ff0000will be lost^000000!";
-				mes "^ff0000Besides, the equipment will break!^000000";
-				mes "Are you sure you still want to continue?";
+				mes "E se quebrar,";
+				mes "você não pode mais usá-lo!";
+				mes "Todas as cartas nele e as propriedades ^ff0000 serão perdidos ^000000!";
+				mes "^ff0000Além disso, o equipamento irá quebrar! ^000000";
+				mes "Tem certeza que ainda deseja continuar?";
 				next;
-				if(select("Yes:No") == 2) {
+				if(select("Sim não") == 2) {
 					mes "[Suhnbi]";
-					mes "Good.";
-					mes "Because if the weapon breaks from unreasonable refining, then I get a bad mood, too.";
+					mes "Tudo bem.";
+					mes "Porque se a arma quebra de um refinamento irracional, eu fico de mau humor também.";
 					close;
 				}
 			} else {
 				mes "[Suhnbi]";
-				mes "Giggle. Giggle. Oh, you have guts, daring to refine this.";
-				mes "You know it's pretty risky, don't you?";
+				mes "Risadinha. Risadinha. Oh, você tem coragem, ousando refinar isso.";
+				mes "Você sabe que é muito arriscado, não é?";
 				next;
-				mes "If your defensive equipment is broken, you'll never be able to use it again.";
-				mes "Even your cards and your modifications will ^ff0000completely disappear^000000.";
-				//mes "Everything will disappear. As in... GONE!";
-				mes "Do you really wish to continue?";
+				mes "Se o seu equipamento de defesa estiver quebrado, você nunca mais poderá usá-lo.";
+				mes "Até mesmo suas cartas e modificações ^ff0000 desaparecer completamente ^000000.";
+				//mes "Tudo vai desaparecer. Como em ... SEI!";
+				mes "Você realmente deseja continuar?";
 				next;
-				if(select("Yes:No") == 2) {
+				if(select("Sim não") == 2) {
 					mes "[Suhnbi]";
-					mes "What nonsense. You waste my precious time.";
-					mes "Get lost, punk.";
+					mes "Que absurdo. Você desperdiça meu precioso tempo.";
+					mes "Cai fora, punk.";
 					close;
 				}
 			}
@@ -162,20 +162,20 @@ S_RefineValidate:
 				callfunc("F_IsEquipRefineHack", .@part, getarg(5)) || callfunc("F_IsEquipCardHack", .@part, .@card[0], .@card[1], .@card[2], .@card[3])) {
 				mes "[Holink]";
 				emotion ET_FRET;
-				mes "Wait a second...";
-				mes "Do you think I'm stupid?!";
-				mes "You switched the item while I wasn't looking! Get out of here!";
+				mes "Espere um segundo ...";
+				mes "Você me acha idiota ?!";
+				mes "Você trocou o item enquanto eu não estava olhando! Saia daqui!";
 				close;
 			}
 
 			return;
 		}
 		mes "[Suhnbi]";
-		mes "Are these all you have?";
-		mes "I'm very sorry, but I can't do anything without all the materials. Besides, I deserve some payments for my work, don't I?";
+		mes "Isso é tudo que você tem?";
+		mes "Sinto muito, mas não posso fazer nada sem todos os materiais. Além disso, mereço alguns pagamentos pelo meu trabalho, não é?";
 		close;
 	}
 	mes "[Suhnbi]";
-	mes "I can't help it even if you're not happy about it...";
+	mes "Não posso evitar, mesmo que você não esteja feliz com isso ...";
 	close;
 }
